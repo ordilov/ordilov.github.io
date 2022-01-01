@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Head vs Header"
-date:   2022-01-01 00:44:00 +0900
+date:   2022-01-01 00:45:00 +0900
 categories: Web
 ---
 
