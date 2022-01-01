@@ -19,9 +19,7 @@ github_username:  ordilov
 repository: https://github.com/ordilov/ordilov.github.io
 
 # Build settings
-theme: minima
-plugins:
-  - jekyll-feed
+# theme: minima
 
 # Exclude from processing.
 # The following items will not be processed, by default.
