@@ -4,12 +4,15 @@
 - title: Docs
   link: /docs/
   show_on_mobile: true
-- title: Resources
-  link: /resources/
+- title: Blog
+  link: /blog.html
   show_on_mobile: true
-- title: Showcase
-  link: /showcase/
+- title: Backend
+  link: /backend/
+  show_on_mobile: true
+- title: Algorithm
+  link: /algorithm/
   show_on_mobile: false
-- title: News
-  link: /news/
+- title: TIL
+  link: /til/
   show_on_mobile: true
