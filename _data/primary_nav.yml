@@ -1,18 +1,18 @@
 - title: Home
   link: /
   show_on_mobile: true
-- title: Docs
-  link: /docs/
+- title: Project
+  link: /project.html
   show_on_mobile: true
 - title: Blog
   link: /blog.html
   show_on_mobile: true
 - title: Backend
-  link: /backend/
+  link: /backend.html
   show_on_mobile: true
 - title: Algorithm
-  link: /algorithm/
+  link: /algorithm.html
   show_on_mobile: false
 - title: TIL
-  link: /til/
+  link: /til.html
   show_on_mobile: true
