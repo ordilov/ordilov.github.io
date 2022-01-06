@@ -1,13 +1,14 @@
-$content-width:    800px !default;
+$title-width: 1000px !default;
+$content-width: 800px !default;
 
-$on-palm:          600px !default;
-$on-laptop:        800px !default;
+$on-palm: 600px !default;
+$on-laptop: 800px !default;
 
-$spacing-unit:     30px !default;
+$spacing-unit: 30px !default;
 $base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$base-font-size:   16px !default;
+$base-font-size: 16px !default;
 $base-font-weight: 400 !default;
-$small-font-size:  $base-font-size * 0.875 !default;
+$small-font-size: $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
 
 @mixin media-query($device) {
@@ -21,6 +22,18 @@ p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
   margin-bottom: $spacing-unit / 2;
+}
+
+h2{
+  color: #93bd20;
+}
+
+h3{
+  color: #1f65be;
+}
+
+strong{
+  color: #ee7777;
 }
 
 img {
@@ -42,37 +55,26 @@ img {
 
 .wrapper {
   max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-  max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+  max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
   margin-right: auto;
   margin-left: auto;
   padding-right: $spacing-unit;
   padding-left: $spacing-unit;
   @extend %clearfix;
 
-  @include media-query($on-laptop) {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit}));
-    padding-right: $spacing-unit / 2;
-    padding-left: $spacing-unit / 2;
-  }
 }
-
 
 
 // header
 header {
-  h1,
-  nav {
-    display: inline-block;
-  }
-
-  .flexbox {
-    display: flex;
-    height: 50px;
-
-    & > * {
-      margin: auto
-    }
+  h1 {
+    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
+    max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: $spacing-unit;
+    padding-left: $spacing-unit;
+    @extend %clearfix;
   }
 }
 
@@ -90,6 +92,14 @@ nav, .meta {
 }
 
 .main-nav, .meta {
+  max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
+  max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $spacing-unit;
+  padding-left: $spacing-unit;
+  @extend %clearfix;
+
   li {
     a {
       color: #fc0;
@@ -133,7 +143,6 @@ body {
 
   color: #ddd;
   background-color: #333;
-  width: 800px;
   -webkit-text-size-adjust: 100%;
   font-kerning: normal;
   display: flex;
