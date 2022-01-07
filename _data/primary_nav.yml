@@ -2,17 +2,17 @@
   link: /
   show_on_mobile: true
 - title: Project
-  link: /project.html
+  link: /project/
   show_on_mobile: true
 - title: Blog
-  link: /blog.html
+  link: /blog/
   show_on_mobile: true
 - title: Backend
-  link: /backend.html
+  link: /backend/
   show_on_mobile: true
 - title: Algorithm
-  link: /algorithm.html
+  link: /algorithm/
   show_on_mobile: false
 - title: TIL
-  link: /til.html
+  link: /til/
   show_on_mobile: true
