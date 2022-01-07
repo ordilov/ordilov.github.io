@@ -1,16 +1,3 @@
-$title-width: 1000px !default;
-$content-width: 800px !default;
-
-$on-palm: 600px !default;
-$on-laptop: 800px !default;
-
-$spacing-unit: 30px !default;
-$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$base-font-size: 16px !default;
-$base-font-weight: 400 !default;
-$small-font-size: $base-font-size * 0.875 !default;
-$base-line-height: 1.5 !default;
-
 @mixin media-query($device) {
   @media screen and (max-width: $device) {
     @content;
@@ -24,15 +11,15 @@ ul, ol, dl, figure,
   margin-bottom: $spacing-unit / 2;
 }
 
-h2{
+h2 {
   color: #93bd20;
 }
 
-h3{
+h3 {
   color: #1f65be;
 }
 
-strong{
+strong {
   color: #ee7777;
 }
 
@@ -52,6 +39,12 @@ img {
   clear: both;
 }
 
+code {
+  .language-plaintext{
+    color: red;
+  }
+}
+
 
 .wrapper {
   max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
@@ -64,7 +57,6 @@ img {
 
 }
 
-
 // header
 header {
   h1 {
@@ -76,18 +68,18 @@ header {
     padding-left: $spacing-unit;
     @extend %clearfix;
   }
-}
 
-nav, .meta {
-  ul {
-    padding: 0;
-    margin: 0;
-    white-space: nowrap;
-    display: inline-block;
-  }
+  nav{
+    ul {
+      padding: 0;
+      margin: 0;
+      white-space: nowrap;
+      display: inline-block;
+    }
 
-  li {
-    display: inline-block;
+    li {
+      display: inline-block;
+    }
   }
 }
 
@@ -125,19 +117,24 @@ nav, .meta {
   }
 }
 
+a {
+  color: #2aa198;
+}
+
 body {
+  .post-list {
+    a {
+      color: #47d035;
+      font-weight: 900;
+      font-size: 1em;
+      padding: 0.5em 1em;
+      text-shadow: none;
+      text-transform: uppercase;
 
-  a {
-    color: #47d035;
-    font-weight: 900;
-    font-size: 1em;
-    padding: 0.5em 1em;
-    text-shadow: none;
-    text-transform: uppercase;
-
-    &:hover {
-      background-color: #252525;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+      &:hover {
+        background-color: #252525;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+      }
     }
   }
 
