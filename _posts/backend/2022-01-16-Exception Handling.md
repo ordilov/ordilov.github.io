@@ -1,0 +1,141 @@
+---
+layout: post
+title:  "Exception Handling in Spring MVC"
+date:   2022-01-16 00:45:00 +0900
+categories: backend
+---
+
+# Spring MVC의 예외 처리
+Spring MVC에서 개발하다보면 예외 처리를 할 일이 많습니다.  
+처리하는 방법에 정답이 있는 건 아니지만 어떻게 하면 좋을지 좋은 글이 있어 요약해봤습니다.  
+
+## Spring Boot
+Spring Boot를 사용한다면 기본 오류 페이지를 넣어주지 않아도 white label을 볼 수 있습니다.  
+하지만 당연히 오류가 생겼을 때 이런 화면을 보고 싶지는 않기 때문에 처리가 필요합니다.  
+![](/assets/img/error-page.png)
+
+## Spring 예외처리 옵션
+먼저 Spring에서 예외처리를 할 수 있는 방법은 3가지가 있습니다.
+
+- Exception 별로 처리
+- Controller 별로 처리
+- Global 로 처리
+
+### Exception 별로 처리
+먼저 Excpetion 별로 어떤 에러 응답 코드를 반환할지 지정할 수 있습니다.
+```java
+ @ResponseStatus(value=HttpStatus.NOT_FOUND, reason="No such Order")  // 404
+ public class OrderNotFoundException extends RuntimeException {
+     // ...
+ }
+```
+이제 Controller에서 위의 Exception을 throw하면 404 코드로 응답합니다.  
+
+### Controller 별로 처리
+```java
+@Controller
+public class ExceptionHandlingController {
+
+  // @RequestHandler methods
+  ...
+  
+  // Exception handling methods
+  
+  // Convert a predefined exception to an HTTP Status code
+  @ResponseStatus(value=HttpStatus.CONFLICT,
+                  reason="Data integrity violation")  // 409
+  @ExceptionHandler(DataIntegrityViolationException.class)
+  public void conflict() {
+    // Nothing to do
+  }
+  
+  // Specify name of a specific view that will be used to display the error:
+  @ExceptionHandler({SQLException.class,DataAccessException.class})
+  public String databaseError() {
+    // Nothing to do.  Returns the logical view name of an error page, passed
+    // to the view-resolver(s) in usual way.
+    // Note that the exception is NOT available to this view (it is not added
+    // to the model) but see "Extending ExceptionHandlerExceptionResolver"
+    // below.
+    return "databaseError";
+  }
+
+  // Total control - setup a model and return the view name yourself. Or
+  // consider subclassing ExceptionHandlerExceptionResolver (see below).
+  @ExceptionHandler(Exception.class)
+  public ModelAndView handleError(HttpServletRequest req, Exception ex) {
+    logger.error("Request: " + req.getRequestURL() + " raised " + ex);
+
+    ModelAndView mav = new ModelAndView();
+    mav.addObject("exception", ex);
+    mav.addObject("url", req.getRequestURL());
+    mav.setViewName("error");
+    return mav;
+  }
+}
+```
+Controller에서 처리하는 경우 @ExceptionHandler로 처리가 가능합니다.  
+@ExceptionHandler는 Controller안에 메서드에만 사용이 가능합니다.  
+처리할 수 있는 방법은 여라가지가 있습니다.
+- @ResponseStatus로 예외 처리
+- 지정된 page 반환
+- 새로운 페이지에 error를 담아 반환
+가장 일반적으로는 에러를 로그로 남기고 에러 정보를 담아 반환합니다.
+
+### Global 로 처리
+**@ControllerAdvice**  
+컨트롤러 별로 처리릏 하면 동일한 예외 처리가 생기면 반복해서 작성하게 됩니다.  
+전역적으로 처리하려면 @ControllerAdvice를 이용합니다.  
+@ControllerAdvice는 @ExceptionHandler, @ModelAttribute, @initBinder를 지원합니다.  
+
+```java 
+@ControllerAdvice
+class GlobalControllerExceptionHandler {
+    @ResponseStatus(HttpStatus.CONFLICT)  // 409
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public void handleConflict() {
+        // Nothing to do
+    }
+}
+```
+
+## HandlerExceptionResolver
+DispatcherServlet에 선언된 스프링 빈들은 HandlerExceptionResolver를 구현합니다.  
+클래스 뜻대로 exception이 발생하면 처리되기 전에 되는 작업을 하는 클래스입니다.  
+세 가지 resolver를 순서대로 거치게 됩니다.  
+- ExceptionHandlerExceptionResolver  
+@ExceptionHandler와 controlleradvice에서 처리되지 않은 예외들이 거칩니다.  
+
+- ResponseStatusExceptionResolver  
+@ResponseStatus에서 처리되지 않은 예외들이 거칩니다.  
+
+- DefaultHandlerExceptionResolver  
+표준 Spring 예외들을 변환하고 HTTP 상태 코드로 변환합니다.  
+
+### SimpleMappingExceptionResolver
+Spring에서는 기본적으로 제공하는 처리들이 있습니다.  
+
+- 예외가 발생하는 클래스 이름 명시
+- 예외처리에 해당하는 에러 페이지 명시
+- 에러 로그 
+
+## REST 처리
+예외에 대한 응답 값을 뷰가 아닌 데이터로 반환하고 싶을 수 있습니다.  
+이때 사용할 수 있는 방법은 @ResponseBody를 이용할 수 있습니다.  
+```java
+@ResponseStatus(HttpStatus.BAD_REQUEST)
+@ExceptionHandler(MyBadDataException.class)
+@ResponseBody ErrorInfo
+handleBadRequest(HttpServletRequest req, Exception ex) {
+    return new ErrorInfo(req.getRequestURL(), ex);
+} 
+```
+전역적으로 처리하고 싶은 경우 @RestControllerAdvice를 사용합니다.  
+@RestControllerAdvice는 @ControllerAdvice에 @ResponseBody만 더해진 어노테이션입니다.  
+
+## ResponseEntityExceptionHandler
+전역적인 처리를 할 때 모든 예외처리를 다시 다 작성할 필요가 없습니다.  
+Spring에서 기본적으로 처리하는 예외들을 ResponseEntityExceptionHandler을 상속해 사용가능합니다.  
+
+### 출처
+[exception-handling-in-spring-mvc](https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc)
