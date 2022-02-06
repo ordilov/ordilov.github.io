@@ -2,7 +2,7 @@
 layout: post
 title:  "Youtube Ad Block"
 date:   2022-01-27 00:01:00 +0900
-categories: TIL
+categories: trouble
 ---
 
 ## 문제 발생
