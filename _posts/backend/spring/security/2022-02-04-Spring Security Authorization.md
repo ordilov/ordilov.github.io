@@ -1,0 +1,71 @@
+---
+layout: post
+title:  "Spring Security Authorization"
+date:   2022-02-04 00:01:00 +0900
+categories: backend
+---
+
+## Authorities
+인증 정보에 담긴 권한은 GrantedAuthority 객체들에 담기게 됩니다.
+AuthenticationManager에 저장된 Authentication에 넣고 뺄 수 있습니다.
+GrantedAuhtority 인터페이스는 하나의 메소드만 갖고 있습니다.
+```java
+String getAuthority();
+```
+이 메소드는 AuthorizationManager의 GrantedAuthority를 나타냅니다.
+문자열로 반환되기 때문에 이후 접근 결정시 쉽게 읽을 수 있습니다.
+만약 문자열로 나타낼 수 없는 권한이라면 복잡한 형태로 null을 반환해야 합니다.
+
+복잡한 형태는 권한이 주어지는 형태가 복잡할 때 발생할 수 있습니다. 
+이 경우 문자열로는 구분할 수 없기 때문에 null로 처리해서 AuthorizationManager에게
+GrantedAuthority를 다르게 처리해야 하는 것을 명시해야 합니다.
+
+Spring Security는 GrantedAuthority 구현으로 `SimpleGrantedAuthority`를 제공합니다.
+이 구현체는 사용자가 지정한 문자열들에게 권한을 부여합니다.
+`AuthenticationProvider`들은 `SimpleGrantedAuthority`를 이용해 Authentication을 채웁니다.
+
+## Pre-Invocation Handling
+Spring Security는 인터셉터로 접근 제어를 제공합니다.
+AccessDecisionManager에서 pre-invocation decision, 실행할지를 결정합니다.
+
+## The AuthorizationManager
+AuthorizationManager는 AccessDecisionManager와 AccessDecisionVoter를 대신합니다.
+AuthorizationManager은 AuthorizationFilter에 의해 호출 되어 최종적인 접근 결정을 내립니다.
+인터페이스는 두 가지 메소드를 가집니다.
+```java
+AuthorizationDecision check(Supplier<Authentication> authentication, Object secureObject);
+
+default AuthorizationDecision verify(Supplier<Authentication> authentication, Object secureObject)
+        throws AccessDeniedException {
+    // ...
+}
+```
+check 메소드는 관련 있는 정보들로 접근이 가능한지 확인합니다. 
+접근이 가능하다면 Authorization 의 긍정적인 결과값이 담기게 되고 접근이 제한되면 부정적인 값이 나오게 됩니다.
+그리고 마찬가지로 결과를 결정할 수 없는 경우 null 값을 통해 결정을 미룹니다.
+verify는 check 메소드를 실행해 결과를 받고 부정적인 경우 AccessDeniedException 예외를 던집니다.
+
+## Delegate-based AuthorizationManager Implementations
+AuthorizationManager를 여러 개 만들어서 특정 상황에 맞는 경우 실행시킬 수 있도록 만들 수 있습니다.
+이 때 실행되기 전후로 실행시킬 메소드를 AuthorizationManagerBeforeMethodInterceptor, AuthorizationManagerAfterMethodInterceptor로 사용 가능합니다.
+
+## AuthorityAuthorizationManager
+AuthorizationManager의 가장 흔히 쓰이는 것으로 AuthorityAuthorizationManager가 쓰입니다.
+현재 인증 정보에서 Authentication을 불러와서 해당하는 authority가 있는 경우 긍정적으로 판단합니다.
+
+## AuthenticatedAuthorizationManager
+익명, 완전히 증명된, 기억하고 있는 증명 사용자를 구분합니다.
+
+## Hierarchical Roles
+권한을 계층적으로 설계하고 싶을 때 순위를 지정할 수 있습니다.
+admin이 항상 user보다 높게 설정하고 싶거나 하는 경우 사용합니다.
+```java
+@Bean
+AccessDecisionVoter hierarchyVoter() {
+    RoleHierarchy hierarchy = new RoleHierarchyImpl();
+    hierarchy.setHierarchy("ROLE_ADMIN > ROLE_STAFF\n" +
+            "ROLE_STAFF > ROLE_USER\n" +
+            "ROLE_USER > ROLE_GUEST");
+    return new RoleHierarcyVoter(hierarchy);
+}
+```
