@@ -33,4 +33,11 @@ public interface CarMapper {
 @Mapping(target = "creationDate", expression = "java(new java.util.Date())")
 ```
 
-
+## Spring에서 주입 받기
+Mapper는 인터페이스이기 때문에 사용할 때 방법은 두 가지가 있습니다.
+빌드되어 있는 구현체를 직접 생성해서 사용하거나 Spring에서 주입 받는 형태입니다.
+Spring에서 주입 받으려면 빈으로 등록해야합니다.
+어노테이션으로 생성 방식을 spring으로 지정하면 가능합니다.
+```java
+@Mapper(componentModel = "spring")
+```
