@@ -1,0 +1,64 @@
+---
+layout: post
+title:  "KCM Travel"
+date:   2022-02-26 00:01:00 +0900
+category: algorithm
+tags: ['algorithm']
+keywords: ['algorithm']
+---
+
+```kotlin
+package boj.graph
+
+import java.util.*
+
+// [KCM Travel] https://www.acmicpc.net/problem/10217
+fun main() {
+    val sb = StringBuilder()
+    val t = readLine()!!.toInt()
+    repeat(t) {
+        val (n, m, k) = readLine()!!.split(" ").map { it.toInt() }
+        val graph = Array(n + 1) { ArrayList<Ticket>() }
+        repeat(k) {
+            val (u, v, c, d) = readLine()!!.split(" ").map { it.toInt() }
+            graph[u].add(Ticket(v, c, d))
+        }
+        val queue = PriorityQueue<Ticket>()
+        val dist = Array(n + 1) { Array(m + 1) { Int.MAX_VALUE } }
+        dist[1][0] = 0
+        queue.add(Ticket(1, 0, 0))
+        var answer = Int.MAX_VALUE
+
+        while (queue.isNotEmpty()) {
+            val cur = queue.poll()
+            if (cur.v == n) {
+                answer = cur.d
+                break
+            }
+            if (dist[cur.v][cur.c] < cur.d) continue
+            for (ticket in graph[cur.v]) {
+                val cost = cur.c + ticket.c
+                val time = cur.d + ticket.d
+
+                if (cost > m) continue
+                if(dist[ticket.v][cost] <= time) continue
+                dist[ticket.v][cost] = time
+                queue.add(Ticket(ticket.v, cost, time))
+            }
+        }
+        sb.append(if (answer == Int.MAX_VALUE) "Poor KCM" else answer).append("\n")
+    }
+    println(sb)
+}
+
+private class Ticket(val v: Int, val c: Int, val d: Int) : Comparable<Ticket> {
+    override fun compareTo(other: Ticket): Int = d.compareTo(other.d)
+}
+```
+
+## 실수했던 점
+시간초과가 계속 나와서 반복작업을 줄여봤지만 계속해서 시간이 초과됐습니다.
+결국 문제였던 부분은 다른 부분이 아니라 출력 때문이었습니다.
+처음에 반복마다 println() 으로 출력하는 식으로 해서 오래 걸렸습니다.
+stringbuilder로 모아서 출력했더니 통과할 수 있었습니다.
+만약 로직에서 맞는 것 같은데 시간초과가 나온다면 출력을 모아서 해보는걸 추천드립니다.

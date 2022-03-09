@@ -1,0 +1,45 @@
+---
+layout: post
+title:  "[백준] 리모컨"
+date:   2022-02-22 00:01:00 +0900
+category: algorithm
+tags: ['algorithm']
+keywords: ['algorithm']
+---
+
+```kotlin
+package boj.bruteforce
+
+import kotlin.math.abs
+
+// [리모컨] https://www.acmicpc.net/problem/1107
+fun main() {
+    val n = readLine()!!.toInt()
+    val m = readLine()!!.toInt()
+    val broken = BooleanArray(10)
+    if (m != 0)
+        readLine()!!.split(" ").forEach { broken[it.toInt()] = true }
+    val justMove = abs(100 - n)
+
+    var min = 987654321;
+    for (i in 0 until 1000000) {
+        val str = i.toString()
+        var movable = true
+        for (element in str) {
+            if (broken[element.digitToInt()]) {
+                movable = false
+                break
+            }
+        }
+        if (!movable) continue
+        min = min.coerceAtMost(str.length + abs(i - n))
+    }
+    println(justMove.coerceAtMost(min))
+}
+```
+
+## 실수했던 점
+한 번 숫자가 정해지고 나면 그 이후로는 더하거나 빼서 값을 구하는 문제였습니다.
+문제는 그 숫자가 정해지는 방법인데 최적의 방법이 있을 것이라 생각하고 구하려 했습니다.
+하지만 계속해서 예외 케이스가 나왔고 결국 완전 탐색으로 해결했습니다.
+다시 한 번 시간이 충분하다면 완전 탐색으로 푸는 걸 먼저 해보는게 더 빠른 방법이라 배웠습니다.

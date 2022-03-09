@@ -1,0 +1,104 @@
+---
+title:  "[프로그래머스] 빛의 경로 사이클 (JAVA)"
+date:   2022-01-03 00:45:00 +0900
+category: algorithm
+tags: ['algorithm']
+keywords: ['algorithm']
+---
+
+```java
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+public class Solution {
+
+    public String[] solution(int[][] line) {
+        /*
+        Ax + By + E = 0
+        Cx + Dy + F = 0
+        */
+        int minX = Integer.MAX_VALUE, minY = Integer.MAX_VALUE;
+        int maxX = Integer.MIN_VALUE, maxY = Integer.MIN_VALUE;
+        Set<Pair> set = new HashSet<>();
+        for (int i = 0; i < line.length; i++) {
+            for (int j = i + 1; j < line.length; j++) {
+                if (i == j) continue;
+                long A = line[i][0];
+                long B = line[i][1];
+                long E = line[i][2];
+                long C = line[j][0];
+                long D = line[j][1];
+                long F = line[j][2];
+
+                long down = A * D - B * C;
+                long ux = B * F - E * D;
+                long uy = E * C - A * F;
+                if (down == 0 || ux % down != 0 || uy % down != 0) continue;
+                minX = Math.min(minX, (int) (ux / down));
+                maxX = Math.max(maxX, (int) (ux / down));
+                minY = Math.min(minY, (int) (uy / down));
+                maxY = Math.max(maxY, (int) (uy / down));
+                set.add(new Pair((int) (uy / down), (int) (ux / down)));
+            }
+        }
+        int x = (int) (maxX - minX + 1);
+        int y = (int) (maxY - minY + 1);
+        char[][] map = new char[y][x];
+        String[] answer = new String[y];
+
+        for (char[] m : map)
+            Arrays.fill(m, '.');
+
+        for (Pair p : set)
+            map[p.y - minY][p.x - minX] = '*';
+
+        for (int i = 0; i < y; i++) {
+            answer[i] = new String(map[y - 1 - i]);
+        }
+
+        return answer;
+    }
+
+    static class Pair implements Comparable<Pair> {
+        int y, x;
+
+        public Pair(int y, int x) {
+            this.y = y;
+            this.x = x;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Pair pair = (Pair) o;
+            return y == pair.y && x == pair.x;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(y, x);
+        }
+
+        @Override
+        public int compareTo(Pair o) {
+            if (y == o.y) {
+                return x - o.x;
+            }
+            return Integer.compare(y, o.y);
+        }
+    }
+
+}
+```
+
+### 실수했던 점
+공식이 주어져서 구현만 잘하면 되는 문제라고 생각했습니다.  
+하지만 테스트케이스 한 두개에서 계속 실패했습니다.  
+로직상으로 잘못된 부분이 없다고 생각해서 오래 고민했습니다.  
+그러다 찾은 문제는 자료형의 크기였습니다.  
+최대로 나올 수 있는 크기가 10만 * 10만이라 100억까지 가게됩니다.  
+음수로 처리되서 계속해서 잘못된 값이 나왔습니다.   
+코딩하기 전에 최대값을 계산하고 자료형을 선택해야겠습니다.  

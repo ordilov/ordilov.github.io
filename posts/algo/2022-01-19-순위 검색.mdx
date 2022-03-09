@@ -1,0 +1,82 @@
+---
+layout: post
+title:  "[프로그래머스] 순위 검색"
+date:   2022-01-19 00:45:00 +0900
+category: algorithm
+tags: ['algorithm']
+keywords: ['algorithm']
+---
+
+```java
+import java.util.*;
+
+// [순위 검색] https://programmers.co.kr/learn/courses/30/lessons/72412?language=java
+public class Solution {
+
+    public int[] solution(String[] info, String[] query) {
+        Map<String, List<Integer>> map = new HashMap<>();
+        for (String i : info) {
+            String[] split = i.split(" ");
+            int score = Integer.parseInt(split[4]);
+            for (String c : combination(split)) {
+                List<Integer> scores = map.getOrDefault(c, new ArrayList<>());
+                scores.add(score);
+                map.put(c, scores);
+            }
+        }
+
+        map.values().forEach(Collections::sort);
+
+        int[] answer = new int[query.length];
+        for (int j = 0; j < query.length; j++) {
+            String[] split = query[j].split(" ");
+            int score = Integer.parseInt(split[7]);
+            String q = split[0] + split[2] + split[4] + split[6];
+            if (map.get(q) == null) continue;
+            answer[j] = binarySearch(map.get(q), score);
+        }
+        return answer;
+    }
+
+    private String[] combination(String[] split) {
+        String[] comb = new String[16];
+        Arrays.fill(comb, "");
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < (2 << i); j++) {
+                int size = 8 >> i;
+                for (int k = 0; k < size; k++) {
+                    comb[j * size + k] += j % 2 == 0 ? '-' : split[i];
+                }
+            }
+        }
+        return comb;
+    }
+
+    private int binarySearch(List<Integer> a, int score) {
+        int low = 0;
+        int high = a.size();
+        int mid;
+        while (low < high) {
+            mid = (low + high) / 2;
+            if (a.get(mid) >= score) {
+                high = mid;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return a.size() - low;
+    }
+
+}
+```
+
+## 실수했던 점
+처음에 각 부문마다 나누어서 계산했더니 정확성은 통과했지만 효율성에서 실패했습니다.  
+몇 번을 최적화했지만 실패했습니다.  
+그래서 다음으로 시도해본게 모든 경우의 수를 구하고 시도했습니다.  
+하지만 점수를 넘는 사람을 찾을 때 선형탐색으로 구했더니 역시 시간초과였습니다.  
+그래서 이분탐색 라이브러리를 사용했는데 문제가 생겼습니다.  
+이분탐색 라이브러리는 중복되는 값이 있는 경우 최저 인덱스를 구해주지 않습니다.  
+중복 중에는 랜덤으로 인덱스를 구하게 됩니다.  
+여기서 문제를 찾느라 한참 걸렸습니다.  
+좀만 더 하면 풀거 같은 아쉬운 마음에 너무 시간을 많이 잡아먹은 문제였습니다.  

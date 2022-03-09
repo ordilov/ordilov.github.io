@@ -1,0 +1,78 @@
+---
+layout: post
+title:  "[프로그래머스] 빛의 경로 사이클 (JAVA)"
+date:   2022-01-03 00:45:00 +0900
+category: algorithm
+tags: ['algorithm']
+keywords: ['algorithm']
+---
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution {
+
+    // S, L, R 순
+    // 좌, 상, 우, 하 순
+    int[][] dy = { {0, 1, 0, -1}, {-1, 0, 1, 0}, {1, 0, -1, 0} };
+    int[][] dx = { {1, 0, -1, 0}, {0, 1, 0, -1}, {0, -1, 0, 1} };
+    int[][] dd = { {0, 1, 2, 3}, {3, 0, 1, 2}, {1, 2, 3, 0} };
+    boolean[][][] visited;
+    char[][] dir;
+    int count;
+
+    public int[] solution(String[] grid) {
+        /*
+        시작할 수 있는 위치 모든 점 * 4
+        */
+        dir = new char[grid.length][];
+        for(int i = 0; i < grid.length; i++){
+            dir[i] = grid[i].toCharArray();
+        }
+        visited = new boolean[dir.length][dir[0].length][4];
+        List<Integer> list = new ArrayList<>();
+
+        for(int i = 0; i < dir.length; i++){
+            for(int j = 0; j < dir[i].length; j++){
+                for(int k = 0; k < 4; k++){
+                    if(visited[i][j][k]) continue;
+                    count = 0;
+                    dfs(i, j, k);
+                    list.add(count);
+                }
+            }
+        }
+        return list.stream().sorted().mapToInt(Integer::intValue).toArray();
+    }
+
+    void dfs(int y, int x, int d){
+
+        while(!visited[y][x][d]){
+            visited[y][x][d] = true;
+            count++;
+            int m = Direction.valueOf(String.valueOf(dir[y][x])).value;
+            y = (y + dy[m][d] + dir.length) % dir.length;
+            x = (x + dx[m][d] + dir[0].length) % dir[0].length;
+            d = dd[m][d];
+        }
+    }
+
+    enum Direction{
+        S(0), L(1), R(2);
+        private final int value;
+        Direction(int value) {
+            this.value = value;
+        }
+    }
+
+}
+```
+
+### 실수했던 점
+실제 시험 때 풀어보려다가 일이 생겨서 못 풀었던 문제였습니다.  
+다시 풀어보려했을 때도 막막해보였지만 이번에는 방법이 보였습니다.  
+그런데 테스트케이스 하나에서 계속 런타임 에러가 발생했습니다.  
+배열 크기가 넘어가는 문제가 있나 계속 봤지만 찾을 수 없었습니다.  
+그러다 최적화를 하다가 문제를 고칠 수 있었습니다.  
+런타임 에러가 생겼던 이유는 재귀 함수로 인한 스택 오버 플로우였습니다.  
+재귀함수를 썼는데 이유를 알 수 없는 런타임 에러라면 의심해볼만 합니다.  
