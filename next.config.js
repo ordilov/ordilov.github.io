@@ -1,16 +1,13 @@
-const ghPages = process.env.DEPLOY_TARGET === 'gh-pages';
-
+/** @type {import('next').NextConfig} */
 const withPlugins = require('next-compose-plugins');
 const MDX = require('@next/mdx');
 
 const nextConfig = {
-	pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-	basePath: ghPages? '/ordilov.github.io/' : '',
-	assetPrefix: ghPages ? '/ordilov.github.io/' : ''
+  reactStrictMode: true,
 }
 
 module.exports = withPlugins([
-	[MDX, {
-		extension: /\.mdx?$/
-	}]
+  [MDX, {
+    extension: /\.mdx?$/,
+  }]
 ], nextConfig)
