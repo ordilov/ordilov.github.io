@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8" class="jsx-8528beb17f5dcded"/><meta name="viewport" content="width=device-width, initial-scale=1" class="jsx-8528beb17f5dcded"/><meta name="description" class="jsx-8528beb17f5dcded"/><meta name="author" content="Santha Lakshmi Narayana" class="jsx-8528beb17f5dcded"/><meta name="keywords" content="book" class="jsx-8528beb17f5dcded"/><meta property="og:title" content="Real MySQL 8.0 (3)- Santha Lakshmi Narayana" class="jsx-8528beb17f5dcded"/><meta property="og:description" class="jsx-8528beb17f5dcded"/><meta property="og:url" content="https://santhalakshminarayana.github.io/blog/Reay MySQL 03" class="jsx-8528beb17f5dcded"/><meta property="og:image" content="https://santhalakshminarayana.github.io/images/undefined" class="jsx-8528beb17f5dcded"/><meta property="og:type" content="article" class="jsx-8528beb17f5dcded"/><meta property="og:article:publisher" content="https://santhalakshminarayana.github.io/" class="jsx-8528beb17f5dcded"/><meta property="og:site_name" content="Santha Lakshmi Narayana" class="jsx-8528beb17f5dcded"/><meta name="twitter:card" content="summary_large_image" class="jsx-8528beb17f5dcded"/><meta name="twitter:title" content="Real MySQL 8.0 (3)- Santha Lakshmi Narayana" class="jsx-8528beb17f5dcded"/><meta name="twitter:description" class="jsx-8528beb17f5dcded"/><meta name="twitter:url" content="https://santhalakshminarayana.github.io/blog/Reay MySQL 03" class="jsx-8528beb17f5dcded"/><meta name="twitter:site" content="@santhalakshminarayana" class="jsx-8528beb17f5dcded"/><meta name="twitter:image" content="https://santhalakshminarayana.github.io/images/undefined" class="jsx-8528beb17f5dcded"/><meta name="twitter:creator" content="@santhalakshminarayana" class="jsx-8528beb17f5dcded"/><link rel="icon" href="/images/santha-lakshmi-narayana-logo.png?" class="jsx-8528beb17f5dcded"/><link rel="canonical" href="https://santhalakshminarayana.github.io/blog/Reay MySQL 03" class="jsx-8528beb17f5dcded"/><title class="jsx-8528beb17f5dcded">Real MySQL 8.0 (3)- Santha Lakshmi Narayana</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous" class="jsx-8528beb17f5dcded"/><meta name="next-head-count" content="24"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="/_next/static/css/08486df8513a6a4a.css" as="style"/><link rel="stylesheet" href="/_next/static/css/08486df8513a6a4a.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/_next/static/chunks/webpack-2e51481b1d484a05.js" defer=""></script><script src="/_next/static/chunks/framework-5f4595e5518b5600.js" defer=""></script><script src="/_next/static/chunks/main-01df828e572375b9.js" defer=""></script><script src="/_next/static/chunks/pages/_app-2f6be537d971d336.js" defer=""></script><script src="/_next/static/chunks/d0447323-25083e8bf8ee8b2e.js" defer=""></script><script src="/_next/static/chunks/346-1dc5a38ee39c2ecb.js" defer=""></script><script src="/_next/static/chunks/446-c6580eb27135e218.js" defer=""></script><script src="/_next/static/chunks/41-17056a37629f0c2f.js" defer=""></script><script src="/_next/static/chunks/pages/blog/%5Bid%5D-bd22e60c6b3cff53.js" defer=""></script><script src="/_next/static/6u0gI23DPSgVRcI2weLhQ/_buildManifest.js" defer=""></script><script src="/_next/static/6u0gI23DPSgVRcI2weLhQ/_ssgManifest.js" defer=""></script><script src="/_next/static/6u0gI23DPSgVRcI2weLhQ/_middlewareManifest.js" defer=""></script><style id="__jsx-2633692617">.tags.jsx-2633692617{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:row;
+-ms-flex-direction:row;
+flex-direction:row;
+flex-wrap:wrap;
+-webkit-justify-content:center;
+justify-content:center;
+padding:1vw 5vw 1vw 5vw;
+background-color:#fffecb;
+border-bottom:5px solid #071013}
+.tags.jsx-2633692617 a.jsx-2633692617{font-family:'Share Tech Mono', monospace;
+color:#1d2b35;
+margin:0 1em 0 1em;
+-webkit-text-decoration:none;
+text-decoration:none;
+border-bottom:1px dashed #fb232e}
+.tags.jsx-2633692617 a.jsx-2633692617:hover{background:#20a4f3;
+color:#fffecb;
+border-bottom:1px dashed #fffecb}
+.tags.jsx-2633692617 a.jsx-2633692617:active{background:#fb232e}</style><style id="__jsx-3763204948">.header-container.jsx-3763204948{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex:1;
+-ms-flex:1;
+flex:1;
+-webkit-flex-direction:row;
+-ms-flex-direction:row;
+flex-direction:row;
+padding:10px 5vw 10px 5vw;
+background:#1d2b35}
+.header-left.jsx-3763204948{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex:1;
+-ms-flex:1;
+flex:1;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center}
+.header-left.jsx-3763204948 a.jsx-3763204948{font-family:'Source Sans Pro', sans-serif;
+-webkit-text-decoration:none;
+text-decoration:none;
+color:#ffaa33}
+img.jsx-3763204948{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex:1;
+-ms-flex:1;
+flex:1;
+width:calc(1.2rem + 1vw);
+max-width:calc(1.2rem + 1vw);
+height:auto;
+margin:0 5px 0 5px}
+img.jsx-3763204948:hover{cursor:pointer}
+.header-left.jsx-3763204948 a.jsx-3763204948:hover{color:#20a4f3}
+.header-left.jsx-3763204948 a.jsx-3763204948:active{color:#fb232e}
+.header-right.jsx-3763204948{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex:3;
+-ms-flex:3;
+flex:3;
+-webkit-flex-direction:row-reverse;
+-ms-flex-direction:row-reverse;
+flex-direction:row-reverse;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center}
+.header-right.jsx-3763204948 a.jsx-3763204948{padding:0 1vw 0 1vw;
+font-family:'Source Sans Pro', sans-serif;
+-webkit-text-decoration:none;
+text-decoration:none;
+color:#ffaa33}
+.header-right.jsx-3763204948 a.jsx-3763204948:hover{color:#20a4f3}
+.header-right.jsx-3763204948 a.jsx-3763204948:active{color:#fb232e}
+@media screen and (max-width:920px) {.header-container.jsx-3763204948{padding:10px 2vw 10px 2vw;
+overflow-x:scroll}
+#name.jsx-3763204948{display:none}
+img.jsx-3763204948{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex}}
+@media screen and (max-width:480px) {.header-container.jsx-3763204948{padding:10px 2vw 10px 2vw;
+overflow-x:scroll}}
+@media screen and (max-width:300px) {img.jsx-3763204948{display:none}}</style><style id="__jsx-1024841947">.footer-container.jsx-1024841947{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+background:#1d2b35e6;
+padding:1vw 1vw 1vw 1vw}
+.footer-container-links.jsx-1024841947{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:row;
+-ms-flex-direction:row;
+flex-direction:row;
+-webkit-justify-content:center;
+justify-content:center}
+.footer-links.jsx-1024841947{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-justify-content:center;
+justify-content:center;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center}
+.link-item.jsx-1024841947{margin:0 1vw 0 1vw}
+.link.jsx-1024841947{-webkit-text-decoration:none;
+text-decoration:none;
+cursor: pointer:
+				background-color: yellow}
+.link.jsx-1024841947:hover{color:black}
+.copy-right-container.jsx-1024841947{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:row;
+-ms-flex-direction:row;
+flex-direction:row;
+-webkit-justify-content:center;
+justify-content:center;
+margin-top:10px}
+.copy-right-text.jsx-1024841947{font-family:'Maven Pro', sans-serif;
+font-size:calc(0.75rem + 0.1vw);
+color:#fffecb}</style><style id="__jsx-8528beb17f5dcded">.blog-content.jsx-8528beb17f5dcded{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex:100%;
+-ms-flex:100%;
+flex:100%;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+margin:1vw 25vw 1vw 25vw;
+width:50vw;
+max-width:50vw;
+min-height:90vh}
+@media screen and (max-width:980px) {.blog-content.jsx-8528beb17f5dcded{margin:1vw 15vw 1vw 15vw;
+width:70vw;
+max-width:70vw}}
+@media screen and (max-width:760px) {.blog-content.jsx-8528beb17f5dcded{margin:1vw 5vw 1vw 5vw;
+width:90vw;
+max-width:90vw}}</style><style data-href="https://fonts.googleapis.com/css2?family=Maven+Pro&family=Share+Tech+Mono&family=Source+Sans+Pro&family=Ubuntu&display=swap">@font-face{font-family:'Maven Pro';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/mavenpro/v28/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8SX25nM.woff) format('woff')}@font-face{font-family:'Share Tech Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/sharetechmono/v13/J7aHnp1uDWRBEqV98dVQztYldFc7pw.woff) format('woff')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/sourcesanspro/v19/6xK3dSBYKcSV-LCoeQqfX1RYOo3aPA.woff) format('woff')}@font-face{font-family:'Ubuntu';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/ubuntu/v19/4iCs6KVjbNBYlgo6ew.woff) format('woff')}@font-face{font-family:'Maven Pro';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/mavenpro/v28/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8SX21nijpBh8CvRBOB1s.woff) format('woff');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Maven Pro';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/mavenpro/v28/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8SX21nmjpBh8CvRBOB1s.woff) format('woff');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Maven Pro';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/mavenpro/v28/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8SX21nejpBh8CvRBOA.woff) format('woff');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Share Tech Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/sharetechmono/v13/J7aHnp1uDWRBEqV98dVQztYldFcLowEFA87Heg.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/sourcesanspro/v19/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNa7lujVj9_mf.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/sourcesanspro/v19/6xK3dSBYKcSV-LCoeQqfX1RYOo3qPK7lujVj9_mf.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/sourcesanspro/v19/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNK7lujVj9_mf.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/sourcesanspro/v19/6xK3dSBYKcSV-LCoeQqfX1RYOo3qO67lujVj9_mf.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/sourcesanspro/v19/6xK3dSBYKcSV-LCoeQqfX1RYOo3qN67lujVj9_mf.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/sourcesanspro/v19/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNq7lujVj9_mf.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/sourcesanspro/v19/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Ubuntu';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/ubuntu/v19/4iCs6KVjbNBYlgoKcg72nU6AF7xm.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Ubuntu';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/ubuntu/v19/4iCs6KVjbNBYlgoKew72nU6AF7xm.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Ubuntu';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/ubuntu/v19/4iCs6KVjbNBYlgoKcw72nU6AF7xm.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Ubuntu';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/ubuntu/v19/4iCs6KVjbNBYlgoKfA72nU6AF7xm.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Ubuntu';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/ubuntu/v19/4iCs6KVjbNBYlgoKcQ72nU6AF7xm.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Ubuntu';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/ubuntu/v19/4iCs6KVjbNBYlgoKfw72nU6AFw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body><div id="__next" data-reactroot=""><div style="min-height:100vh" class="jsx-8528beb17f5dcded"><div class="jsx-3763204948 header"><div class="jsx-3763204948 header-container"><div class="jsx-3763204948 header-left"><img src="/images/santha-lakshmi-narayana-logo.png" alt="Logo" class="jsx-3763204948"/><a id="name" class="jsx-3763204948" href="/"><b class="jsx-3763204948"> Ordinary</b></a></div><div class="jsx-3763204948 header-right"><a class="jsx-3763204948" href="/about">About</a><a href="#" class="jsx-3763204948">Tags</a><a class="jsx-3763204948" href="/">Home</a></div></div><div style="display:none" class="jsx-3763204948"><div class="jsx-2633692617 tags"><a class="jsx-2633692617" href="/tags/backend">#backend</a><a class="jsx-2633692617" href="/tags/book">#book</a><a class="jsx-2633692617" href="/tags/algorithm">#algorithm</a></div></div></div><article class="jsx-8528beb17f5dcded blog-content"><h1>5. 트랜잭션과 잠금</h1>
+<p>트랜잭션은 작업의 완전성을 보장해줍니다. 논리적이 작업 셋을 모두 완벽하게 처리하거나, 처리하지 못할 경우 복구합니다.
+잠금은 동시성을 제어하기 위한 기능이고 트랜잭션은 데이터의 정합성을 보장합니다.
+여러 커넥션에서 동시에 한 데이터를 수정하면 값은 예측할 수 없어집니다.
+잠금으로 한 시점에 한 커넥션만 변경할 수 있는 역할을 담당합니다.
+격리 수준은 트랜잭션 내에서 작업 내용 공유와 차단 수준을 결정합니다.</p>
+<h2>트랜잭션</h2>
+<p>MyISAM이나 MEMORY 엔진은 트랜잭션을 보장하지 않으며 InnoDB 엔진은 지원합니다.
+트랜잭션을 보장하지 않는 경우 정합성을 보장하기 힘든 예제입니다.</p>
+<pre><code class="language-mysql">CREATE TABLE tab_myisam (id INT NOT NULL, PRIMARY KEY (id)) ENGINE=MyISAM;
+INSERT INTO tab_myisam (id) VALUES(3);
+
+SET AUTOCOMMIT=ON;
+INSERT INTO tab_myisam (id) VALUES (1), (2), (3);
+</code></pre>
+<p>InnoDB 엔진이라면 다음 상황에서 테이블에 남는 값은 3이 됩니다.
+하지만 MyISAM의 경우 중간에 키 중복 오류로 쿼리가 실패해도 1, 2가 남아있어 1, 2, 3이 남아있습니다.
+이렇게 부분 업데이트가 발생하면 원치 않는 값들이 들어갈 수 있습니다.
+따라서 남은 쿼리를 삭제하는 재처리 작업이 필요할 수 있습니다.
+IF, ELSE로 로직을 분리할 수 있지만 마찬가지로 재처리 작업으로 지저분해집니다.</p>
+<h2>주의사항</h2>
+<p>트랜잭션은 DBMS 커넥션처럼 필요한 최소의 코드에만 적용해 범위를 최소화하는 것이 좋습니다.
+트랜잭션을 시작한 상태에서 미리 읽어올 수 있던 데이터를 읽어오거나, 메일을 발송하는 등 외부 처리는 피하는 것이 좋습니다.</p>
+<h2>MySQL 엔진의 잠금</h2>
+<p>MySQL에서 사용되는 잠금은 스토리지 엔진 레벨과 MySQL 엔진 레벨로 나눌 수 있습니다.
+MySQL 엔진은 스토리지 엔진을 제외한 나머지 부분으로 모든 스토리지 엔진에 영향을 미칩니다.
+MySQL 엔진에서는 테이블 데이터 동기화를 위한 테이블 락, 메타데이터 락, 네임드 락을 제공합니다.</p>
+<h3>글로벌 락</h3>
+<p>글로벌 락은 <code>FLUSH TABLES WITH READ LOCK</code> 명령으로 획득할 수 있습니다.
+MySQL에서 제공하는 잠금 중 가장 범위가 크며 한 세션에서 글로벌 락을 획득하면 다른 세션에서 SELECT를 제외하면 대기 상태가 됩니다.
+글로벌 락이 미치는 영향은 MySQL 서버 전체로 작업 대상 테이블이나 데이터베이스가 다르더라도 동일한 영향을 미칩니다.
+MyISAM이나 MEMORY 테이블에 대해 mysqldump로 일관된 백업을 받아야 할 때 글로벌 락을 사용합니다.
+글로벌 락이 실행되기 전에 이전 모든 명령이 끝나야 실행되며, 락으로 다른 명령이 오랫동안 실행되지 못할 수 있습니다.
+따라서 웹 서비스용 서버에는 가급적 사용하지 않는 것이 좋습니다.</p>
+<p>InnoDB에서는 트랜잭션을 지원하기 때문에 일관된 데이터 상태를 위해 모든 데이터 변경 작업을 멈출 필요가 없습니다.
+그래서 좀 더 가벼운 글로벌 락을 사용할 수 있습니다.</p>
+<pre><code class="language-mysql">LOCK INSTANCE FOR BACKUP;
+
+UNLOCK INSTANCE;
+</code></pre>
+<p>특정 세션에서 백업 락을 획득하면 테이블 스키마나 사용자 인증 관련 정보만 변경할 수 없습니다.
+일반적인 테이블의 데이터 변경은 사용 가능합니다.
+백업은 주로 레플리카 서버에서 실행되는데 도중에 스키마 변경이 일어나면 백업이 실패해 백업 락은 이를 막습니다.</p>
+<h3>테이블 락</h3>
+<p>개별 테이블 단위로 설정되는 잠금으로 명시적, 묵시적으로 <code>LOCK TABLES table_name [READ | WRITE]</code>로 테이블 락을 획득할 수 있습니다.
+테이블 락은 MyISAM, InnoDB 모두 동일하게 설정할 수 있습니다. 잠금 해제는 UNLOCK TABLES` 명령으로 반납합니다.
+특별한 상황 외에는 온라인 작업에 상당한 영향을 끼쳐 사용하지 않습니다.</p>
+<p>InnoDB의 경우 데이터 변경 시에는 무시되고 스키마를 변경하는 경우에만 영향을 미칩니다.</p>
+<h3>네임드 락</h3>
+<p><code>GET_LOCK()</code> 함수를 이용해 임의의 문자열에 대해 잠금을 설정하며 데이터베이스 객체가 대상이 아닙니다.
+네임드 락은 단순히 사용자가 지정한 문자열을 획득하고 반납하는 잠금입니다.
+여러 서버에서 DB에 어떤 정보를 동기화를 하는 경우 락을 통해 접근 가능한지 확인할 수 있습니다.</p>
+<pre><code class="language-mysql">SELECT GET_LOCK(&#x27;mylock&#x27;, 2);
+
+SELECT IS_FREE_LOCK(&#x27;mylock&#x27;);
+
+SELECT RELEASE_LOCK(&#x27;mylock&#x27;);
+
+SELECT RELEASE_ALL_LOCKS();
+</code></pre>
+<h3>메타데이터 락</h3>
+<p>메타데이터 락은 데이터베이스 객체의 이름이나 구조등을 변경하는 경우에 자동으로 획득하는 잠금입니다.
+<code>RENAME TABLE</code> 같은 명령을 사용하는 경우 원본 이름과 변경하는 이름 모두 잠금을 설정합니다.</p>
+<h2>InnoDB 스토리지 엔진 잠금</h2>
+<p>레코드 기반의 잠금 방식으로 MyISAM 보다 동시성 처리에서 뛰어나지만 MySLQ 명령으로 잠금 정보를 얻기 까다롭습니다.
+기존에는 <code>lock_monitor</code>, <code>SHOW ENGINE INNODB STATUS</code>등으로 파악하는 명령이 전부였습니다.
+최근에는 잠금과 대기 중인 목록을 <code>INNODB_TRX, INNODB_LOCKS, INNODB_LOCK_WAITS</code>를 조인해 조회할 수 있습니다.</p>
+<h3>InnoDB 스토리지 엔진의 잠금</h3>
+<p>레코드 단위로 락이 걸리며 레코드와 레코드 사이 간격을 잠그는 갭락이 존재합니다.</p>
+<p><strong>레코드 락</strong></p>
+<p>레코드 자체만을 잠그며 InnoDB의 차이점은 레코드가 아닌 인덱스의 레코드를 잠급니다.
+인덱스가 하나도 없는 테이블이더라도 내부적으로 생성된 클러스터 인덱스를 이용해 잠금을 설정합니다.</p>
+<p><strong>갭 락</strong></p>
+<p>레코드와 인접한 레코드 사이의 간격만을 잠그며 그 사이의 간격에 새로운 레코드 생성을 제어합니다.</p>
+<p><strong>넥스트 키 락</strong></p>
+<p>레코드 락과 갭 락을 합쳐놓은 형태로 STATEMENT 포맷의 바이너리 로그에서는 REPEATABLE READ를 사용해야 합니다.
+갭 락과 넥스트 키 락의 주 목적은 레플리카 서버에서 소스 서버에 바이너리 로그 쿼리를 동일하게 만들어내도록 보장합니다.
+다만 이로 인해 데드락이나 다른 트랜잭션을 기다리게 만드는 일이 많으므로 되도록 로그를 ROW로 바꿔 락을 줄이는 것이 좋습니다.</p>
+<p><strong>자동 증가 락</strong></p>
+<p>AUTO_INCREMENT 칼럼 속성인 경우 동시에 여러 레코드가 INSERT되는 경우 중복되지 않고 순서대로 증가해야 합니다.
+이를 위해 내부적으로 자동증가락으로 테이블 수준의 잠금을 제공합니다.</p>
+<p>새로운 레코드 생성시에만 필요하므로 UPDATE, DELETE 등의 쿼리에는 걸리지 않습니다.
+트랜잭션과 상관없이 INSERT나 REPLACE 문장에서 AUTO_INCREMENT 값을 가져오는 순간만 락이 걸렸다가 해제됩니다.
+명시적으로 설정할 수 있는 방법은 없으며 시간이 아주 짧기 때문에 대부분 문제가 되지 않습니다.</p>
+<h3>인덱스와 잠금</h3>
+<p>InnoDB는 레코드가 아닌 인덱스를 잠그는 방식으로 변경 레코드를 찾기 위해 인덱스와 레코드 모두 락을 겁니다.
+인덱스에 해당하는 개수가 많다면 그만큼의 레코드가 모두 락이 걸립니다.
+인덱스가 없다면 풀 스캔으로 모든 테이블에 락을 걸게 되기 때문에 인덱스 설계가 중요합니다.</p>
+<h2>MySQL의 격리 수준</h2>
+<p>트랜잭션의 격리 수준이란 여러 트랜잭션이 동시에 처리될 때 다른 트랜잭션에서 변경이나 조회를 허용할지 결정하는 것입니다.
+&quot;DIRTY READ&quot;라고 하는 READ UNCOMMITTED는 일반적인 데이터베이스에서 잘 사용하지 않습니다.
+SERIALIZABLE은 동시성이 중요한 데이터베이스에서 거의 사용되지 않습니다.
+InnoDB에서는 REPEATABLE READ에서도 PHANTOM READ가 발생하지 않습니다.</p>
+<h3>READ UNCOMMITTED</h3>
+<p>트랜잭션의 변경 내용이 COMMIT이나 ROLLBACK 여부에 상관없이 다른 트랜잭션에서 보이는 경우입니다.
+더티 리드 현상은 데이터가 나타났다가 사라졌다가 하는 현상을 초래해 사용자들을 혼란스럽게 만듭니다.</p>
+<h3>READ COMMITTED</h3>
+<p>오라클 DBMS 에서 기본으로 사용되는 격리수준으로 가장 많이 사용되는 격리 수준입니다.
+어떤 트랜잭션에서 데이터를 변경했더라도 COMMIT이 완료된 데이터만 조회할 수 있습니다.
+트랜잭션 내에서 테이블을 수정하는 중이더라도 다른 트랜잭션에서는 언두 로그에서 백업된 레코드를 가져옵니다.
+생길 수 있는 문제는 NON-REPEATABLE READ가 불가능하다는 점이 있습니다.
+NON-REPEATABLE READ는 한 트랜잭션 내에서 초반에는 결과가 없다가 다른 트랜잭션 커밋 결과로 후반에 생기는 경우입니다.
+이 경우 한 트랜잭션 내에서 같은 명령어가 같은 결과를 보장하지 않아 정합성이 깨집니다.
+일반적인 경우에는 문제가 없지만 금전적인 처리처럼 동일 데이터를 여러번 읽으면 문제가 생깁니다.</p>
+<p>SELECT 문도 트랜잭션 내에서 실행하면 트랜잭션 범위 내에서만 작동합니다.
+REPEATABLE READ 수준에선 다른 트랜잭션 밖에서 변경하고 COMMIT을 실행하더라도 항상 같은 값을 보게 됩니다.</p>
+<h3>REPEATABLE READ</h3>
+<p>InnoDB에서 기본으로 사용되는 격리 수준으로 바이너리 로그를 가진 MySQL 서버에서는 최소 REPEATABLE READ를 사용해야 합니다.
+언두 로그에 기존 값을 백업해두고 동일한 트랜잭션 내에서는 동일한 결과를 보여줍니다.
+READ COMMITTED와의 차이점은 언두 영역에 백업된 레코드의 여러 버전 가운데 몇번째 이전까지 찾아 들어가느냐 입니다.
+REPEATABLE READ의 처리는 자신의 트랜잭션에서 처리한 언두 영역을 확인하는 것입니다.
+한 트랜잭션에서 데이터를 확인하고 끝나지 않았을 때 다른 트랜잭션에서 데이터를 업데이트합니다.
+다른 트랜잭션이 끝나고 아직 끝나지 않은 트랜잭션에서 값을 확인하면 언두 로그를 통해 같은 값을 확인할 수 있습니다.</p>
+<p>모든 InnoDB 트랜잭션은 고유한 트랜잭션 번호를 가지며 언두 영역에 백업된 데이터는 불필요한 시점에 주기적으로 삭제됩니다.
+MVCC를 보장하기 위해서는 실행 중인 트랜잭션 가운데 가장 오래된 트랜잭션 번호보다 앞선 언두 영역은 삭제할 수 없습니다.</p>
+<p>물론 이렇게 작업을 하다보면 언두 영역의 백업 데이터가 매우 커질 수 있어 처리 성능이 떨어질 수 있습니다.
+그리고 생길 수 있는 부정합은 SELECT ... FOR UPDATE 쿼리 결과는 위에 상황일 때 서로 다르게 나옵니다.
+SELECT ... FOR UPDATE는 잠금을 걸게 되는데 언두 레코드는 잠금을 걸 수가 없습니다.
+따라서 언두 레코드가 아닌 현재 레코드의 값을 가져와 다르게 보이게 되는 PHANTOM READ가 발생합니다.</p>
+<h3>SERIALIZABLE</h3>
+<p>가장 단순하면서 엄격한 격리 수준으로 동시 처리 성능은 떨어집니다.
+SERIALIZABLE은 읽기 작업도 공유 잠금이 되며 한 트랜잭션이 어떤 작업을 하든 다른 트랜잭션은 접근할 수 없습니다.
+InnoDB엔진은 REPEATABLE READ에서도 갭 락과 넥스트 키 락으로 PHANTOM READ를 막아 SERIALIZABLE의 필요성이 없습니다.</p></article><div class="jsx-1024841947 footer-container"><div class="jsx-1024841947 footer-container-links"><div class="jsx-1024841947 footer-links"><div class="jsx-1024841947 link-item"><a href="https://github.com/santhalakshminarayana" rel="noreferrer" target=" _blank" class="jsx-1024841947 link"><div><svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" style="color:#fffecb;font-size:calc(0.8rem + 1vw)" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><title></title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></div></a></div><div class="jsx-1024841947 link-item"><a href="https://www.linkedin.com/in/santhalakshminarayana/" rel="noreferrer" target="_blank" class="jsx-1024841947 link"><div><svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" style="color:#fffecb;font-size:calc(0.8rem + 1vw)" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><title></title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></div></a></div><div class="jsx-1024841947 link-item"><a href="https://medium.com/@santhalakshminarayana/" rel="noreferrer" target="_blank" class="jsx-1024841947 link"><div><svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" style="color:#fffecb;font-size:calc(0.8rem + 1vw)" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><title></title><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"></path></svg></div></a></div><div class="jsx-1024841947 link-item"><a href="https://www.kaggle.com/santhalnr/" rel="noreferrer" target="_blank" class="jsx-1024841947 link"><div><svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" style="color:#fffecb;font-size:calc(0.8rem + 1vw)" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><title></title><path d="M.1025 7.3475c-.0681 0-.1022.0341-.1022.102v6.752c0 .0681.034.1022.1022.1022h.7049c.068 0 .1022-.034.1022-.1023v-1.481l.4187-.3985 1.5016 1.91c.041.0477.0884.0716.143.0716h.9091c.0476 0 .0748-.0135.0817-.0407.0135-.041.0066-.075-.0206-.1023l-1.9816-2.4618 1.9002-1.8384c.0204-.0205.0237-.051.01-.092-.0137-.0339-.0408-.051-.0816-.051h-.9398c-.0477 0-.0953.024-.143.0716L.9096 11.607V7.4496c0-.0679-.0342-.102-.1022-.102zm18.0417 0c-.068 0-.102.0341-.102.102v6.752c0 .0681.034.102.102.102h.705c.068 0 .102-.034.102-.102v-6.752c0-.068-.034-.102-.102-.102zM5.961 9.6254c-.5653 0-1.11.1806-1.6343.5415-.0545.0545-.0648.102-.0307.143l.3676.5208c.0272.0477.0717.0545.133.0204.3948-.2722.783-.4086 1.1644-.4086.2927 0 .5158.0886.669.2656.1532.1771.2197.3917.1992.6436-.6606.0681-1.1545.1495-1.4813.245-.8308.2383-1.2461.6913-1.2461 1.3586 0 .4222.1533.7695.4598 1.0419.3132.2654.6845.3982 1.1134.3982.4698 0 .8545-.1125 1.1542-.3372v.1432c0 .0682.0374.102.1123.102h.7048c.068 0 .102-.0338.102-.102V11.372c0-.6604-.2245-1.1406-.6739-1.4403-.3065-.2043-.6776-.3063-1.1134-.3063zm4.3225 0c-.6742 0-1.195.2622-1.5627.7865-.3133.4359-.4699.9671-.4699 1.5936 0 .6604.1634 1.2087.4903 1.6444.3744.4972.892.7455 1.5526.7455.5313 0 .9567-.1327 1.2768-.3982v.531c0 .858-.4122 1.287-1.236 1.287-.361 0-.732-.1907-1.1132-.572a.098.098 0 00-.0716-.0306c-.034 0-.0613.0102-.0817.0307l-.4802.48c-.0408.0613-.0375.1124.0103.1532.1361.1157.2554.2129.3576.2911.102.0783.1905.1413.2656.189.354.1975.7284.2961 1.1235.2961.6808 0 1.207-.1925 1.5781-.577.3711-.3848.5567-.9484.5567-1.6903V9.8196c0-.068-.034-.102-.102-.102h-.705c-.0682 0-.1021.034-.1021.102v.2043c-.3471-.2657-.7763-.3985-1.287-.3985zm4.8021 0c-.6742 0-1.195.2622-1.5627.7865-.3132.4359-.4699.9671-.4699 1.5936 0 .6604.1633 1.2087.4903 1.6444.3744.4972.892.7455 1.5526.7455.5311 0 .9566-.1327 1.2768-.3982v.531c0 .858-.4122 1.287-1.236 1.287-.361 0-.732-.1907-1.1133-.572a.098.098 0 00-.0716-.0306c-.034 0-.0612.0102-.0816.0307l-.48.48c-.0409.0613-.0376.1124.01.1532.1363.1157.2555.2129.3576.2911.1021.0783.1906.1413.2657.189.354.1975.7285.2961 1.1237.2961.6808 0 1.2068-.1925 1.5781-.577.371-.3848.5565-.9484.5565-1.6903V9.8196c0-.068-.034-.102-.102-.102h-.7049c-.0682 0-.1022.034-.1022.102v.2043c-.3474-.2657-.7763-.3985-1.287-.3985zm6.7457 0c-.6537 0-1.185.211-1.5936.6332-.4427.4632-.664 1.0283-.664 1.6956 0 .7083.225 1.2905.6743 1.7467.463.463 1.042.6945 1.7366.6945.6467 0 1.2154-.1838 1.7057-.5515.0545-.041.0545-.0884 0-.143l-.4802-.4903c-.041-.0409-.0919-.0409-.1533 0-.2998.2112-.6368.3167-1.0112.3167-.4222 0-.7729-.119-1.052-.3576-.2452-.2248-.3882-.5038-.429-.8375h3.3197c.0679 0 .1022-.0341.1022-.1023l.01-.2244c.0341-.6878-.1668-1.26-.6025-1.7162-.4224-.4426-.9432-.664-1.5627-.664zm-.0206.7865c.3268 0 .6062.1056.8377.3166.2452.211.371.4734.378.7865h-2.4618c.0613-.3269.2077-.5925.4392-.7968.2313-.2042.5004-.3063.8069-.3063zm-11.4249.102c.6196 0 1.0146.2181 1.1848.6538v1.6854c-.1702.4358-.5755.6538-1.2155.6538-.3133 0-.5687-.0986-.7661-.2963-.2656-.2518-.3983-.6538-.3983-1.2053 0-.9941.3984-1.4914 1.1951-1.4914zm4.802 0c.6196 0 1.0148.2181 1.1851.6538h-.0002v1.6854c-.1703.4358-.5755.6538-1.2155.6538-.3132 0-.5686-.0986-.7661-.2963-.2655-.2518-.3983-.6538-.3983-1.2053 0-.9941.3983-1.4914 1.195-1.4914zm-8.3586 1.6547v1.0215c-.286.286-.6675.412-1.1441.3779-.1703-.0135-.32-.0663-.4493-.1582-.1294-.0919-.2045-.2129-.2249-.3627-.0341-.2657.1158-.47.4495-.6129.2452-.1088.7013-.1974 1.3688-.2656z"></path></svg></div></a></div><div class="jsx-1024841947 link-item"><a href="https://www.quora.com/profile/Lakshmi-Narayana-217" rel="noreferrer" target="_blank" class="jsx-1024841947 link"><div><svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" style="color:#fffecb;font-size:calc(0.8rem + 1vw)" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><title></title><path d="M12.738 18.701c-.831-1.635-1.805-3.287-3.708-3.287-.362 0-.727.061-1.059.209l-.646-1.289c.786-.678 2.058-1.214 3.693-1.214 2.544 0 3.851 1.229 4.888 2.792.613-1.335.904-3.14.904-5.375 0-5.582-1.744-8.447-5.822-8.447-4.018 0-5.757 2.865-5.757 8.447 0 5.553 1.739 8.389 5.757 8.389.64 0 1.22-.069 1.75-.225zm.996 1.947c-.881.237-1.817.366-2.743.366-5.352 0-10.59-4.269-10.59-10.478C.402 4.271 5.639 0 10.991 0c5.441 0 10.628 4.238 10.628 10.537 0 3.504-1.635 6.351-4.01 8.191.764 1.148 1.543 1.914 2.652 1.914 1.199 0 1.68-.915 1.77-1.649h1.557c.092.974-.402 5.007-4.766 5.007-2.652 0-4.047-1.528-5.096-3.328l.008-.024z"></path></svg></div></a></div></div></div><div class="jsx-1024841947 copy-right-container"><p class="jsx-1024841947 copy-right-text">Santha Lakshmi Narayana © 2021</p></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"postMetadata":{"title":"Real MySQL 8.0 (3)","date":"2022-03-05 00:01:00 +0900","category":"book","tags":["book"],"keywords":["book"],"id":"Reay MySQL 03"},"postContent":{"compiledSource":"/*@jsxRuntime automatic @jsxImportSource react*/\nconst {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];\nconst {useMDXComponents: _provideComponents} = arguments[0];\nfunction MDXContent(props = {}) {\n  const {wrapper: MDXLayout} = Object.assign({}, _provideComponents(), props.components);\n  return MDXLayout ? _jsx(MDXLayout, Object.assign({}, props, {\n    children: _jsx(_createMdxContent, {})\n  })) : _createMdxContent();\n  function _createMdxContent() {\n    const _components = Object.assign({\n      h1: \"h1\",\n      p: \"p\",\n      h2: \"h2\",\n      pre: \"pre\",\n      code: \"code\",\n      h3: \"h3\",\n      strong: \"strong\"\n    }, _provideComponents(), props.components);\n    return _jsxs(_Fragment, {\n      children: [_jsx(_components.h1, {\n        children: \"5. 트랜잭션과 잠금\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"트랜잭션은 작업의 완전성을 보장해줍니다. 논리적이 작업 셋을 모두 완벽하게 처리하거나, 처리하지 못할 경우 복구합니다.\\n잠금은 동시성을 제어하기 위한 기능이고 트랜잭션은 데이터의 정합성을 보장합니다.\\n여러 커넥션에서 동시에 한 데이터를 수정하면 값은 예측할 수 없어집니다.\\n잠금으로 한 시점에 한 커넥션만 변경할 수 있는 역할을 담당합니다.\\n격리 수준은 트랜잭션 내에서 작업 내용 공유와 차단 수준을 결정합니다.\"\n      }), \"\\n\", _jsx(_components.h2, {\n        children: \"트랜잭션\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"MyISAM이나 MEMORY 엔진은 트랜잭션을 보장하지 않으며 InnoDB 엔진은 지원합니다.\\n트랜잭션을 보장하지 않는 경우 정합성을 보장하기 힘든 예제입니다.\"\n      }), \"\\n\", _jsx(_components.pre, {\n        children: _jsx(_components.code, {\n          className: \"language-mysql\",\n          children: \"CREATE TABLE tab_myisam (id INT NOT NULL, PRIMARY KEY (id)) ENGINE=MyISAM;\\nINSERT INTO tab_myisam (id) VALUES(3);\\n\\nSET AUTOCOMMIT=ON;\\nINSERT INTO tab_myisam (id) VALUES (1), (2), (3);\\n\"\n        })\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"InnoDB 엔진이라면 다음 상황에서 테이블에 남는 값은 3이 됩니다.\\n하지만 MyISAM의 경우 중간에 키 중복 오류로 쿼리가 실패해도 1, 2가 남아있어 1, 2, 3이 남아있습니다.\\n이렇게 부분 업데이트가 발생하면 원치 않는 값들이 들어갈 수 있습니다.\\n따라서 남은 쿼리를 삭제하는 재처리 작업이 필요할 수 있습니다.\\nIF, ELSE로 로직을 분리할 수 있지만 마찬가지로 재처리 작업으로 지저분해집니다.\"\n      }), \"\\n\", _jsx(_components.h2, {\n        children: \"주의사항\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"트랜잭션은 DBMS 커넥션처럼 필요한 최소의 코드에만 적용해 범위를 최소화하는 것이 좋습니다.\\n트랜잭션을 시작한 상태에서 미리 읽어올 수 있던 데이터를 읽어오거나, 메일을 발송하는 등 외부 처리는 피하는 것이 좋습니다.\"\n      }), \"\\n\", _jsx(_components.h2, {\n        children: \"MySQL 엔진의 잠금\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"MySQL에서 사용되는 잠금은 스토리지 엔진 레벨과 MySQL 엔진 레벨로 나눌 수 있습니다.\\nMySQL 엔진은 스토리지 엔진을 제외한 나머지 부분으로 모든 스토리지 엔진에 영향을 미칩니다.\\nMySQL 엔진에서는 테이블 데이터 동기화를 위한 테이블 락, 메타데이터 락, 네임드 락을 제공합니다.\"\n      }), \"\\n\", _jsx(_components.h3, {\n        children: \"글로벌 락\"\n      }), \"\\n\", _jsxs(_components.p, {\n        children: [\"글로벌 락은 \", _jsx(_components.code, {\n          children: \"FLUSH TABLES WITH READ LOCK\"\n        }), \" 명령으로 획득할 수 있습니다.\\nMySQL에서 제공하는 잠금 중 가장 범위가 크며 한 세션에서 글로벌 락을 획득하면 다른 세션에서 SELECT를 제외하면 대기 상태가 됩니다.\\n글로벌 락이 미치는 영향은 MySQL 서버 전체로 작업 대상 테이블이나 데이터베이스가 다르더라도 동일한 영향을 미칩니다.\\nMyISAM이나 MEMORY 테이블에 대해 mysqldump로 일관된 백업을 받아야 할 때 글로벌 락을 사용합니다.\\n글로벌 락이 실행되기 전에 이전 모든 명령이 끝나야 실행되며, 락으로 다른 명령이 오랫동안 실행되지 못할 수 있습니다.\\n따라서 웹 서비스용 서버에는 가급적 사용하지 않는 것이 좋습니다.\"]\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"InnoDB에서는 트랜잭션을 지원하기 때문에 일관된 데이터 상태를 위해 모든 데이터 변경 작업을 멈출 필요가 없습니다.\\n그래서 좀 더 가벼운 글로벌 락을 사용할 수 있습니다.\"\n      }), \"\\n\", _jsx(_components.pre, {\n        children: _jsx(_components.code, {\n          className: \"language-mysql\",\n          children: \"LOCK INSTANCE FOR BACKUP;\\n\\nUNLOCK INSTANCE;\\n\"\n        })\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"특정 세션에서 백업 락을 획득하면 테이블 스키마나 사용자 인증 관련 정보만 변경할 수 없습니다.\\n일반적인 테이블의 데이터 변경은 사용 가능합니다.\\n백업은 주로 레플리카 서버에서 실행되는데 도중에 스키마 변경이 일어나면 백업이 실패해 백업 락은 이를 막습니다.\"\n      }), \"\\n\", _jsx(_components.h3, {\n        children: \"테이블 락\"\n      }), \"\\n\", _jsxs(_components.p, {\n        children: [\"개별 테이블 단위로 설정되는 잠금으로 명시적, 묵시적으로 \", _jsx(_components.code, {\n          children: \"LOCK TABLES table_name [READ | WRITE]\"\n        }), \"로 테이블 락을 획득할 수 있습니다.\\n테이블 락은 MyISAM, InnoDB 모두 동일하게 설정할 수 있습니다. 잠금 해제는 UNLOCK TABLES` 명령으로 반납합니다.\\n특별한 상황 외에는 온라인 작업에 상당한 영향을 끼쳐 사용하지 않습니다.\"]\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"InnoDB의 경우 데이터 변경 시에는 무시되고 스키마를 변경하는 경우에만 영향을 미칩니다.\"\n      }), \"\\n\", _jsx(_components.h3, {\n        children: \"네임드 락\"\n      }), \"\\n\", _jsxs(_components.p, {\n        children: [_jsx(_components.code, {\n          children: \"GET_LOCK()\"\n        }), \" 함수를 이용해 임의의 문자열에 대해 잠금을 설정하며 데이터베이스 객체가 대상이 아닙니다.\\n네임드 락은 단순히 사용자가 지정한 문자열을 획득하고 반납하는 잠금입니다.\\n여러 서버에서 DB에 어떤 정보를 동기화를 하는 경우 락을 통해 접근 가능한지 확인할 수 있습니다.\"]\n      }), \"\\n\", _jsx(_components.pre, {\n        children: _jsx(_components.code, {\n          className: \"language-mysql\",\n          children: \"SELECT GET_LOCK('mylock', 2);\\n\\nSELECT IS_FREE_LOCK('mylock');\\n\\nSELECT RELEASE_LOCK('mylock');\\n\\nSELECT RELEASE_ALL_LOCKS();\\n\"\n        })\n      }), \"\\n\", _jsx(_components.h3, {\n        children: \"메타데이터 락\"\n      }), \"\\n\", _jsxs(_components.p, {\n        children: [\"메타데이터 락은 데이터베이스 객체의 이름이나 구조등을 변경하는 경우에 자동으로 획득하는 잠금입니다.\\n\", _jsx(_components.code, {\n          children: \"RENAME TABLE\"\n        }), \" 같은 명령을 사용하는 경우 원본 이름과 변경하는 이름 모두 잠금을 설정합니다.\"]\n      }), \"\\n\", _jsx(_components.h2, {\n        children: \"InnoDB 스토리지 엔진 잠금\"\n      }), \"\\n\", _jsxs(_components.p, {\n        children: [\"레코드 기반의 잠금 방식으로 MyISAM 보다 동시성 처리에서 뛰어나지만 MySLQ 명령으로 잠금 정보를 얻기 까다롭습니다.\\n기존에는 \", _jsx(_components.code, {\n          children: \"lock_monitor\"\n        }), \", \", _jsx(_components.code, {\n          children: \"SHOW ENGINE INNODB STATUS\"\n        }), \"등으로 파악하는 명령이 전부였습니다.\\n최근에는 잠금과 대기 중인 목록을 \", _jsx(_components.code, {\n          children: \"INNODB_TRX, INNODB_LOCKS, INNODB_LOCK_WAITS\"\n        }), \"를 조인해 조회할 수 있습니다.\"]\n      }), \"\\n\", _jsx(_components.h3, {\n        children: \"InnoDB 스토리지 엔진의 잠금\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"레코드 단위로 락이 걸리며 레코드와 레코드 사이 간격을 잠그는 갭락이 존재합니다.\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: _jsx(_components.strong, {\n          children: \"레코드 락\"\n        })\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"레코드 자체만을 잠그며 InnoDB의 차이점은 레코드가 아닌 인덱스의 레코드를 잠급니다.\\n인덱스가 하나도 없는 테이블이더라도 내부적으로 생성된 클러스터 인덱스를 이용해 잠금을 설정합니다.\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: _jsx(_components.strong, {\n          children: \"갭 락\"\n        })\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"레코드와 인접한 레코드 사이의 간격만을 잠그며 그 사이의 간격에 새로운 레코드 생성을 제어합니다.\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: _jsx(_components.strong, {\n          children: \"넥스트 키 락\"\n        })\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"레코드 락과 갭 락을 합쳐놓은 형태로 STATEMENT 포맷의 바이너리 로그에서는 REPEATABLE READ를 사용해야 합니다.\\n갭 락과 넥스트 키 락의 주 목적은 레플리카 서버에서 소스 서버에 바이너리 로그 쿼리를 동일하게 만들어내도록 보장합니다.\\n다만 이로 인해 데드락이나 다른 트랜잭션을 기다리게 만드는 일이 많으므로 되도록 로그를 ROW로 바꿔 락을 줄이는 것이 좋습니다.\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: _jsx(_components.strong, {\n          children: \"자동 증가 락\"\n        })\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"AUTO_INCREMENT 칼럼 속성인 경우 동시에 여러 레코드가 INSERT되는 경우 중복되지 않고 순서대로 증가해야 합니다.\\n이를 위해 내부적으로 자동증가락으로 테이블 수준의 잠금을 제공합니다.\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"새로운 레코드 생성시에만 필요하므로 UPDATE, DELETE 등의 쿼리에는 걸리지 않습니다.\\n트랜잭션과 상관없이 INSERT나 REPLACE 문장에서 AUTO_INCREMENT 값을 가져오는 순간만 락이 걸렸다가 해제됩니다.\\n명시적으로 설정할 수 있는 방법은 없으며 시간이 아주 짧기 때문에 대부분 문제가 되지 않습니다.\"\n      }), \"\\n\", _jsx(_components.h3, {\n        children: \"인덱스와 잠금\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"InnoDB는 레코드가 아닌 인덱스를 잠그는 방식으로 변경 레코드를 찾기 위해 인덱스와 레코드 모두 락을 겁니다.\\n인덱스에 해당하는 개수가 많다면 그만큼의 레코드가 모두 락이 걸립니다.\\n인덱스가 없다면 풀 스캔으로 모든 테이블에 락을 걸게 되기 때문에 인덱스 설계가 중요합니다.\"\n      }), \"\\n\", _jsx(_components.h2, {\n        children: \"MySQL의 격리 수준\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"트랜잭션의 격리 수준이란 여러 트랜잭션이 동시에 처리될 때 다른 트랜잭션에서 변경이나 조회를 허용할지 결정하는 것입니다.\\n\\\"DIRTY READ\\\"라고 하는 READ UNCOMMITTED는 일반적인 데이터베이스에서 잘 사용하지 않습니다.\\nSERIALIZABLE은 동시성이 중요한 데이터베이스에서 거의 사용되지 않습니다.\\nInnoDB에서는 REPEATABLE READ에서도 PHANTOM READ가 발생하지 않습니다.\"\n      }), \"\\n\", _jsx(_components.h3, {\n        children: \"READ UNCOMMITTED\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"트랜잭션의 변경 내용이 COMMIT이나 ROLLBACK 여부에 상관없이 다른 트랜잭션에서 보이는 경우입니다.\\n더티 리드 현상은 데이터가 나타났다가 사라졌다가 하는 현상을 초래해 사용자들을 혼란스럽게 만듭니다.\"\n      }), \"\\n\", _jsx(_components.h3, {\n        children: \"READ COMMITTED\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"오라클 DBMS 에서 기본으로 사용되는 격리수준으로 가장 많이 사용되는 격리 수준입니다.\\n어떤 트랜잭션에서 데이터를 변경했더라도 COMMIT이 완료된 데이터만 조회할 수 있습니다.\\n트랜잭션 내에서 테이블을 수정하는 중이더라도 다른 트랜잭션에서는 언두 로그에서 백업된 레코드를 가져옵니다.\\n생길 수 있는 문제는 NON-REPEATABLE READ가 불가능하다는 점이 있습니다.\\nNON-REPEATABLE READ는 한 트랜잭션 내에서 초반에는 결과가 없다가 다른 트랜잭션 커밋 결과로 후반에 생기는 경우입니다.\\n이 경우 한 트랜잭션 내에서 같은 명령어가 같은 결과를 보장하지 않아 정합성이 깨집니다.\\n일반적인 경우에는 문제가 없지만 금전적인 처리처럼 동일 데이터를 여러번 읽으면 문제가 생깁니다.\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"SELECT 문도 트랜잭션 내에서 실행하면 트랜잭션 범위 내에서만 작동합니다.\\nREPEATABLE READ 수준에선 다른 트랜잭션 밖에서 변경하고 COMMIT을 실행하더라도 항상 같은 값을 보게 됩니다.\"\n      }), \"\\n\", _jsx(_components.h3, {\n        children: \"REPEATABLE READ\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"InnoDB에서 기본으로 사용되는 격리 수준으로 바이너리 로그를 가진 MySQL 서버에서는 최소 REPEATABLE READ를 사용해야 합니다.\\n언두 로그에 기존 값을 백업해두고 동일한 트랜잭션 내에서는 동일한 결과를 보여줍니다.\\nREAD COMMITTED와의 차이점은 언두 영역에 백업된 레코드의 여러 버전 가운데 몇번째 이전까지 찾아 들어가느냐 입니다.\\nREPEATABLE READ의 처리는 자신의 트랜잭션에서 처리한 언두 영역을 확인하는 것입니다.\\n한 트랜잭션에서 데이터를 확인하고 끝나지 않았을 때 다른 트랜잭션에서 데이터를 업데이트합니다.\\n다른 트랜잭션이 끝나고 아직 끝나지 않은 트랜잭션에서 값을 확인하면 언두 로그를 통해 같은 값을 확인할 수 있습니다.\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"모든 InnoDB 트랜잭션은 고유한 트랜잭션 번호를 가지며 언두 영역에 백업된 데이터는 불필요한 시점에 주기적으로 삭제됩니다.\\nMVCC를 보장하기 위해서는 실행 중인 트랜잭션 가운데 가장 오래된 트랜잭션 번호보다 앞선 언두 영역은 삭제할 수 없습니다.\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"물론 이렇게 작업을 하다보면 언두 영역의 백업 데이터가 매우 커질 수 있어 처리 성능이 떨어질 수 있습니다.\\n그리고 생길 수 있는 부정합은 SELECT ... FOR UPDATE 쿼리 결과는 위에 상황일 때 서로 다르게 나옵니다.\\nSELECT ... FOR UPDATE는 잠금을 걸게 되는데 언두 레코드는 잠금을 걸 수가 없습니다.\\n따라서 언두 레코드가 아닌 현재 레코드의 값을 가져와 다르게 보이게 되는 PHANTOM READ가 발생합니다.\"\n      }), \"\\n\", _jsx(_components.h3, {\n        children: \"SERIALIZABLE\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"가장 단순하면서 엄격한 격리 수준으로 동시 처리 성능은 떨어집니다.\\nSERIALIZABLE은 읽기 작업도 공유 잠금이 되며 한 트랜잭션이 어떤 작업을 하든 다른 트랜잭션은 접근할 수 없습니다.\\nInnoDB엔진은 REPEATABLE READ에서도 갭 락과 넥스트 키 락으로 PHANTOM READ를 막아 SERIALIZABLE의 필요성이 없습니다.\"\n      })]\n    });\n  }\n}\nreturn {\n  default: MDXContent\n};\n","frontmatter":{},"scope":{}},"id":"Reay MySQL 03"},"__N_SSG":true},"page":"/blog/[id]","query":{"id":"Reay MySQL 03"},"buildId":"6u0gI23DPSgVRcI2weLhQ","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
