@@ -234,7 +234,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     console.log("params", params);
-	const postData = await getPostData('algo', params.id);
+	const postData = await getPostData('algorithm', params.id);
 
 	const mdxSource = await serialize(postData.content, {
 		mdxOptions: {
