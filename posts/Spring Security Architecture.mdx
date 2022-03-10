@@ -1,0 +1,63 @@
+---
+layout: post
+title:  "Spring Security Architecture"
+date:   2022-02-03 00:01:00 +0900
+category: backend
+tags: ["backend"]
+keywords: ["backend"]
+---
+
+## Security
+애플리케이션에서 보안은 인증과 권한 두 가지 문제로 구분됩니다.
+
+### Authentication
+인증을 위한 주요 전략은 인증 메서드 하나면 됩니다.  
+authenticate 메서드라고 한다면 예상되는 결과는 세 가지 중 하나입니다.  
+- 인증을 성공했습니다 -> 인증 주체 정보 + 인증 성공 정보
+- 인증을 실패했습니다 -> 인증 실패 예외 처리
+- 인증을 결정할 수 없습니다 -> 인증 정보 null
+
+인증 실패의 경우 401 응답과 예외 처리 정보를 보낼 수 있습니다.  
+인증 결정을 못한 경우 이어지는 다음 인증 처리로 넘기거나 예외처리할 수 있습니다.
+
+### Authorization
+권한은 인증이 성공한 이후에 이뤄지며 인증 정보를 가지고 권한을 판단합니다.  
+나온 결과로 ROLE_ADMIN, ROLE_AUDIT 처럼 보통 ROLE_ 로 권한을 구분합니다.
+
+## Web Security
+클라이언트에서 받아서 Servlet까지 가는 과정동안 Filters를 거치게 됩니다.  
+Filter가 연쇄적으로 구성된 FilterChain으로 HttpServletRequest가 처리됩니다.
+Filter가 할 수 있는 일은 두 가지입니다.
+
+- 다음으로 처리될 Filter나 Servlet 처리를 막습니다. 바로 응답으로 넘어갑니다.
+- 다음으로 처리될 Filter나 Servlet에 사용될 요청이나 응답을 수정합니다.
+
+### DelegatingFilterProxy
+DelegatingFilterProxy로 구현된 Filter는 스프링 ApplicationContext 상에서 서블릿 컨테이너 생명주기에 맞게 사용할 수 있습니다.  
+다시 말하면 서블릿 컨테이너는 아무 Filter나 사용 가능하지만, 스프링에 정의된 빈인 것을 신경쓰지 않습니다.
+DelegatingFilterProxy를 사용하면 서블릿 컨테이너에 필터를 직접 등록하는 대신 스프링 빈이 대신합니다.
+서블릿 컨테이너가 실행되기 이전에 필터들이 등록되어야 하는데 Proxy로 처리된 필터들이 등록됩니다.
+따라서 Context에 등록된 빈들을 불러오기 이전에 컨테이너에 필터를 등록하는 작업을 할 수 있습니다.
+
+### FilterChainProxy & SecurityFilterChain
+Filter를 구현해서 사용할 때 하나의 필터가 아닌 여러개를 FilterChainProxy로 등록이 가능합니다.
+이런 필터들을 SecurityFilterChain이라고 합니다.  
+하나의 필터를 여러개로 대체하는 이유는 상황이나 경로에 따라 여러 조건을 추가할 수 있습니다.  
+api를 처리할 때, view를 처리할 때등 경로에 따라 다른 필터를 적용시킬 수 있습니다.
+
+
+## Security Filters
+Security Filter들은 순서에 따라 진행됩니다. 따라서 순차적인 처리가 필요하다면 대표적인 필터의 처리 순서를 알고 있는 것이 좋습니다.
+- CorsFilter
+- CsrfFilter
+- LogOutFilter
+- OAuth2AuthorizationRequestRedirectFilter
+- BearerTokenAuthenticationFilter
+
+## Handling Security Exceptions
+`ExceptionTranslationFilter`에선 `AccessDeniedException`이나 `AuthenticationException`을 응답으로 바꿀 수 있습니다.
+필터에서 인증되지 않은 상태거나 `AuthenticationException` 이라면 다음 과정을 거칩니다.
+- SecurityContextHolder를 비웁니다.
+- HttpServletRequest에 담긴 `RequestCache`를 저장합니다.
+- AuthenticationEntryPoint를 통해 `WWW-Authenticate`헤더로 보내거나 로그인 페이지로 리다이렉트합니다.
+- `AccessDeniedException`인 경우 `AccessDeniedHandler`가 인증 거부를 처리합니다.

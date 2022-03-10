@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "Spring JSON 한글 깨지는 경우"
+date:   2022-03-08 00:01:00 +0900
+category: trouble
+tags: ['trouble']
+keywords: ['trouble']
+---
+
+응답을 직접 보낼 때 한글이 깨지는 경우 CharacterSet을 설정해줘야 합니다.
+```java
+ HttpServletResponse response;
+ 
+ response.setCharacterEncoding("UTF-8");
+```

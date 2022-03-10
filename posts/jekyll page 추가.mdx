@@ -1,0 +1,22 @@
+---
+layout: post
+title:  "Jekyll에서 페이지 추가하기"
+date:   2022-01-03 00:45:00 +0900
+category: blog
+tags: ["blog"]
+keywords: ["blog"]
+---
+
+## Jekyll에서 다른 페이지에 추가하기
+Jekyll에서 html이나 markdown을 추가하는 방법은 루트 위치에 파일을 놓으면 됩니다.  
+빌드가 되면 _site에 생성된 파일을 확인할 수 있습니다. 
+
+## 원하는 위치에 파일 놓기
+하지만 루트에 파일이 많아지면 확인하기 힘드므로 이런 파일들을 다른 곳에 분리시킬 필요가 있습니다.  
+이때 다른 디렉토리에 위치시키고 최상단에 liquid 형식으로 permalink를 추가해주면 됩니다.  
+해당 html이 생성될 위치를 지정할 수 있습니다.  
+```ruby
+---
+permalink: /a.html
+---
+```

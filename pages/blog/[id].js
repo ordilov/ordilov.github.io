@@ -5,13 +5,13 @@ import { MDXRemote } from 'next-mdx-remote';
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 
-import { getAllPostsPath, getPostData } from '../../../lib/get-all-posts-data.js';
+import { getAllPostsPath, getPostData } from '../../lib/get-all-posts-data.js';
 
-import Header from '../../../components/Header.js';
-import NextOptimizedImage from '../../../components/NextOptimizedImage.js';
-import HoverableLink from '../../../components/HoverableLink.js';
-import CodeSyntaxHighlighter from '../../../components/CodeSyntaxHighlighter.js';
-import Footer from '../../../components/Footer.js';
+import Header from '../../components/Header.js';
+import NextOptimizedImage from '../../components/NextOptimizedImage.js';
+import HoverableLink from '../../components/HoverableLink.js';
+import CodeSyntaxHighlighter from '../../components/CodeSyntaxHighlighter.js';
+import Footer from '../../components/Footer.js';
 
 const c1 = '#071013', c2 = '#fffecb', c3 = '#20a4f3',  c4 = '#1d2b35', c5 = '#fb232e', c6 = '#ffaa33';
 
@@ -24,7 +24,7 @@ const hr_color = c1 + '80', blockquote_background_color = c3 + '26', blockquote_
 function getHeadingAnchorProps(props) {
 	let id = "";
 	let modifiedProps = {};
-	if (typeof(props.children) === 'string')
+	if (typeof(props.children) === 'string') 
 		modifiedProps['children'] = [props.children];
 	else
 		modifiedProps['children'] = props.children;
@@ -38,106 +38,106 @@ function getHeadingAnchorProps(props) {
 	return [modifiedProps, id];
 }
 
-const components = {
-	img: props => <NextOptimizedImage img_props = {props}/>,
-
-	h1: props => {
-		const [modifiedProps, id] = getHeadingAnchorProps(props);
-		return (<h1
-			style = {{ fontFamily: "'Ubuntu', sans-serif",
-				fontSize: 'calc(1rem + 1.5vw)',
-				color: h1_color,
-				margin: '1vh 0 1vh 0',
-				overflowWrap: 'break-word', }}
-			id = {id}
-			{...modifiedProps} />);},
-
-	h2: props => {
-		const [modifiedProps, id] = getHeadingAnchorProps(props);
-		return (<h2
-			style = {{ fontFamily: "'Maven Pro', sans-serif",
-				fontSize: 'calc(1rem + 1vw)',
-				color: h2_color,
-				margin: '1vh 0 1vh 0',
-				overflowWrap: 'break-word', }}
-			id = {id}
-			{...modifiedProps} />);},
-
-	h3: props => {
-		const [modifiedProps, id] = getHeadingAnchorProps(props);
-		return (<h3
-			style = {{
-				fontFamily: "'Maven Pro', sans-serif",
-				fontSize: 'calc(1rem + 0.5vw)',
-				color: h3_color,
-				margin: '1vh 0 1vh 0',
-				overflowWrap: 'break-word', }}
-			id = {id}
-			{...modifiedProps} />);},
-
-	p: props => <p
-		style = {{
-			fontFamily: "'Source Sans Pro', sans-serif",
-			fontSize: 'calc(1rem + 0.1vw)',
-			color: p_color,
-			margin: '0vh 0 1vh 0',
-			overflowWrap: 'break-word', }}
-		{...props} />,
-
-	ul: props => <ul
-		style = {{ fontFamily: "'Source Sans Pro', sans-serif",
-			fontSize: 'calc(1rem + 0.1vw)',
-			color: ul_color,
-			margin: '1vh 0 1vh calc(2vw)',
-			overflowWrap: 'break-word', }}
-		{...props} />,
-
-	ol: props => <ol
-		style = {{ fontFamily: "'Source Sans Pro', sans-serif",
-			fontSize: 'calc(1rem + 0.1vw)',
-			color: ol_color,
-			margin: '1vh 0 1vh calc(2vw)',
-			overflowWrap: 'break-word', }}
-		{...props} />,
-
-	a: props => <HoverableLink link_props = {props} />,
-
-	code: props => <CodeSyntaxHighlighter code_props = {props} />,
-
-	em: props => <em
-		style = {{ fontFamily: "'Source Sans Pro', sans-serif",
-			fontSize: 'calc(1rem + 0.1vw)',
-			fontStyle: 'normal',
-			backgroundColor: em_background,
-			color: em_color,
-			margin: '0vh 0 1vh 0',
-			padding: '0 2px 0 2px',
-			borderRadius: '2px', }}
-		{...props} />,
-
-	strong: props => <strong
-		style = {{ fontFamily: "'Source Sans Pro', sans-serif",
-			fontSize: 'calc(1rem + 0.1vw)',
-			fontStyle: 'normal',
-			fontWeight: 'bold',
-			color: strong_color,
-			margin: '0vh 0 1vh 0',
-			overflowWrap: 'break-word', }}
-		{...props} />,
-
-	hr: _ => <hr
-		style = {{ margin: '2vh 25% 2vh 25%',
-    	border: `1px solid ${hr_color}`, }} />,
-
-	blockquote: props => <blockquote
-		style = {{ backgroundColor: blockquote_background_color,
-			padding: '10px',
-			margin: '1vh 0 1vh 0',
-			borderLeft: `5px solid ${blockquote_border}`,
-		}}
-		{...props}
-	/>,
-}
+// const components = {
+// 	img: props => <NextOptimizedImage img_props = {props}/>,
+//
+// 	h1: props => {
+// 		const [modifiedProps, id] = getHeadingAnchorProps(props);
+// 		return (<h1
+// 			style = {{ fontFamily: "'Ubuntu', sans-serif",
+// 				fontSize: 'calc(1rem + 1.5vw)',
+// 				color: h1_color,
+// 				margin: '1vh 0 1vh 0',
+// 				overflowWrap: 'break-word', }}
+// 			id = {id}
+// 			{...modifiedProps} />);},
+//
+// 	h2: props => {
+// 		const [modifiedProps, id] = getHeadingAnchorProps(props);
+// 		return (<h2
+// 			style = {{ fontFamily: "'Maven Pro', sans-serif",
+// 				fontSize: 'calc(1rem + 1vw)',
+// 				color: h2_color,
+// 				margin: '1vh 0 1vh 0',
+// 				overflowWrap: 'break-word', }}
+// 			id = {id}
+// 			{...modifiedProps} />);},
+//
+// 	h3: props => {
+// 		const [modifiedProps, id] = getHeadingAnchorProps(props);
+// 		return (<h3
+// 			style = {{
+// 				fontFamily: "'Maven Pro', sans-serif",
+// 				fontSize: 'calc(1rem + 0.5vw)',
+// 				color: h3_color,
+// 				margin: '1vh 0 1vh 0',
+// 				overflowWrap: 'break-word', }}
+// 			id = {id}
+// 			{...modifiedProps} />);},
+//
+// 	p: props => <p
+// 		style = {{
+// 			fontFamily: "'Source Sans Pro', sans-serif",
+// 			fontSize: 'calc(1rem + 0.1vw)',
+// 			color: p_color,
+// 			margin: '0vh 0 1vh 0',
+// 			overflowWrap: 'break-word', }}
+// 		{...props} />,
+//
+// 	ul: props => <ul
+// 		style = {{ fontFamily: "'Source Sans Pro', sans-serif",
+// 			fontSize: 'calc(1rem + 0.1vw)',
+// 			color: ul_color,
+// 			margin: '1vh 0 1vh calc(2vw)',
+// 			overflowWrap: 'break-word', }}
+// 		{...props} />,
+//
+// 	ol: props => <ol
+// 		style = {{ fontFamily: "'Source Sans Pro', sans-serif",
+// 			fontSize: 'calc(1rem + 0.1vw)',
+// 			color: ol_color,
+// 			margin: '1vh 0 1vh calc(2vw)',
+// 			overflowWrap: 'break-word', }}
+// 		{...props} />,
+//
+// 	a: props => <HoverableLink link_props = {props} />,
+//
+// 	code: props => <CodeSyntaxHighlighter code_props = {props} />,
+//
+// 	em: props => <em
+// 		style = {{ fontFamily: "'Source Sans Pro', sans-serif",
+// 			fontSize: 'calc(1rem + 0.1vw)',
+// 			fontStyle: 'normal',
+// 			backgroundColor: em_background,
+// 			color: em_color,
+// 			margin: '0vh 0 1vh 0',
+// 			padding: '0 2px 0 2px',
+// 			borderRadius: '2px', }}
+// 		{...props} />,
+//
+// 	strong: props => <strong
+// 		style = {{ fontFamily: "'Source Sans Pro', sans-serif",
+// 			fontSize: 'calc(1rem + 0.1vw)',
+// 			fontStyle: 'normal',
+// 			fontWeight: 'bold',
+// 			color: strong_color,
+// 			margin: '0vh 0 1vh 0',
+// 			overflowWrap: 'break-word', }}
+// 		{...props} />,
+//
+// 	hr: _ => <hr
+// 		style = {{ margin: '2vh 25% 2vh 25%',
+//     	border: `1px solid ${hr_color}`, }} />,
+//
+// 	blockquote: props => <blockquote
+// 		style = {{ backgroundColor: blockquote_background_color,
+// 			padding: '10px',
+// 			margin: '1vh 0 1vh 0',
+// 			borderLeft: `5px solid ${blockquote_border}`,
+// 		}}
+// 		{...props}
+// 	/>,
+// }
 
 const home_page_url = 'https://santhalakshminarayana.github.io/';
 
@@ -172,9 +172,9 @@ export default function Blog({ postMetadata, postContent }) {
 
         <title>{postMetadata.title + '- Santha Lakshmi Narayana'}</title>
 
-        <link rel="stylesheet"
-        	href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"
-        	integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"
+        <link rel="stylesheet" 
+        	href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" 
+        	integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" 
         	crossOrigin="anonymous" />
 
       </Head>
@@ -182,10 +182,12 @@ export default function Blog({ postMetadata, postContent }) {
 			<Header />
 
 			<article className = 'blog-content'>
-				<MDXRemote {...postContent} components = {components} />
+				{/*<MDXRemote {...postContent} components = {components} />*/}
+				<MDXRemote {...postContent} />
+
 			</article>
 
-			<Footer bg_color = {c4 + 'e6'} normal_color = {c2} icon_size = {'calc(0.8rem + 1vw)'}
+			<Footer bg_color = {c4 + 'e6'} normal_color = {c2} icon_size = {'calc(0.8rem + 1vw)'} 
           horizontal_margin = {'1vw'} horizontal_padding = {'1vw'} vertical_padding = {'1vw'}
           github = {true} linkedin = {true} medium = {true} kaggle = {true} quora = {true}
           need_copy_right = {true} />
@@ -218,14 +220,13 @@ export default function Blog({ postMetadata, postContent }) {
 				}
 
 		  `}</style>
-
+			
 		</div>
 	)
 }
 
 export async function getStaticPaths() {
 	const paths = getAllPostsPath();
-    console.log(paths);
 	return {
 		paths,
 		fallback: false,
@@ -233,8 +234,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    console.log("params", params);
-	const postData = await getPostData('algorithm', params.id);
+	console.log(params)
+	const postData = await getPostData(params.id);
+
 
 	const mdxSource = await serialize(postData.content, {
 		mdxOptions: {

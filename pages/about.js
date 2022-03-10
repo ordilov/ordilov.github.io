@@ -1,14 +1,21 @@
 import Head from 'next/head';
-import Link from 'next/link';
 
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 
-import { SiCplusplus, SiPython, SiJavascript, SiKeras, SiTensorflow, SiPytorch, 
-  SiReact, SiNextdotjs, SiMysql } from "react-icons/si";
-import { MdEmail, MdLocationOn } from "react-icons/md";
+import {
+    SiCplusplus,
+    SiJavascript,
+    SiMysql,
+    SiNextdotjs,
+    SiPython,
+    SiPytorch,
+    SiReact,
+    SiTensorflow
+} from "react-icons/si";
+import {MdEmail, MdLocationOn} from "react-icons/md";
 
-const c1 = '#071013', c2 = '#fffecb', c3 = '#20a4f3',  c4 = '#1d2b35', c5 = '#fb232e', c6 = '#ffaa33';
+const c1 = '#071013', c2 = '#fffecb', c3 = '#20a4f3', c4 = '#1d2b35', c5 = '#fb232e', c6 = '#ffaa33';
 
 const about_heading = c3, about_meta_info = c4, about_meta_icon = c4, display_img_border = c4;
 const about_info = c1 + 'd9', external_link = c1, external_link_border = c5, external_link_hover = c3;
@@ -307,180 +314,75 @@ const styles = `
 
 `
 
-const home_page_url = 'https://santhalakshminarayana.github.io/';
-const description = "I'm Santha Lakshmi Narayana working as Software Engineer in Bengaluru, India.";
+const home_page_url = 'https://inhoo.github.io/';
+const description = "";
 
 export default function About_Page(props) {
-  return (
-    <div>
-      <Head>
-        <meta charSet="utf-8" />
-        <meta name = "viewport" content = "width=device-width, initial-scale=1" />
-        <meta name = 'description' content = {description} />
-        <meta name="author" content="Santha Lakshmi Narayana" />
+    return (
+        <div>
+            <Head>
+                <meta charSet="utf-8"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <meta name='description' content={description}/>
+                <meta name="author" content="Santha Lakshmi Narayana"/>
 
-        <meta property="og:title" content={'About - Santha Lakshmi Narayana'} key="ogtitle" />
-        <meta property="og:description" content={description} key="ogdesc" />
-        <meta property="og:url" content={home_page_url + 'about'} key="ogurl" />
-        <meta property="og:image" content={home_page_url + 'images/santha-lakshmi-narayana.png'} key="ogimage" />
-        <meta property="og:type" content="article" />
-        <meta property='og:article:publisher' content={home_page_url} key='ogaritclepublisher'/>
-        <meta property="og:site_name" content={"Santha Lakshmi Narayana"} key="ogsitename" />
+                <meta property="og:title" content={'About - Santha Lakshmi Narayana'} key="ogtitle"/>
+                <meta property="og:description" content={description} key="ogdesc"/>
+                <meta property="og:url" content={home_page_url + 'about'} key="ogurl"/>
+                <meta property="og:image" content={home_page_url + 'images/santha-lakshmi-narayana.png'} key="ogimage"/>
+                <meta property="og:type" content="article"/>
+                <meta property='og:article:publisher' content={home_page_url} key='ogaritclepublisher'/>
+                <meta property="og:site_name" content={"Santha Lakshmi Narayana"} key="ogsitename"/>
 
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content={'About - Santha Lakshmi Narayana'} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:url" content={home_page_url + 'about'} />
-        <meta name="twitter:site" content="@santhalakshminarayana" />
-        <meta name="twitter:image" content={home_page_url + 'images/santha-lakshmi-narayana.png'} />
-        <meta name="twitter:creator" content='@santhalakshminarayana' />
+                <meta name="twitter:card" content="summary"/>
+                <meta name="twitter:title" content={'About - Santha Lakshmi Narayana'}/>
+                <meta name="twitter:description" content={description}/>
+                <meta name="twitter:url" content={home_page_url + 'about'}/>
+                <meta name="twitter:site" content="@santhalakshminarayana"/>
+                <meta name="twitter:image" content={home_page_url + 'images/santha-lakshmi-narayana.png'}/>
+                <meta name="twitter:creator" content='@santhalakshminarayana'/>
 
-        <link rel = 'icon' href = '/images/santha-lakshmi-narayana-logo.png?' />
-        <link rel="canonical" href="https://santhalakshminarayana.github.io/about" />
+                <link rel='icon' href='/images/santha-lakshmi-narayana-logo.png?'/>
+                <link rel="canonical" href="https://santhalakshminarayana.github.io/about"/>
 
-        <title>{'About - Santha Lakshmi Narayana'}</title>
+                <title>{'About - Santha Lakshmi Narayana'}</title>
 
-        <style type = 'text/css'>{styles}</style>
-      </Head>
-      
-      <div>
-        <Header />
+                <style type='text/css'>{styles}</style>
+            </Head>
 
-        <div className = 'about-contanier'> 
-          <div className = 'about-meta'>
-            <img className = 'display-img' src = '/images/about/santha-lakshmi-narayana.png'
-                  alt = 'Lakshmi Narayana Santha'/>
-            <Footer bg_color = {'transparent'} normal_color = {c4} icon_size = {'21px'} 
-              horizontal_margin = {'5px'} horizontal_padding = {'1px'} vertical_padding = {'5px'}
-              github = {true} linkedin = {true} medium = {true} kaggle = {true} quora = {true}
-              need_copy_right = {false} />
-              <div className = 'about-meta-icon-container'>
-                <MdEmail className = 'about-meta-icon' />
-                <p className = 'about-meta-info'>santhalakshminarayana@gmail.com</p>
-              </div>
-              <div className = 'about-meta-icon-container'>
-                <MdLocationOn className = 'about-meta-icon' />
-                <p className = 'about-meta-info'>Bengaluru, India</p>
-              </div>
-          </div>
+            <div>
+                <Header/>
 
-          <div className = 'about-info'>
-            <p className = 'about-heading'>#Don't study but learn</p>
-            <p className = 'about-info-description'>Hello tech geek, I'm <b>Santha Lakshmi Narayana</b> (actually human but they called me as),
-              working as <b>Software Engineer</b> and also experiencing complex working nature of life.</p>
+                <div className='about-contanier'>
+                    <div className='about-meta'>
+                        <img className='display-img' src='/images/about/santha-lakshmi-narayana.png'
+                             alt='Lakshmi Narayana Santha'/>
+                        <Footer bg_color={'transparent'} normal_color={c4} icon_size={'21px'}
+                                horizontal_margin={'5px'} horizontal_padding={'1px'} vertical_padding={'5px'}
+                                github={true} linkedin={true} medium={true} kaggle={true} quora={true}
+                                need_copy_right={false}/>
+                        <div className='about-meta-icon-container'>
+                            <MdEmail className='about-meta-icon'/>
+                            <p className='about-meta-info'>ordilov@gmail.com</p>
+                        </div>
+                        <div className='about-meta-icon-container'>
+                            <MdLocationOn className='about-meta-icon'/>
+                            <p className='about-meta-info'>Seoul</p>
+                        </div>
+                    </div>
 
-            <p className = 'about-info-description'>I have started this blog to share my knowledge (one of the rare things to give for free) 
-              that I have gained over years and hope that will help you that <b>You don't need to re-invent the wheel</b>. 
-              If any single person gained anything from me that will give motivation and encourages me to contribute more. This site is a bit technical 
-              about <b>Machine Learning, Web & Mobile development, Programming</b>. 
-            </p>
+                    <div className='about-info'>
+                        <p className='about-heading'>Ordinary</p>
+                        <p className='about-info-description'>
+                        </p>
 
-            <p className = 'about-info-description'>As humans entered into AI world and the prophecies <b>AI RULES THE WORLD</b>, <b>ML IS FUTURE</b> are 
-              happening, I decided to understand how this new world works and started exploring AI. I like traveling in 
-              Machine Learning, Data Science, Computer Vision regions mostly. I try new methods coming out and read tons of blog posts, watch videos, 
-              discuss with experts to keep me updated about things happening in the digital world so that I won't be thrown out from the running wheel.</p>
-
-            <p className = 'about-info-description'>More to come in life...</p>
-          </div>
-        </div>
-
-        <div className = 'horizontal-line-break' >
-        </div>
-
-        <div className = 'tools-container'>
-          <div className = 'portfolio-section-container'>
-            <p className = 'portfolio-section-heading'>Experience</p>
-            
-            <div className = 'organization-container'>
-              <div className = 'organization-info-container'>
-                <img className = 'organization-logo' src = '/images/about/nouveau-labs-logo.png' 
-                      alt = 'Nouveau Labs' />
-                <p className = 'organization-name'>Nouveau Labs</p>
-              </div>
-
-              <div className = 'roles-container'>
-                <div className = 'role-container'>
-                  <div className = 'role-buffer'>
-                    <div className = 'role-buffer-dot'></div>
-                  </div>
-                  <div className = 'role'>
-                    <p className = 'role-name'>Software Engineer</p>
-                    <p className = 'role-duration'>Jun 2020 to present</p>
-                  </div>
+                        <p className='about-info-description'>
+                        </p>
+                    </div>
                 </div>
-              </div>
-
-              <div className = 'roles-container'>
-                <div className = 'role-container'>
-                  <div className = 'role-buffer'>
-                    <div className = 'role-buffer-dot'></div>
-                  </div>
-                  <div className = 'role'>
-                    <p className = 'role-name'>AI Intern</p>
-                    <p className = 'role-duration'>Dec 2019 to Jun 2020</p>
-                  </div>
-                </div>
-              </div>
 
             </div>
 
-          </div>
-
-          <div id = 'portfolio-line-break' className = 'horizontal-line-break' >
-          </div>
-
-          <div className = 'portfolio-section-container'>
-            <p className = 'portfolio-section-heading'>Tech Stack</p>
-
-            <p className = 'tech-stack-group-heading'>Tools</p>
-            <div className = 'tech-stack-group'>
-              <div className = 'tech-stack-division'>
-                <SiCplusplus className = 'tech-stack-icon'/>
-                <p className = 'tech-stack-name'>C++</p>
-              </div>
-
-              <div className = 'tech-stack-division'>
-                <SiPython className = 'tech-stack-icon'/>
-                <p className = 'tech-stack-name'>Python</p>
-              </div>
-
-              <div className = 'tech-stack-division'>
-                <SiTensorflow className = 'tech-stack-icon'/>
-                <p className = 'tech-stack-name'>Tensorflow</p>
-              </div>
-
-              <div className = 'tech-stack-division'>
-                <SiPytorch className = 'tech-stack-icon'/>
-                <p className = 'tech-stack-name'>Pytorch</p>
-              </div>
-
-              <div className = 'tech-stack-division'>
-                <SiJavascript className = 'tech-stack-icon'/>
-                <p className = 'tech-stack-name'>Javascript</p>
-              </div>
-
-              <div className = 'tech-stack-division'>
-                <SiReact className = 'tech-stack-icon'/>
-                <p className = 'tech-stack-name'>React & Reat Native</p>
-              </div>
-
-              <div className = 'tech-stack-division'>
-                <SiNextdotjs className = 'tech-stack-icon'/>
-                <p className = 'tech-stack-name'>Next</p>
-              </div>
-
-              <div className = 'tech-stack-division'>
-                <SiMysql className = 'tech-stack-icon'/>
-                <p className = 'tech-stack-name'>SQL</p>
-              </div>
-            </div>
-
-          </div>
-
         </div>
-
-      </div>
-
-    </div>
-  )
+    )
 }

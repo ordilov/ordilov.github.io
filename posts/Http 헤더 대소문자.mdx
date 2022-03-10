@@ -1,0 +1,50 @@
+---
+layout: post
+title:  "Http 헤더 대소문자 구분"
+date:   2022-02-15 00:00:01 +0900
+category: backend
+tags: ["backend"]
+keywords: ["backend"]
+---
+
+## 대소문자 구분?
+
+정답은 Name는 구분하지 않고 Value는 상관 없습니다.
+[RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)에 명시된 내용에 따르면 헤더는 ":" 를 기준으로 name과 value로 구성되어 있습니다.
+그리고 name은 대소문자를 구분하지 않는다고 명시되어 있습니다.
+
+---
+
+당연한 내용일 수도 있지만 몰랐던 사실을 알게 된건 Httpheaders를 사용하면서였습니다.
+Java에서 기본으로 제공하는 HttpHeaders는 기본 생성자가 private으로 인자를 넣어준 생성자만 접근가능합니다.
+
+```java
+import java.net.http.HttpHeaders
+...
+
+private HttpHeaders(){
+...
+}
+```
+
+그렇지만 Spring에서 제공하는 HttpHeaders는 기본 생성자를 사용할 수 있습니다.
+
+```java
+import org.springframework.http.HttpHeaders;
+...
+
+public HttpHeaders() {
+  this(CollectionUtils.toMultiValueMap(new LinkedCaseInsensitiveMap<>(8, Locale.ENGLISH)));
+}
+```
+
+LinkedCaseInsensitiveMap은 이름에서 보듯이 대소문자를 구분하지 않는 Map입니다.
+
+```java
+map.put("name", "value1");
+map.put("Name", "value2");
+
+System.out.println(map.get("name"));      // 결과는 value2
+```
+
+이런 자료구조를 사용하는 걸 봤을 때 http 헤더의 키는 대소문자를 구분하지 않는다고 예상할 수 있었습니다.
