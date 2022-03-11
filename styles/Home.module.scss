@@ -1,8 +1,11 @@
+@import "variables";
+
 .container {
   padding: 0 2rem;
 }
 
 .main {
+  background: $background-color;
   min-height: 100vh;
   padding: 4rem 0;
   flex: 1;

@@ -1,0 +1,25 @@
+@import "variables";
+
+.header{
+  color: #0070f3;
+  background-color: $background-color;
+  padding: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.headerLeft{
+  font-size: 20pt;
+  font-family: 'Source Sans Pro', sans-serif;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  text-decoration: none;
+}
+
+.headerRight{
+  display: flex;
+  flex: 3;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+

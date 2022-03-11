@@ -1,8 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import {serialize} from "next-mdx-remote/serialize";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import rehypeHighlight from "rehype-highlight";
+const codeTitle = require('remark-code-titles')
 
-// current 'posts' directory
 const postsDirectory = path.join(process.cwd(), 'posts');
 const mdx_file_extension = '.mdx';
 
@@ -24,7 +28,6 @@ function getAllFilesInDirectory(filePath: string) {
     });
 
     return files;
-
 }
 
 function getMdxFiles() {
@@ -45,7 +48,6 @@ export function getAllPostsPath() {
         const middle = parsedFile.replace(postsDirectory, '').replace(mdx_file_extension, '');
         const id = path.parse(middle).name;
         const category = middle.replace(id, '').split('\\')[1];
-
         return {
             params: {
                 id
@@ -54,61 +56,49 @@ export function getAllPostsPath() {
     })
 }
 
-export function getAllPostsMetadata() {
-    const allMdxFiles = getMdxFiles();
-
-    const allPostsData = allMdxFiles.map((parsedFile) => {
-        // get MDX metadata and content
+export function getHomePostMetadata() {
+    const files = getMdxFiles();
+    const meta = files.map((parsedFile) => {
         const fileContents = fs.readFileSync(parsedFile, 'utf8');
-        // get metadata, content
-        const {data, content} = matter(fileContents);
+        const {data} = matter(fileContents);
         let metadata = data;
         metadata['id'] = path.parse(parsedFile).name;
-        return {metadata, content}
-    });
+        return metadata;
+    }).filter((metadata) => metadata.category !== 'til');
 
-    return allPostsData.sort((a, b) => {
-        if (new Date(a.metadata.date) < new Date(b.metadata.date)) {
+    return meta.sort((a, b) => {
+        if (new Date(a.date) < new Date(b.date)) {
             return 1;
         } else {
             return -1;
         }
     })
-
-    /*
-        const postsMetadata = metadata.map((metadata, index) => {
-            let path = postPaths[index]?.importedPath;
-            let path_list = path.split('/');
-            path = path_list[path_list.length - 1].replace(/\.mdx$/, '');
-            //console.log(path);
-            metadata['id'] = path;
-            return { metadata }
-        });
-
-        return postsMetadata.sort((a, b) => {
-            if (new Date(a.metadata.date) < new Date(b.metadata.date)) {
-                return 1;
-            }
-            else {
-                return -1;
-            }
-        })
-    */
 }
-
 
 export async function getPostData(id: string) {
     const files = getAllFilesInDirectory(postsDirectory);
     const file = files.find((file) => {
         return file.endsWith(id + mdx_file_extension);
     });
-    // get MDX metadata and content
+
     const fileContents = fs.readFileSync(file!!, 'utf8');
-    // get metadata, content
     const {data, content} = matter(fileContents);
 
     let metadata = data;
     metadata['id'] = id;
 
-    return {'metadata': metadata, 'content': content};
+    const mdxSource = await serialize(content, {
+        mdxOptions: {
+            remarkPlugins: [
+                remarkMath,
+                codeTitle
+            ],
+            rehypePlugins: [
+                rehypeKatex,
+                rehypeHighlight
+            ]
+        }
+    });
+
+    return {metadata, mdxSource};
 }

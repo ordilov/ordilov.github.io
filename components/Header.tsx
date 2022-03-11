@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Head from "next/head";
+import styles from "../styles/Header.module.scss";
 
 const Header = () => {
     return (
@@ -11,14 +12,15 @@ const Header = () => {
                 <meta name="description" content="Blog"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <div className={'header'}>
-                <Link href="/">
-                    <a>
-                        <img src="/vercel.svg" alt="logo"/>
-                    </a>
-                </Link>
-
-                <Link href='/about'><a>About</a></Link>
+            <div className={styles.header}>
+                <div className={styles.headerLeft}>
+                    <Link href="/">
+                        Ordinary
+                    </Link>
+                </div>
+                <div className={styles.headerRight}>
+                    <Link href='/about'><a>About</a></Link>
+                </div>
             </div>
         </>
     )

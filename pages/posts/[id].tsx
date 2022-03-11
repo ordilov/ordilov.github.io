@@ -1,17 +1,19 @@
 import Header from "../../components/Header";
 import {MDXRemote, MDXRemoteSerializeResult} from 'next-mdx-remote';
-import {getAllPostsPath, getPostData} from "../../lib/get-all-posts-data";
-import {serialize} from "next-mdx-remote/serialize";
-import rehypeKatex from "rehype-katex";
-import remarkMath from "remark-math";
+import {getAllPostsPath, getPostData} from "../../lib/mdx";
+import styles from "../../styles/Home.module.scss";
+import postStyles from "../../styles/Post.module.scss";
+import MDXComponents from "../../components/MDXComponents";
+import PostLayout from "../../layouts/PostLayout";
 
-const Post = ({postContent}: { postContent: MDXRemoteSerializeResult }) => {
+const Post = ({metadata, mdxSource}: { metadata: any, mdxSource: MDXRemoteSerializeResult }) => {
     return (
-        <div className={""}>
+        <div className={styles.container}>
             <Header/>
-
-            <article className={""}>
-                <MDXRemote {...postContent} />
+            <article className={postStyles.blogContent}>
+                <PostLayout frontMatter={metadata}>
+                    <MDXRemote {...mdxSource} components={MDXComponents}/>
+                </PostLayout>
             </article>
         </div>
     )
@@ -25,23 +27,21 @@ export async function getStaticPaths() {
     }
 }
 
-export async function getStaticProps({params}: { params: { id: string } }) {
-    const postData = await getPostData(params.id);
+export async function getStaticProps({params}: {
+                                         params: {
+                                             id: string
+                                         }
+                                     }
+) {
 
-    const mdxSource = await serialize(postData.content, {
-        mdxOptions: {
-            remarkPlugins: [remarkMath],
-            rehypePlugins: [rehypeKatex]
-        }
-    });
+    const {metadata, mdxSource} = await getPostData(params.id);
+
     return {
         props: {
-            postMetadata: postData.metadata,
-            postContent: mdxSource,
-            id: params.id,
+            metadata,
+            mdxSource,
         }
     }
 }
-
 
 export default Post

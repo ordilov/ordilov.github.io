@@ -1,8 +1,23 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import '../styles/globals.scss'
+import '../styles/code.scss'
+import type {AppProps} from 'next/app'
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+const GlobalStyle = ({children}: { children: any }) => {
+
+    return (
+        <>
+            {children}
+        </>
+    )
+}
+
+
+function MyApp({Component, pageProps}: AppProps) {
+    return (
+        <GlobalStyle>
+            <Component {...pageProps} />
+        </GlobalStyle>
+    )
 }
 
 export default MyApp

@@ -162,13 +162,13 @@ B는 1을 위해 9건만 더 읽을 수 있기 때문에 효율적입니다.
 
 ### 인덱스 스킵 스캔
 인덱스의 핵심은 값이 정렬되어 있는 것이며 인덱스를 구성하는 칼럼의 순서가 매우 중요합니다.
-```MySQL
+```sql
 ALTER TABLE employess
     AND INDEX ix_gender_birthdate (gender, birth_date);
 ```
 이 인덱스를 사용하려면 WHERE 조건 절에 gender 칼럼에 대한 비교 조건이 필수입니다.
 
-```mysql
+```sql
 SELECT * FROM employees WHERE birth_Date >= '1965-02-01'; 
 ```
 
@@ -203,7 +203,7 @@ MySQL 8.0부터는 인덱스 칼럼을 건너 뛰어 사용 가능하게 해주�
 따라서 데이터 조회 쿼리에서 많이 사용하는 정렬 순서대로 인덱스를 생성하는 것이 효율적입니다.
 
 ### B-비교 조건의 종류와 효율성
-```mysql
+```sql
 SELECT * FROM dept_emp
 WHERE dept_no='d002' AND emp_no >= 10014;
 ```
@@ -249,7 +249,7 @@ n-gram은 몇 글자씩 글자를 잘라서 사용하는 방법입니다.
 ### 멀티 밸류 인덱스
 기본적으로 인덱스는 레코드 1건이 1개의 인덱스를 가집니다.
 JSON 포맷의 경우 전체 JSON 보다 필드 원소에 대한 인덱스가 필요합니다.
-```mysql 
+```sql
 MEMBER OF()
 JSON_CONTAINS()
 JSON_OVERLAPS()

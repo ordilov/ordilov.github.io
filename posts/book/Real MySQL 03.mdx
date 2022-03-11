@@ -16,7 +16,7 @@ keywords: ['book']
 ## 트랜잭션
 MyISAM이나 MEMORY 엔진은 트랜잭션을 보장하지 않으며 InnoDB 엔진은 지원합니다.
 트랜잭션을 보장하지 않는 경우 정합성을 보장하기 힘든 예제입니다.
-```mysql
+```sql
 CREATE TABLE tab_myisam (id INT NOT NULL, PRIMARY KEY (id)) ENGINE=MyISAM;
 INSERT INTO tab_myisam (id) VALUES(3);
 
@@ -49,7 +49,7 @@ MyISAM이나 MEMORY 테이블에 대해 mysqldump로 일관된 백업을 받아�
 InnoDB에서는 트랜잭션을 지원하기 때문에 일관된 데이터 상태를 위해 모든 데이터 변경 작업을 멈출 필요가 없습니다.
 그래서 좀 더 가벼운 글로벌 락을 사용할 수 있습니다.
 
-```mysql 
+```sql
 LOCK INSTANCE FOR BACKUP;
 
 UNLOCK INSTANCE;
@@ -71,7 +71,7 @@ InnoDB의 경우 데이터 변경 시에는 무시되고 스키마를 변경하�
 네임드 락은 단순히 사용자가 지정한 문자열을 획득하고 반납하는 잠금입니다.
 여러 서버에서 DB에 어떤 정보를 동기화를 하는 경우 락을 통해 접근 가능한지 확인할 수 있습니다.
 
-```mysql
+```sql
 SELECT GET_LOCK('mylock', 2);
 
 SELECT IS_FREE_LOCK('mylock');

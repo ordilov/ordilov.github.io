@@ -1,40 +1,28 @@
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
 import Header from "../components/Header";
-import CardLayout from "../components/CardLayout";
+import CardLayout from "../layouts/CardLayout";
 import {PostMetaData} from "../lib/types";
-import {getAllPostsMetadata} from "../lib/get-all-posts-data";
+import {getHomePostMetadata} from "../lib/mdx";
+import Footer from "../components/Footer";
 
-const Home = ({postsMetaData}: { postsMetaData: PostMetaData[] }) => {
+export default function Home({postsMetaData}: { postsMetaData: PostMetaData[] }){
+
     return (
         <div className={styles.container}>
             <Header/>
-
             <main className={styles.main}>
                 <CardLayout postsMetaData={postsMetaData}/>
             </main>
-
-            <footer className={styles.footer}>
-                <a
-                    href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Powered by{' '}
-                    <span className={styles.logo}>
-          </span>
-                </a>
-            </footer>
+            <Footer />
         </div>
     )
 }
 
 export async function getStaticProps() {
-    const postsMetaData = getAllPostsMetadata();
+    const postsMetaData = getHomePostMetadata().slice(0, 20);
     return {
         props: {
             postsMetaData
         }
     }
 }
-
-export default Home
