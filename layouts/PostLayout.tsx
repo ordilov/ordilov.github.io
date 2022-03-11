@@ -1,4 +1,5 @@
 import {useRouter} from "next/router";
+import styles from "../styles/Post.module.scss";
 
 export default function PostLayout({children, frontMatter}: { children: any, frontMatter: any }) {
     const router = useRouter()
@@ -8,10 +9,15 @@ export default function PostLayout({children, frontMatter}: { children: any, fro
     const date = dateString.slice(0, dateString.length - 1);
 
     return (
-        <div>
-            <h1>{frontMatter.title}</h1>
-            {author} {date}
+        <article className={styles.container}>
+            <div className={styles.head}>
+                <h1 className={styles.title}>{frontMatter.title}</h1>
+                <div className={styles.meta}>
+                    <img src={"/profile.png"} className={styles.avatar} alt={"profile"}/>
+                    <div className={styles.profile}>{author} {date}</div>
+                </div>
+            </div>
             {children}
-        </div>
+        </article>
     )
 }

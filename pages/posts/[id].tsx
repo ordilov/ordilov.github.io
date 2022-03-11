@@ -2,7 +2,6 @@ import Header from "../../components/Header";
 import {MDXRemote, MDXRemoteSerializeResult} from 'next-mdx-remote';
 import {getAllPostsPath, getPostData} from "../../lib/mdx";
 import styles from "../../styles/Home.module.scss";
-import postStyles from "../../styles/Post.module.scss";
 import MDXComponents from "../../components/MDXComponents";
 import PostLayout from "../../layouts/PostLayout";
 
@@ -10,11 +9,9 @@ const Post = ({metadata, mdxSource}: { metadata: any, mdxSource: MDXRemoteSerial
     return (
         <div className={styles.container}>
             <Header/>
-            <article className={postStyles.blogContent}>
-                <PostLayout frontMatter={metadata}>
-                    <MDXRemote {...mdxSource} components={MDXComponents}/>
-                </PostLayout>
-            </article>
+            <PostLayout frontMatter={metadata}>
+                <MDXRemote {...mdxSource} components={MDXComponents}/>
+            </PostLayout>
         </div>
     )
 }
