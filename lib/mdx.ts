@@ -64,7 +64,7 @@ export function getHomePostMetadata() {
         let metadata = data;
         metadata['id'] = path.parse(parsedFile).name;
         return metadata;
-    }).filter((metadata) => metadata.category !== 'til');
+    }).filter((metadata) => metadata.category !== 'til' && metadata.type != 'archive');
 
     return meta.sort((a, b) => {
         if (new Date(a.date) < new Date(b.date)) {
