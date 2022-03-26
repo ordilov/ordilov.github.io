@@ -5,9 +5,25 @@ const About = () => {
     return (
         <div className={styles.container}>
             <Header/>
-            <h1>About</h1>
-            <p>개인 공부용으로 정리해둔 블로그</p>
+
+            <div className={'main'}>
+                <h1>About</h1>
+                <p>개인 공부용으로 정리해둔 블로그</p>
+            </div>
+
+            <style jsx>{`
+              .main {
+                padding: 4rem 0;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+              }
+            `}</style>
         </div>
+
+
     );
 };
 
