@@ -24,7 +24,7 @@ export default function Toc({headings}: { headings: { text: string, link: string
             display: block;
             padding: 10px;
             text-decoration: none;
-            color: #000;
+            color: #FFF;
             font-size: 8pt;
             border-bottom: 1px solid #ccc;
           }
