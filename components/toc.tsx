@@ -16,6 +16,7 @@ export default function Toc({headings}: { headings: { text: string, link: string
 
           nav {
             top: 200px;
+            margin: 0 0 0 40px;
             display: inline-block;
             position: sticky;
           }
