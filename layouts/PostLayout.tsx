@@ -6,7 +6,7 @@ import Toc from "../components/toc";
 export default function PostLayout({children, frontMatter}: { children: any, frontMatter: any }) {
     const router = useRouter()
     const slug = router.asPath.replace('/posts', '')
-    const dateString = new Date(frontMatter.date).toLocaleDateString();
+    const dateString = new Date(frontMatter.date).toLocaleDateString('ko-KR');
     const author = 'ordilov /';
     const date = dateString.slice(0, dateString.length - 1);
 
