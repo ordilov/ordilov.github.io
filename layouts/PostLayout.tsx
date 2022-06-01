@@ -12,14 +12,18 @@ export default function PostLayout({children, frontMatter}: { children: any, fro
 
     const contentString = renderToString(children);
     const getHeadings = (source: string) => {
-        const regex = /<h2>(.*?)<\/h2>/g;
-        if (!source.match(regex) || source.match(regex) == null) return [];
-        return source.match(regex)!!.map((heading) => {
-            const headingText = heading.replace("<h2>", "").replace("</h2>", "");
+        const regex = /(<h2>(.*?)<\/h2>)|(<h3>(.*?)<\/h3>)/g;
+
+        const regExpMatchArray = source.match(regex);
+        if (!regExpMatchArray) return [];
+        return regExpMatchArray!!.map((heading) => {
+            const h3 = heading.match(/<h3>(.*?)<\/h3>/);
+            let headingText = heading.replace(/(<h2>)|(<\/h2>)|(<h3>)|(<\/h3>)/g, "");
             const link = "#" + headingText
             return {
                 text: headingText,
                 link,
+                depth: h3 ? 3 : 2
             };
         });
 
