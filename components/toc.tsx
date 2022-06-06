@@ -1,7 +1,7 @@
 export default function Toc({headings}: { headings: { text: string, link: string, depth: number }[], }) {
-    const heading = (heading: { text: string, link: string, depth: number }) => {
+    const heading = (heading: { text: string, link: string, depth: number, index: number }) => {
         return <>
-            <a href={heading.link}> {heading.text}</a>
+            <a href={heading.link} key={`toc${heading.index}`}> {heading.text}</a>
             <style jsx>{`
               a {
                 display: block;
@@ -26,8 +26,8 @@ export default function Toc({headings}: { headings: { text: string, link: string
 
     return <aside>
         <nav>
-            {headings.map(({text, link, depth}) =>
-                heading({text, link, depth})
+            {headings.map(({text, link, depth}, index) =>
+                heading({text, link, depth, index})
             )}
         </nav>
         <style jsx>{`
