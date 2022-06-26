@@ -1,7 +1,7 @@
 export default function Toc({headings}: { headings: { text: string, link: string, depth: number }[], }) {
     const heading = (heading: { text: string, link: string, depth: number, index: number }) => {
-        return <>
-            <a href={heading.link} key={`toc${heading.index}`}> {heading.text}</a>
+        return <li key={`${heading.index}`}>
+            <a href={heading.link}> {heading.text}</a>
             <style jsx>{`
               a {
                 display: block;
@@ -21,14 +21,16 @@ export default function Toc({headings}: { headings: { text: string, link: string
                 color: red;
               }
             `}</style>
-        </>
+        </li>
     }
 
     return <aside>
         <nav>
-            {headings.map(({text, link, depth}, index) =>
-                heading({text, link, depth, index})
-            )}
+            <ul>
+                {headings.map(({text, link, depth}, index) =>
+                    heading({text, link, depth, index})
+                )}
+            </ul>
         </nav>
         <style jsx>{`
           aside {
@@ -43,6 +45,10 @@ export default function Toc({headings}: { headings: { text: string, link: string
             padding: 0 0 0 10px;
             display: inline-block;
             position: sticky;
+          }
+
+          ul {
+            list-style: none;
           }
 
           @media (max-width: 1080px) {

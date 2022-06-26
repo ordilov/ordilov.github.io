@@ -1,5 +1,4 @@
 import {useRouter} from "next/router";
-import styles from "../styles/Post.module.scss";
 import {renderToString} from "react-dom/server";
 import Toc from "../components/toc";
 
@@ -34,12 +33,12 @@ export default function PostLayout({children, frontMatter}: { children: any, fro
     return (
         <div>
             <Toc headings={headings}/>
-            <article className={styles.container}>
-                <div className={styles.head}>
-                    <h1 className={styles.title}>{frontMatter.title}</h1>
-                    <div className={styles.meta}>
-                        <img src={"/profile.png"} className={styles.avatar} alt={"profile"}/>
-                        <div className={styles.profile}>{author} {date}</div>
+            <article className={"container"}>
+                <div className={"head"}>
+                    <h1 className={"title"}>{frontMatter.title}</h1>
+                    <div className={"meta"}>
+                        <img src={"/profile.png"} className={"avatar"} alt={"profile"}/>
+                        <div className={"profile"}>{author} {date}</div>
                     </div>
                 </div>
                 {children}
@@ -56,6 +55,37 @@ export default function PostLayout({children, frontMatter}: { children: any, fro
                   position: static;
                   height: auto;
                 }
+              }
+
+              .title {
+                font-size: 30pt;
+                margin-bottom: 5px;
+              }
+
+              .head {
+                margin-bottom: 2rem;
+              }
+
+              .avatar {
+                margin-right: 0.5rem;
+              }
+
+              .meta {
+                display: flex;
+                margin-right: 0.5rem;
+              }
+
+              .profile {
+                color: #A0AEC0;
+                line-height: 1.5;
+                margin-right: 0.5rem;
+              }
+
+              .container {
+                width: 100%;
+                max-width: 700px;
+                margin: 0 auto;
+                line-height: 1.625;
               }
             `}</style>
         </div>
