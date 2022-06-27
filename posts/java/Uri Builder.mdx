@@ -1,0 +1,47 @@
+---
+layout: post
+title:  "Java URI Builder"
+date:   2022-02-07 00:01:00 +0900
+category: java
+tags: ["backend"]
+keywords: ["backend"]
+description: Java의 URI Builder를 알아봅니다/
+---
+
+## URI Builder
+자바에서 URI 클래스는 문자열에서 URI 객체를 생성하거나 URI 구성 별로 가져올 수 있습니다.
+하지만 구성 요소들을 조합해서 URI를 만들려고 할 때 직접 문자열들을 합쳐서 만들 수 밖에 없습니다.
+
+```java
+URI uri = new URI(host + port + path + query);
+```
+
+query에 여러 값이 들어가거나 하면 만드는게 번잡해집니다.
+이런 불편함을 해소하기 위해 URI 빌더 클래스들이 있습니다.
+대표적으로 Spring의 UriComponentsBuilder가 있습니다.
+
+```java 
+UriComponentsBuilder uri = UriComponentsBuilder.fromUri(uri)
+                                .queryParam("name", name)
+                                .queryParam("age", age)
+                                .build();
+```
+
+문자열을 직접 조합할 필요 없이 key value 형식으로 query를 조합할 수 있습니다.
+
+## URI query 파싱하기
+query의 전체부분을 가져오는 방법은 간단합니다.
+
+```java 
+uri.getQuery();
+```
+
+다만 이렇게 출력된 결과는 query에 key value를 구분하는 특수문자('=', '&') 이 전부 합쳐져 있습니다.
+구분한 값을 받아오려면 `getQueryParams()`를 사용하면됩니다.
+반환된 결과는 MultiValueMap인데 그 이유는 쿼리에서 하나의 key에 여러 value를 넣을 수 있어서 입니다. 
+따라서 key 에 따라 반환된 List String value 값들을 사용하면 됩니다.
+
+```java 
+MultiValueMap<String, String> queryParams = u.getQueryParams();
+```
+

@@ -1,7 +1,6 @@
-import {getAllPagesPath, getPageMetadata} from "../../lib/mdx";
+import {getAllPagesPath, getPageMetadataById} from "../../lib/mdx";
 import {PostMetaData} from "../../lib/types";
-import CardLayout from "../../layouts/CardLayout";
-import PageNavigation from "../../components/PageNavigation";
+import PageLayout from "../../layouts/PageLayout";
 
 export default function Post({
                                  data,
@@ -9,19 +8,7 @@ export default function Post({
                                  id
                              }: { data: PostMetaData[], totalPages: number, id: number }) {
     return (
-        <div className={"container"}>
-            <CardLayout postsMetaData={data}/>
-            <PageNavigation length={totalPages} currentPage={id}/>
-            <style jsx>{`
-              @media (min-width: 720px) {
-                .container {
-                  max-width: 50rem;
-                  padding: 0 2rem;
-                  margin: 0 auto;
-                }
-              }
-            `}</style>
-        </div>
+        <PageLayout data={data} totalPages={totalPages} id={id}/>
     )
 }
 
@@ -39,7 +26,7 @@ export async function getStaticProps({params}: {
     }
 }) {
     const id = parseInt(params.id);
-    const {totalPages, data} = getPageMetadata(id);
+    const {totalPages, data} = getPageMetadataById(id);
     return {
         props: {
             data,

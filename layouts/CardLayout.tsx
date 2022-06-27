@@ -31,6 +31,7 @@ const CardLayout = ({postsMetaData}: { postsMetaData: PostMetaData[] }) => {
 
               article:hover {
                 box-shadow: 0 0 0.6rem rgb(0 0 0 / 60%);
+                transform: translate(0, -0.4rem);
                 color: #7bd694;
                 background-color: #4f4c4c;
               }

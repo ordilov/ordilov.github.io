@@ -10,7 +10,7 @@ const GlobalStyle = ({children}: { children: any }) =>
             color: white;
             box-sizing: border-box;
           }
-          
+
           html,
           body {
             padding: 0;
@@ -24,13 +24,12 @@ const GlobalStyle = ({children}: { children: any }) =>
             color: inherit;
             text-decoration: none;
           }
-          
+
           main {
-            position: relative;
             background: #1e1e1e;
             min-height: 100vh;
             height: 100%;
-            padding: 4rem 0;
+            padding: 8rem 0 0 0;
             align-items: center;
           }
 
@@ -57,14 +56,6 @@ const GlobalStyle = ({children}: { children: any }) =>
 
           article {
             position: relative;
-          }
-
-          @media (min-width: 720px) {
-            main {
-              max-width: 70rem;
-              padding: 0 2rem;
-              margin: 0 auto;
-            }
           }
 
           .hljs {

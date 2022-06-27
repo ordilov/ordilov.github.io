@@ -32,8 +32,8 @@ export default function PostLayout({children, frontMatter}: { children: any, fro
 
     return (
         <div>
-            <Toc headings={headings}/>
             <article className={"container"}>
+                <Toc headings={headings}/>
                 <div className={"head"}>
                     <h1 className={"title"}>{frontMatter.title}</h1>
                     <div className={"meta"}>
@@ -83,9 +83,16 @@ export default function PostLayout({children, frontMatter}: { children: any, fro
 
               .container {
                 width: 100%;
-                max-width: 700px;
+                max-width: 720px;
                 margin: 0 auto;
                 line-height: 1.625;
+              }
+
+              @media (min-width: 720px) {
+                .container {
+                  padding: 0 2rem;
+                  margin: 0 auto;
+                }
               }
             `}</style>
         </div>

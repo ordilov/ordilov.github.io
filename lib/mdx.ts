@@ -69,7 +69,7 @@ export function getAllPagesPath() {
     });
 }
 
-export function getPageMetadata(currentPage: number) {
+export function getPageMetadataByCategory(category: string) {
     const files = getMdxFiles()
         .map((parsedFile) => {
             const fileContents = fs.readFileSync(parsedFile, 'utf8');
@@ -78,7 +78,28 @@ export function getPageMetadata(currentPage: number) {
             metadata['id'] = path.parse(parsedFile).name;
             return metadata;
         })
-        .filter((metadata) => metadata.category !== 'til' && metadata.type != 'archive')
+        .filter(metadata =>
+            metadata.category === category &&
+            metadata.type != 'archive')
+        .sort((a, b) => {
+            return new Date(b.date) <= new Date(a.date) ? -1 : 1;
+        });
+    return files;
+}
+
+export function getPageMetadataById(currentPage: number) {
+    const files = getMdxFiles()
+        .map((parsedFile) => {
+            const fileContents = fs.readFileSync(parsedFile, 'utf8');
+            const {data} = matter(fileContents);
+            let metadata = data;
+            metadata['id'] = path.parse(parsedFile).name;
+            return metadata;
+        })
+        .filter((metadata) =>
+            metadata.category !== 'til' &&
+            metadata.category !== 'algorithm' &&
+            metadata.type != 'archive')
         .sort((a, b) => {
             return new Date(b.date) <= new Date(a.date) ? -1 : 1;
         });

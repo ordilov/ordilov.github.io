@@ -36,6 +36,7 @@ export default function Toc({headings}: { headings: { text: string, link: string
           aside {
             position: absolute;
             right: 0;
+            padding-left: 200px;
             width: 200px;
             height: 100%;
           }

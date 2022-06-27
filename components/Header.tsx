@@ -16,7 +16,7 @@ const Header = () =>
                     Ordinary
                 </Link>
             </div>
-            <div className={"headerRight"}>
+            <div className={"about"}>
                 <Link href='/about'><a>About</a></Link>
             </div>
         </header>
@@ -26,22 +26,32 @@ const Header = () =>
             display: grid;
             color: #0070f3;
             background-color: #1e1e1e;
-            padding: 20px;
-            border-bottom: 2px solid #e5e5e5;
-            border-radius: 100px;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 100px;
+            border-bottom: 1px solid #e5e5e5;
+            grid-template-columns: 1fr  1fr;
+            grid-template-rows: 5rem;
+            position: fixed;
+            width: 100%;
+            left: 25%;
+            height: 5rem;
+            z-index: 300;
+            opacity: 0.95;
           }
 
           .home {
-            font-size: 24pt;
+            font-size: 2rem;
             font-family: 'system-ui', serif;
             display: flex;
             align-items: center;
             text-decoration: none;
           }
 
-          .headerRight {
+          .about {
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+          }
+
+          .category {
             display: flex;
             align-items: center;
             flex-direction: row-reverse;
