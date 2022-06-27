@@ -1,9 +1,16 @@
 import type {AppProps} from 'next/app'
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const GlobalStyle = ({children}: { children: any }) =>
     <>
         {children}
         <style jsx global>{`
+          * {
+            color: white;
+            box-sizing: border-box;
+          }
+          
           html,
           body {
             padding: 0;
@@ -17,14 +24,14 @@ const GlobalStyle = ({children}: { children: any }) =>
             color: inherit;
             text-decoration: none;
           }
-
-          * {
-            color: white;;
-            box-sizing: border-box;
-          }
-
+          
           main {
-            background-color: #1e1e1e;
+            position: relative;
+            background: #1e1e1e;
+            min-height: 100vh;
+            height: 100%;
+            padding: 4rem 0;
+            align-items: center;
           }
 
           strong {
@@ -52,8 +59,16 @@ const GlobalStyle = ({children}: { children: any }) =>
             position: relative;
           }
 
+          @media (min-width: 720px) {
+            main {
+              max-width: 70rem;
+              padding: 0 2rem;
+              margin: 0 auto;
+            }
+          }
+
           .hljs {
-            font-size: 1rem;
+            font-size: 0.9rem;
             background: #333;
             font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
             display: block;
@@ -152,7 +167,6 @@ const GlobalStyle = ({children}: { children: any }) =>
             color: #333;
           }
 
-          /* Purposely ignored */
           .hljs-operator,
           .hljs-params,
           .hljs-property,
@@ -186,7 +200,11 @@ const GlobalStyle = ({children}: { children: any }) =>
 function MyApp({Component, pageProps}: AppProps) {
     return (
         <GlobalStyle>
-            <Component {...pageProps} />
+            <Header/>
+            <main>
+                <Component {...pageProps} />
+            </main>
+            <Footer/>
         </GlobalStyle>
     )
 }

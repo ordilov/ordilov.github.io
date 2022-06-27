@@ -10,7 +10,7 @@ const Header = () =>
             <meta name="description" content="Blog"/>
             <link rel="icon" href="/favicon.ico"/>
         </Head>
-        <div className={"header"}>
+        <header>
             <div className={"headerLeft"}>
                 <Link href="/">
                     Ordinary
@@ -19,29 +19,39 @@ const Header = () =>
             <div className={"headerRight"}>
                 <Link href='/about'><a>About</a></Link>
             </div>
-        </div>
+        </header>
+
         <style jsx>{`
-          .header {
+          header {
+            display: grid;
             color: #0070f3;
             background-color: #1e1e1e;
             padding: 20px;
             border-bottom: 1px solid #e5e5e5;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 100px;
           }
 
           .headerLeft {
-            font-size: 20pt;
+            font-size: 24pt;
             font-family: 'Source Sans Pro', sans-serif;
             display: flex;
-            flex: 1;
             align-items: center;
             text-decoration: none;
           }
 
           .headerRight {
             display: flex;
-            flex: 3;
             align-items: center;
             flex-direction: row-reverse;
+          }
+
+          @media (min-width: 720px) {
+            header {
+              max-width: 50rem;
+              padding: 0 2rem;
+              margin: 0 auto;
+            }
           }
         `}</style>
     </>

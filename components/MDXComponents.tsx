@@ -7,11 +7,16 @@ const Paragraph = css`
   }
 `
 
-const Link = css`
-  .Link {
-    color: #62c8f3;
-  }
-`
+const A = (props: any) => (
+    <a>
+        {props.children}
+        <style jsx>{`
+          a {
+            color: #62c8f3;
+          }
+        `}</style>
+    </a>
+)
 
 const Heading = (props: any) => (
     <div>
@@ -36,7 +41,7 @@ const MDXComponents = {
     h5: (props: any) => <Heading as="h5" size={14} {...props} />,
     h6: (props: any) => <Heading as="h6" size={12} {...props} />,
     p: (props: any) => <p className={Paragraph} {...props} />,
-    a: (props: any) => <a className={Link} {...props} />,
+    a: (props: any) => <A {...props}/>,
     table: (props: any) => <table {...props} />,
 }
 

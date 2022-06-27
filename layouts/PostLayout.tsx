@@ -1,6 +1,6 @@
 import {useRouter} from "next/router";
 import {renderToString} from "react-dom/server";
-import Toc from "../components/toc";
+import Toc from "../components/Toc";
 
 export default function PostLayout({children, frontMatter}: { children: any, frontMatter: any }) {
     const router = useRouter()
