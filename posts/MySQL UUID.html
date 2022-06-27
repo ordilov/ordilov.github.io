@@ -1,12 +1,17 @@
-<!DOCTYPE html><html><head><title class="jsx-11a0cb94398737f0">Ordinary</title><meta charSet="utf-8" class="jsx-11a0cb94398737f0"/><meta name="viewport" content="width=device-width, initial-scale=1" class="jsx-11a0cb94398737f0"/><meta name="description" content="Blog" class="jsx-11a0cb94398737f0"/><link rel="icon" href="/favicon.ico" class="jsx-11a0cb94398737f0"/><meta name="next-head-count" content="5"/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/_next/static/chunks/webpack-9b312e20a4e32339.js" defer=""></script><script src="/_next/static/chunks/framework-82797a600c079ab5.js" defer=""></script><script src="/_next/static/chunks/main-a054bbf31fb90f6a.js" defer=""></script><script src="/_next/static/chunks/pages/_app-ff0c62947eb4af1a.js" defer=""></script><script src="/_next/static/chunks/pages/posts/%5Bid%5D-e50a7c1f288c3a66.js" defer=""></script><script src="/_next/static/B8NI0PSFXqUfoDDx0IWnS/_buildManifest.js" defer=""></script><script src="/_next/static/B8NI0PSFXqUfoDDx0IWnS/_ssgManifest.js" defer=""></script><script src="/_next/static/B8NI0PSFXqUfoDDx0IWnS/_middlewareManifest.js" defer=""></script><style id="__jsx-11a0cb94398737f0">header.jsx-11a0cb94398737f0{display:grid;
+<!DOCTYPE html><html><head><title class="jsx-fef23c1069654ba7">Ordinary</title><meta charSet="utf-8" class="jsx-fef23c1069654ba7"/><meta name="viewport" content="width=device-width, initial-scale=1" class="jsx-fef23c1069654ba7"/><meta name="description" content="Blog" class="jsx-fef23c1069654ba7"/><link rel="icon" href="/favicon.ico" class="jsx-fef23c1069654ba7"/><meta name="next-head-count" content="5"/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/_next/static/chunks/webpack-9b312e20a4e32339.js" defer=""></script><script src="/_next/static/chunks/framework-82797a600c079ab5.js" defer=""></script><script src="/_next/static/chunks/main-a054bbf31fb90f6a.js" defer=""></script><script src="/_next/static/chunks/pages/_app-e717f3184ed98c56.js" defer=""></script><script src="/_next/static/chunks/pages/posts/%5Bid%5D-3361498c72df74d6.js" defer=""></script><script src="/_next/static/7H1W8XNv0x7XPDStJpslE/_buildManifest.js" defer=""></script><script src="/_next/static/7H1W8XNv0x7XPDStJpslE/_ssgManifest.js" defer=""></script><script src="/_next/static/7H1W8XNv0x7XPDStJpslE/_middlewareManifest.js" defer=""></script><style id="__jsx-fef23c1069654ba7">header.jsx-fef23c1069654ba7{display:grid;
 color:#0070f3;
 background-color:#1e1e1e;
-padding:20px;
 border-bottom:1px solid #e5e5e5;
 grid-template-columns:1fr 1fr;
-grid-template-rows:100px}
-.headerLeft.jsx-11a0cb94398737f0{font-size:24pt;
-font-family:'Source Sans Pro', sans-serif;
+grid-template-rows:5rem;
+position:fixed;
+width:100%;
+left:25%;
+height:5rem;
+z-index:300;
+opacity:0.95}
+.home.jsx-fef23c1069654ba7{font-size:2rem;
+font-family:'system-ui', serif;
 display:-webkit-box;
 display:-webkit-flex;
 display:-ms-flexbox;
@@ -17,7 +22,7 @@ display:flex;
 align-items:center;
 -webkit-text-decoration:none;
 text-decoration:none}
-.headerRight.jsx-11a0cb94398737f0{display:-webkit-box;
+.about.jsx-fef23c1069654ba7{display:-webkit-box;
 display:-webkit-flex;
 display:-ms-flexbox;
 display:flex;
@@ -28,7 +33,18 @@ align-items:center;
 -webkit-flex-direction:row-reverse;
 -ms-flex-direction:row-reverse;
 flex-direction:row-reverse}
-@media (min-width:720px) {header.jsx-11a0cb94398737f0{max-width:50rem;
+.category.jsx-fef23c1069654ba7{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-flex-direction:row-reverse;
+-ms-flex-direction:row-reverse;
+flex-direction:row-reverse}
+@media (min-width:720px) {header.jsx-fef23c1069654ba7{max-width:50rem;
 padding:0 2rem;
 margin:0 auto}}</style><style id="__jsx-2786876435">a.jsx-2786876435{display:block;
 margin-left:0px;
@@ -54,37 +70,46 @@ color:#FFF;
 font-size:8pt;
 border-bottom:1px solid #ccc}
 [aria-current].jsx-3340924647:not([aria-current="false"]){font-weight:bold;
-color:red}</style><style id="__jsx-d3a8789621931ffd">aside.jsx-d3a8789621931ffd{position:absolute;
+color:red}</style><style id="__jsx-ba6267904dd67a4c">aside.jsx-ba6267904dd67a4c{position:absolute;
 right:0;
+padding-left:200px;
 width:200px;
 height:100%}
-nav.jsx-d3a8789621931ffd{top:200px;
+nav.jsx-ba6267904dd67a4c{top:200px;
 padding:0 0 0 10px;
 display:inline-block;
 position:-webkit-sticky;
 position:sticky}
-ul.jsx-d3a8789621931ffd{list-style:none}
-@media (max-width:1080px) {aside.jsx-d3a8789621931ffd{visibility:hidden}}</style><style id="__jsx-52f56faf7d264d51">a.jsx-52f56faf7d264d51{color:#62c8f3}</style><style id="__jsx-44892c5bd5256dd3">article.jsx-44892c5bd5256dd3{display:block;
+ul.jsx-ba6267904dd67a4c{list-style:none}
+@media (max-width:1080px) {aside.jsx-ba6267904dd67a4c{visibility:hidden}}</style><style id="__jsx-66c5b3c4cf32749c">img.jsx-66c5b3c4cf32749c{display:inline;
+vertical-align:middle}
+span.jsx-66c5b3c4cf32749c{color:#BBBBBB;
+padding-left:0.5rem;
+display:inline;
+vertical-align:middle}</style><style id="__jsx-52f56faf7d264d51">a.jsx-52f56faf7d264d51{color:#62c8f3}</style><style id="__jsx-c8fb16c3e47b2e7f">article.jsx-c8fb16c3e47b2e7f{display:block;
 margin:0 auto;
 padding:0 1rem}
-@media (max-width:800px) {aside.jsx-44892c5bd5256dd3{position:static;
+@media (max-width:800px) {aside.jsx-c8fb16c3e47b2e7f{position:static;
 height:auto}}
-.title.jsx-44892c5bd5256dd3{font-size:30pt;
+h1.jsx-c8fb16c3e47b2e7f{font-size:30pt;
 margin-bottom:5px}
-.head.jsx-44892c5bd5256dd3{margin-bottom:2rem}
-.avatar.jsx-44892c5bd5256dd3{margin-right:0.5rem}
-.meta.jsx-44892c5bd5256dd3{display:-webkit-box;
-display:-webkit-flex;
-display:-ms-flexbox;
-display:flex;
-margin-right:0.5rem}
-.profile.jsx-44892c5bd5256dd3{color:#A0AEC0;
-line-height:1.5;
-margin-right:0.5rem}
-.container.jsx-44892c5bd5256dd3{width:100%;
-max-width:700px;
+.head.jsx-c8fb16c3e47b2e7f{margin-bottom:2rem}
+.container.jsx-c8fb16c3e47b2e7f{width:100%;
+max-width:720px;
 margin:0 auto;
-line-height:1.625}</style><style id="__jsx-54d2412a35c4003a">.github.jsx-54d2412a35c4003a{text-align:center}</style><style id="__jsx-bf1060902d5987dc">footer.jsx-bf1060902d5987dc{height:6rem;
+line-height:1.625}
+@media (min-width:720px) {.container.jsx-c8fb16c3e47b2e7f{padding:0 2rem;
+margin:0 auto}}</style><style id="__jsx-fc08dd7c2fcf6a18">.github.jsx-fc08dd7c2fcf6a18{display:inline-block;
+text-align:center;
+width:8rem;
+height:2rem;
+margin:0 auto}
+.github.jsx-fc08dd7c2fcf6a18:hover{background-color:#4d4747;
+box-shadow:0 0 0.6rem rgb(0 0 0 / 60%);
+-webkit-transform:translate(0, -0.4rem);
+-moz-transform:translate(0, -0.4rem);
+-ms-transform:translate(0, -0.4rem);
+transform:translate(0, -0.4rem)}</style><style id="__jsx-bf1060902d5987dc">footer.jsx-bf1060902d5987dc{height:6rem;
 padding:0 2rem;
 text-align:center;
 margin:0 auto;
@@ -93,7 +118,7 @@ grid-template-columns:1fr 1fr}
 span.jsx-bf1060902d5987dc{padding:2rem 0}
 @media (min-width:720px) {footer.jsx-bf1060902d5987dc{max-width:50rem;
 padding:0 2rem;
-margin:0 auto}}</style><style id="__jsx-2037d33799e7fd9a">*{color:white;
+margin:0 auto}}</style><style id="__jsx-fdda0da833babefe">*{color:white;
 box-sizing:border-box}
 html, body{padding:0;
 margin:0;
@@ -102,11 +127,10 @@ background:#1e1e1e}
 a{color:inherit;
 -webkit-text-decoration:none;
 text-decoration:none}
-main{position:relative;
-background:#1e1e1e;
+main{background:#1e1e1e;
 min-height:100vh;
 height:100%;
-padding:4rem 0;
+padding:8rem 0 0 0;
 -webkit-align-items:center;
 -webkit-box-align:center;
 -ms-flex-align:center;
@@ -123,9 +147,6 @@ padding-right:20px;
 border-left:12px solid #27a9e3;
 border-radius:5px}
 article{position:relative}
-@media (min-width:720px) {main{max-width:70rem;
-padding:0 2rem;
-margin:0 auto}}
 .hljs{font-size:0.9rem;
 background:#333;
 font-family:SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -159,7 +180,7 @@ color:#333}
 .hljs a:focus, .hljs a:hover{color:inherit;
 text-decoration:underline}
 .hljs mark{background:#555;
-color:inherit}</style></head><body><div id="__next" data-reactroot=""><header class="jsx-11a0cb94398737f0"><div class="jsx-11a0cb94398737f0 headerLeft"><a href="/">Ordinary</a></div><div class="jsx-11a0cb94398737f0 headerRight"><a class="jsx-11a0cb94398737f0" href="/about">About</a></div></header><main><div class="jsx-18cc8619c204c37c"><div class="jsx-44892c5bd5256dd3"><aside class="jsx-d3a8789621931ffd"><nav class="jsx-d3a8789621931ffd"><ul class="jsx-d3a8789621931ffd"><li class="jsx-2786876435"><a href="#UUID" class="jsx-2786876435"> <!-- -->UUID</a></li><li class="jsx-2786876435"><a href="#MySQL에서 저장할 때" class="jsx-2786876435"> <!-- -->MySQL에서 저장할 때</a></li><li class="jsx-3340924647"><a href="#참조" class="jsx-3340924647"> <!-- -->참조</a></li></ul></nav></aside><article class="jsx-44892c5bd5256dd3 container"><div class="jsx-44892c5bd5256dd3 head"><h1 class="jsx-44892c5bd5256dd3 title">MySQL UUID</h1><div class="jsx-44892c5bd5256dd3 meta"><img src="/profile.png" alt="profile" class="jsx-44892c5bd5256dd3 avatar"/><div class="jsx-44892c5bd5256dd3 profile">ordilov /<!-- --> <!-- -->2022. 4. 24</div></div></div><div id="UUID"><h2>UUID</h2></div>
+color:inherit}</style></head><body><div id="__next" data-reactroot=""><header class="jsx-fef23c1069654ba7"><div class="jsx-fef23c1069654ba7 home"><a href="/">Ordinary</a></div><div class="jsx-fef23c1069654ba7 about"><a class="jsx-fef23c1069654ba7" href="/about">About</a></div></header><main><div class="jsx-18cc8619c204c37c"><div class="jsx-c8fb16c3e47b2e7f"><article class="jsx-c8fb16c3e47b2e7f container"><aside class="jsx-ba6267904dd67a4c"><nav class="jsx-ba6267904dd67a4c"><ul class="jsx-ba6267904dd67a4c"><li class="jsx-2786876435"><a href="#UUID" class="jsx-2786876435"> <!-- -->UUID</a></li><li class="jsx-2786876435"><a href="#MySQL에서 저장할 때" class="jsx-2786876435"> <!-- -->MySQL에서 저장할 때</a></li><li class="jsx-3340924647"><a href="#참조" class="jsx-3340924647"> <!-- -->참조</a></li></ul></nav></aside><div class="jsx-c8fb16c3e47b2e7f head"><h1 class="jsx-c8fb16c3e47b2e7f">MySQL UUID</h1><div class="jsx-66c5b3c4cf32749c"><img src="/profile.png" alt="profile" class="jsx-66c5b3c4cf32749c avatar"/><span class="jsx-66c5b3c4cf32749c">ordilov<!-- --> / <!-- -->2022. 4. 24</span></div></div><div id="UUID"><h2>UUID</h2></div>
 <p class=".Paragraph.jsx-c13bd6d988b6c83{line-height:1.625}">UUID(universally unique identifier)는 128비트 식별자입니다.
 분산된 환경에서 고유한 식별자를 위해 특정 서버에 의존하지 않고, 매우 높은 확률로 중복되지 않는 식별자를 만들 수 있습니다.</p>
 <p class=".Paragraph.jsx-c13bd6d988b6c83{line-height:1.625}">이렇게 생성하면 다음과 같은 장점들이 있습니다.</p>
@@ -198,4 +219,4 @@ UUID에서의 문자도 16진수형 숫자들의 문자이므로 <code>char</cod
 반대로 압축된 바이너리 값을 UUID 형태로 반환할 때는 <code>BIN_TO_UUID()</code> 함수를 사용하면 됩니다.</p>
 <div id="참조"><h3>참조</h3></div>
 <p class=".Paragraph.jsx-c13bd6d988b6c83{line-height:1.625}"><a class="jsx-52f56faf7d264d51">https://dev.mysql.com/blog-archive/mysql-8-0-uuid-support/</a></p>
-<p class=".Paragraph.jsx-c13bd6d988b6c83{line-height:1.625}"><a class="jsx-52f56faf7d264d51">https://dev.mysql.com/blog-archive/storing-uuid-values-in-mysql-tables/</a></p></article></div></div></main><footer class="jsx-bf1060902d5987dc"><span class="jsx-bf1060902d5987dc"><a href="https://github.com/ordilov" class="jsx-54d2412a35c4003a">Github</a></span><span class="jsx-bf1060902d5987dc">Copyright © Ordilov</span></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"metadata":{"title":"MySQL UUID","date":"2022-04-25 00:01:00 +0900","category":"backend","tags":["backend"],"keywords":["backend"],"description":"MySQL에서 UUID를 처리해주는 방식을 알아봅니다.","id":"MySQL UUID"},"mdxSource":{"compiledSource":"/*@jsxRuntime automatic @jsxImportSource react*/\nconst {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];\nconst {useMDXComponents: _provideComponents} = arguments[0];\nfunction MDXContent(props = {}) {\n  const {wrapper: MDXLayout} = Object.assign({}, _provideComponents(), props.components);\n  return MDXLayout ? _jsx(MDXLayout, Object.assign({}, props, {\n    children: _jsx(_createMdxContent, {})\n  })) : _createMdxContent();\n  function _createMdxContent() {\n    const _components = Object.assign({\n      h2: \"h2\",\n      p: \"p\",\n      ul: \"ul\",\n      li: \"li\",\n      pre: \"pre\",\n      code: \"code\",\n      span: \"span\",\n      blockquote: \"blockquote\",\n      h3: \"h3\",\n      a: \"a\"\n    }, _provideComponents(), props.components);\n    return _jsxs(_Fragment, {\n      children: [_jsx(_components.h2, {\n        children: \"UUID\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"UUID(universally unique identifier)는 128비트 식별자입니다.\\n분산된 환경에서 고유한 식별자를 위해 특정 서버에 의존하지 않고, 매우 높은 확률로 중복되지 않는 식별자를 만들 수 있습니다.\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"이렇게 생성하면 다음과 같은 장점들이 있습니다.\"\n      }), \"\\n\", _jsxs(_components.ul, {\n        children: [\"\\n\", _jsx(_components.li, {\n          children: \"서버를 거치거나 외부 통신 없이 고유한 식별자를 생성할 수 있습니다.\"\n        }), \"\\n\", _jsx(_components.li, {\n          children: \"값이 증가하거나 패턴이 있지 않아 ID를 추측해 처리하는 접근이 어려워집니다.\"\n        }), \"\\n\"]\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"반면 단점으로는 식별자를 저장하기 위해 128비트를 저장해야하는 문제가 있습니다.\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"UUID를 만들 때는 각 언어에서 지원하는 UUID 생성 방법을 통해 만들 수 있습니다.\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"예시로 mysql에서 만드는 방법입니다.\"\n      }), \"\\n\", _jsx(_components.pre, {\n        children: _jsxs(_components.code, {\n          className: \"hljs language-sql\",\n          children: [_jsx(_components.span, {\n            className: \"hljs-keyword\",\n            children: \"select\"\n          }), \" uuid()\\n\"]\n        })\n      }), \"\\n\", _jsxs(_components.p, {\n        children: [\"java에서 만든다면 \", _jsx(_components.code, {\n          children: \"UUID.randomUUID()\"\n        }), \"로 만들 수 있으며 구현은 다음과 같습니다.\"]\n      }), \"\\n\", _jsx(_components.pre, {\n        children: _jsxs(_components.code, {\n          className: \"hljs language-java\",\n          children: [_jsx(_components.span, {\n            className: \"hljs-keyword\",\n            children: \"public\"\n          }), \" \", _jsx(_components.span, {\n            className: \"hljs-keyword\",\n            children: \"static\"\n          }), \" UUID \", _jsx(_components.span, {\n            className: \"hljs-title function_\",\n            children: \"randomUUID\"\n          }), _jsx(_components.span, {\n            className: \"hljs-params\",\n            children: \"()\"\n          }), \" {\\n    \", _jsx(_components.span, {\n            className: \"hljs-type\",\n            children: \"SecureRandom\"\n          }), \" \", _jsx(_components.span, {\n            className: \"hljs-variable\",\n            children: \"ng\"\n          }), \" \", _jsx(_components.span, {\n            className: \"hljs-operator\",\n            children: \"=\"\n          }), \" Holder.numberGenerator;\\n\\n    \", _jsx(_components.span, {\n            className: \"hljs-type\",\n            children: \"byte\"\n          }), \"[] randomBytes = \", _jsx(_components.span, {\n            className: \"hljs-keyword\",\n            children: \"new\"\n          }), \" \", _jsx(_components.span, {\n            className: \"hljs-title class_\",\n            children: \"byte\"\n          }), \"[\", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"16\"\n          }), \"];\\n    ng.nextBytes(randomBytes);\\n    randomBytes[\", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"6\"\n          }), \"]  \u0026= \", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"0x0f\"\n          }), \";  \", _jsx(_components.span, {\n            className: \"hljs-comment\",\n            children: \"/* clear version        */\"\n          }), \"\\n    randomBytes[\", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"6\"\n          }), \"]  |= \", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"0x40\"\n          }), \";  \", _jsx(_components.span, {\n            className: \"hljs-comment\",\n            children: \"/* set to version 4     */\"\n          }), \"\\n    randomBytes[\", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"8\"\n          }), \"]  \u0026= \", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"0x3f\"\n          }), \";  \", _jsx(_components.span, {\n            className: \"hljs-comment\",\n            children: \"/* clear variant        */\"\n          }), \"\\n    randomBytes[\", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"8\"\n          }), \"]  |= \", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"0x80\"\n          }), \";  \", _jsx(_components.span, {\n            className: \"hljs-comment\",\n            children: \"/* set to IETF variant  */\"\n          }), \"\\n    \", _jsx(_components.span, {\n            className: \"hljs-keyword\",\n            children: \"return\"\n          }), \" \", _jsx(_components.span, {\n            className: \"hljs-keyword\",\n            children: \"new\"\n          }), \" \", _jsx(_components.span, {\n            className: \"hljs-title class_\",\n            children: \"UUID\"\n          }), \"(randomBytes);\\n}\\n\"]\n        })\n      }), \"\\n\", _jsx(_components.h2, {\n        children: \"MySQL에서 저장할 때\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"UUID가 128비트 식별자라고 했지만 실제 글자 수는 36글자로 '-' 문자 4개로 구분되어 있습니다.\"\n      }), \"\\n\", _jsxs(_components.blockquote, {\n        children: [\"\\n\", _jsx(_components.p, {\n          children: \"aab5d5fd-70c1-11e5-a4fb-b026b977eb28\"\n        }), \"\\n\"]\n      }), \"\\n\", _jsxs(_components.p, {\n        children: [\"그대로 MySQL에 저장하는 경우 36글자를 차지하게 되는데 \", _jsx(_components.code, {\n          children: \"char\"\n        }), \"이나 \", _jsx(_components.code, {\n          children: \"binary\"\n        }), \"처럼 문자열 타입에 저장합니다.\\n\", _jsx(_components.code, {\n          children: \"char\"\n        }), \"와 \", _jsx(_components.code, {\n          children: \"binary\"\n        }), \"는 모두 문자를 저장하지만 binary의 경우는 바이트를 저장할 때 주로 쓰입니다.\\nUUID에서의 문자도 16진수형 숫자들의 문자이므로 \", _jsx(_components.code, {\n          children: \"char\"\n        }), \"보다 \", _jsx(_components.code, {\n          children: \"binary\"\n        }), \"로 바이트 형태로 저장하는 것이 더 어울립니다.\"]\n      }), \"\\n\", _jsxs(_components.p, {\n        children: [\"'-' 문자는 식별하는데 도움이 되지 않기 때문에 이 값을 빼고 저장하면 32글자, 16바이트로 압축할 수 있습니다.\\n이처럼 UUID값을 binary(16) 형태로 변환할 때, MySQL 8.0에서는 \", _jsx(_components.code, {\n          children: \"UUID_TO_BIN()\"\n        }), \" 함수를 제공합니다.\\n반대로 압축된 바이너리 값을 UUID 형태로 반환할 때는 \", _jsx(_components.code, {\n          children: \"BIN_TO_UUID()\"\n        }), \" 함수를 사용하면 됩니다.\"]\n      }), \"\\n\", _jsx(_components.h3, {\n        children: \"참조\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: _jsx(_components.a, {\n          href: \"https://dev.mysql.com/blog-archive/mysql-8-0-uuid-support/\",\n          children: \"https://dev.mysql.com/blog-archive/mysql-8-0-uuid-support/\"\n        })\n      }), \"\\n\", _jsx(_components.p, {\n        children: _jsx(_components.a, {\n          href: \"https://dev.mysql.com/blog-archive/storing-uuid-values-in-mysql-tables/\",\n          children: \"https://dev.mysql.com/blog-archive/storing-uuid-values-in-mysql-tables/\"\n        })\n      })]\n    });\n  }\n}\nreturn {\n  default: MDXContent\n};\n","frontmatter":{},"scope":{}}},"__N_SSG":true},"page":"/posts/[id]","query":{"id":"MySQL UUID"},"buildId":"B8NI0PSFXqUfoDDx0IWnS","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
+<p class=".Paragraph.jsx-c13bd6d988b6c83{line-height:1.625}"><a class="jsx-52f56faf7d264d51">https://dev.mysql.com/blog-archive/storing-uuid-values-in-mysql-tables/</a></p></article></div></div></main><footer class="jsx-bf1060902d5987dc"><span class="jsx-bf1060902d5987dc"><a href="https://github.com/ordilov" class="jsx-fc08dd7c2fcf6a18 github">Github 🔗</a></span><span class="jsx-bf1060902d5987dc">Copyright © Ordilov</span></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"metadata":{"title":"MySQL UUID","date":"2022-04-25 00:01:00 +0900","category":"database","tags":["backend"],"keywords":["backend"],"description":"MySQL에서 UUID를 처리하는 방식을 알아봅니다.","id":"MySQL UUID"},"mdxSource":{"compiledSource":"/*@jsxRuntime automatic @jsxImportSource react*/\nconst {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];\nconst {useMDXComponents: _provideComponents} = arguments[0];\nfunction MDXContent(props = {}) {\n  const {wrapper: MDXLayout} = Object.assign({}, _provideComponents(), props.components);\n  return MDXLayout ? _jsx(MDXLayout, Object.assign({}, props, {\n    children: _jsx(_createMdxContent, {})\n  })) : _createMdxContent();\n  function _createMdxContent() {\n    const _components = Object.assign({\n      h2: \"h2\",\n      p: \"p\",\n      ul: \"ul\",\n      li: \"li\",\n      pre: \"pre\",\n      code: \"code\",\n      span: \"span\",\n      blockquote: \"blockquote\",\n      h3: \"h3\",\n      a: \"a\"\n    }, _provideComponents(), props.components);\n    return _jsxs(_Fragment, {\n      children: [_jsx(_components.h2, {\n        children: \"UUID\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"UUID(universally unique identifier)는 128비트 식별자입니다.\\n분산된 환경에서 고유한 식별자를 위해 특정 서버에 의존하지 않고, 매우 높은 확률로 중복되지 않는 식별자를 만들 수 있습니다.\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"이렇게 생성하면 다음과 같은 장점들이 있습니다.\"\n      }), \"\\n\", _jsxs(_components.ul, {\n        children: [\"\\n\", _jsx(_components.li, {\n          children: \"서버를 거치거나 외부 통신 없이 고유한 식별자를 생성할 수 있습니다.\"\n        }), \"\\n\", _jsx(_components.li, {\n          children: \"값이 증가하거나 패턴이 있지 않아 ID를 추측해 처리하는 접근이 어려워집니다.\"\n        }), \"\\n\"]\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"반면 단점으로는 식별자를 저장하기 위해 128비트를 저장해야하는 문제가 있습니다.\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"UUID를 만들 때는 각 언어에서 지원하는 UUID 생성 방법을 통해 만들 수 있습니다.\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"예시로 mysql에서 만드는 방법입니다.\"\n      }), \"\\n\", _jsx(_components.pre, {\n        children: _jsxs(_components.code, {\n          className: \"hljs language-sql\",\n          children: [_jsx(_components.span, {\n            className: \"hljs-keyword\",\n            children: \"select\"\n          }), \" uuid()\\n\"]\n        })\n      }), \"\\n\", _jsxs(_components.p, {\n        children: [\"java에서 만든다면 \", _jsx(_components.code, {\n          children: \"UUID.randomUUID()\"\n        }), \"로 만들 수 있으며 구현은 다음과 같습니다.\"]\n      }), \"\\n\", _jsx(_components.pre, {\n        children: _jsxs(_components.code, {\n          className: \"hljs language-java\",\n          children: [_jsx(_components.span, {\n            className: \"hljs-keyword\",\n            children: \"public\"\n          }), \" \", _jsx(_components.span, {\n            className: \"hljs-keyword\",\n            children: \"static\"\n          }), \" UUID \", _jsx(_components.span, {\n            className: \"hljs-title function_\",\n            children: \"randomUUID\"\n          }), _jsx(_components.span, {\n            className: \"hljs-params\",\n            children: \"()\"\n          }), \" {\\n    \", _jsx(_components.span, {\n            className: \"hljs-type\",\n            children: \"SecureRandom\"\n          }), \" \", _jsx(_components.span, {\n            className: \"hljs-variable\",\n            children: \"ng\"\n          }), \" \", _jsx(_components.span, {\n            className: \"hljs-operator\",\n            children: \"=\"\n          }), \" Holder.numberGenerator;\\n\\n    \", _jsx(_components.span, {\n            className: \"hljs-type\",\n            children: \"byte\"\n          }), \"[] randomBytes = \", _jsx(_components.span, {\n            className: \"hljs-keyword\",\n            children: \"new\"\n          }), \" \", _jsx(_components.span, {\n            className: \"hljs-title class_\",\n            children: \"byte\"\n          }), \"[\", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"16\"\n          }), \"];\\n    ng.nextBytes(randomBytes);\\n    randomBytes[\", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"6\"\n          }), \"]  \u0026= \", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"0x0f\"\n          }), \";  \", _jsx(_components.span, {\n            className: \"hljs-comment\",\n            children: \"/* clear version        */\"\n          }), \"\\n    randomBytes[\", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"6\"\n          }), \"]  |= \", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"0x40\"\n          }), \";  \", _jsx(_components.span, {\n            className: \"hljs-comment\",\n            children: \"/* set to version 4     */\"\n          }), \"\\n    randomBytes[\", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"8\"\n          }), \"]  \u0026= \", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"0x3f\"\n          }), \";  \", _jsx(_components.span, {\n            className: \"hljs-comment\",\n            children: \"/* clear variant        */\"\n          }), \"\\n    randomBytes[\", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"8\"\n          }), \"]  |= \", _jsx(_components.span, {\n            className: \"hljs-number\",\n            children: \"0x80\"\n          }), \";  \", _jsx(_components.span, {\n            className: \"hljs-comment\",\n            children: \"/* set to IETF variant  */\"\n          }), \"\\n    \", _jsx(_components.span, {\n            className: \"hljs-keyword\",\n            children: \"return\"\n          }), \" \", _jsx(_components.span, {\n            className: \"hljs-keyword\",\n            children: \"new\"\n          }), \" \", _jsx(_components.span, {\n            className: \"hljs-title class_\",\n            children: \"UUID\"\n          }), \"(randomBytes);\\n}\\n\"]\n        })\n      }), \"\\n\", _jsx(_components.h2, {\n        children: \"MySQL에서 저장할 때\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: \"UUID가 128비트 식별자라고 했지만 실제 글자 수는 36글자로 '-' 문자 4개로 구분되어 있습니다.\"\n      }), \"\\n\", _jsxs(_components.blockquote, {\n        children: [\"\\n\", _jsx(_components.p, {\n          children: \"aab5d5fd-70c1-11e5-a4fb-b026b977eb28\"\n        }), \"\\n\"]\n      }), \"\\n\", _jsxs(_components.p, {\n        children: [\"그대로 MySQL에 저장하는 경우 36글자를 차지하게 되는데 \", _jsx(_components.code, {\n          children: \"char\"\n        }), \"이나 \", _jsx(_components.code, {\n          children: \"binary\"\n        }), \"처럼 문자열 타입에 저장합니다.\\n\", _jsx(_components.code, {\n          children: \"char\"\n        }), \"와 \", _jsx(_components.code, {\n          children: \"binary\"\n        }), \"는 모두 문자를 저장하지만 binary의 경우는 바이트를 저장할 때 주로 쓰입니다.\\nUUID에서의 문자도 16진수형 숫자들의 문자이므로 \", _jsx(_components.code, {\n          children: \"char\"\n        }), \"보다 \", _jsx(_components.code, {\n          children: \"binary\"\n        }), \"로 바이트 형태로 저장하는 것이 더 어울립니다.\"]\n      }), \"\\n\", _jsxs(_components.p, {\n        children: [\"'-' 문자는 식별하는데 도움이 되지 않기 때문에 이 값을 빼고 저장하면 32글자, 16바이트로 압축할 수 있습니다.\\n이처럼 UUID값을 binary(16) 형태로 변환할 때, MySQL 8.0에서는 \", _jsx(_components.code, {\n          children: \"UUID_TO_BIN()\"\n        }), \" 함수를 제공합니다.\\n반대로 압축된 바이너리 값을 UUID 형태로 반환할 때는 \", _jsx(_components.code, {\n          children: \"BIN_TO_UUID()\"\n        }), \" 함수를 사용하면 됩니다.\"]\n      }), \"\\n\", _jsx(_components.h3, {\n        children: \"참조\"\n      }), \"\\n\", _jsx(_components.p, {\n        children: _jsx(_components.a, {\n          href: \"https://dev.mysql.com/blog-archive/mysql-8-0-uuid-support/\",\n          children: \"https://dev.mysql.com/blog-archive/mysql-8-0-uuid-support/\"\n        })\n      }), \"\\n\", _jsx(_components.p, {\n        children: _jsx(_components.a, {\n          href: \"https://dev.mysql.com/blog-archive/storing-uuid-values-in-mysql-tables/\",\n          children: \"https://dev.mysql.com/blog-archive/storing-uuid-values-in-mysql-tables/\"\n        })\n      })]\n    });\n  }\n}\nreturn {\n  default: MDXContent\n};\n","frontmatter":{},"scope":{}}},"__N_SSG":true},"page":"/posts/[id]","query":{"id":"MySQL UUID"},"buildId":"7H1W8XNv0x7XPDStJpslE","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
