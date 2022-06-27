@@ -1,18 +1,16 @@
 import {useRouter} from "next/router";
 import {renderToString} from "react-dom/server";
 import Toc from "../components/Toc";
+import Profile from "../components/Profile";
 
 export default function PostLayout({children, frontMatter}: { children: any, frontMatter: any }) {
     const router = useRouter()
     const slug = router.asPath.replace('/posts', '')
-    const dateString = new Date(frontMatter.date).toLocaleDateString('ko-KR');
-    const author = 'ordilov /';
-    const date = dateString.slice(0, dateString.length - 1);
+    const date = new Date(frontMatter.date).toLocaleDateString('ko-KR').slice(0, -1);
 
     const contentString = renderToString(children);
     const getHeadings = (source: string) => {
         const regex = /(<h2>(.*?)<\/h2>)|(<h3>(.*?)<\/h3>)/g;
-
         const regExpMatchArray = source.match(regex);
         if (!regExpMatchArray) return [];
         return regExpMatchArray!!.map((heading) => {
@@ -35,11 +33,8 @@ export default function PostLayout({children, frontMatter}: { children: any, fro
             <article className={"container"}>
                 <Toc headings={headings}/>
                 <div className={"head"}>
-                    <h1 className={"title"}>{frontMatter.title}</h1>
-                    <div className={"meta"}>
-                        <img src={"/profile.png"} className={"avatar"} alt={"profile"}/>
-                        <div className={"profile"}>{author} {date}</div>
-                    </div>
+                    <h1>{frontMatter.title}</h1>
+                    <Profile date={date}/>
                 </div>
                 {children}
             </article>
@@ -57,28 +52,13 @@ export default function PostLayout({children, frontMatter}: { children: any, fro
                 }
               }
 
-              .title {
+              h1 {
                 font-size: 30pt;
                 margin-bottom: 5px;
               }
 
               .head {
                 margin-bottom: 2rem;
-              }
-
-              .avatar {
-                margin-right: 0.5rem;
-              }
-
-              .meta {
-                display: flex;
-                margin-right: 0.5rem;
-              }
-
-              .profile {
-                color: #A0AEC0;
-                line-height: 1.5;
-                margin-right: 0.5rem;
               }
 
               .container {

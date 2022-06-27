@@ -1,7 +1,7 @@
 export default function Github() {
     return (
         <a className={"github"} href={"https://github.com/ordilov"}>
-            Github
+            Github 🔗
             <style jsx>{`
               .github {
                 display: inline-block;
