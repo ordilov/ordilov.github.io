@@ -5,10 +5,12 @@ import {serialize} from "next-mdx-remote/serialize";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypeHighlight from "rehype-highlight";
+
 const codeTitle = require('remark-code-titles')
 
 const postsDirectory = path.join(process.cwd(), 'posts');
-const mdx_file_extension = '.mdx';
+const MDX_EXTENSION = '.mdx';
+const PAGE_SIZE = 10;
 
 function getAllFilesInDirectory(filePath: string) {
     const entries = fs.readdirSync(filePath);
@@ -34,7 +36,7 @@ function getMdxFiles() {
     const allFiles = getAllFilesInDirectory(postsDirectory);
     const mdxFiles = [];
     for (let i = 0; i < allFiles.length; i++) {
-        if (allFiles[i].endsWith(mdx_file_extension)) {
+        if (allFiles[i].endsWith(MDX_EXTENSION)) {
             mdxFiles.push(allFiles[i]);
         }
     }
@@ -45,7 +47,7 @@ export function getAllPostsPath() {
     let allMdxFiles = getMdxFiles();
 
     return allMdxFiles.map((parsedFile) => {
-        const middle = parsedFile.replace(postsDirectory, '').replace(mdx_file_extension, '');
+        const middle = parsedFile.replace(postsDirectory, '').replace(MDX_EXTENSION, '');
         const id = path.parse(middle).name;
         const category = middle.replace(id, '').split('\\')[1];
         return {
@@ -56,29 +58,46 @@ export function getAllPostsPath() {
     })
 }
 
-export function getHomePostMetadata() {
-    const files = getMdxFiles();
-    const meta = files.map((parsedFile) => {
-        const fileContents = fs.readFileSync(parsedFile, 'utf8');
-        const {data} = matter(fileContents);
-        let metadata = data;
-        metadata['id'] = path.parse(parsedFile).name;
-        return metadata;
-    }).filter((metadata) => metadata.category !== 'til' && metadata.type != 'archive');
-
-    return meta.sort((a, b) => {
-        if (new Date(a.date) < new Date(b.date)) {
-            return 1;
-        } else {
-            return -1;
+export function getAllPagesPath() {
+    const allMdxFiles = getMdxFiles()
+    return Array.from(Array(Math.ceil(allMdxFiles.length / 20)).keys()).map((i) => {
+        return {
+            params: {
+                id: String(i + 1)
+            }
         }
-    })
+    });
+}
+
+export function getPageMetadata(currentPage: number) {
+    const files = getMdxFiles()
+        .map((parsedFile) => {
+            const fileContents = fs.readFileSync(parsedFile, 'utf8');
+            const {data} = matter(fileContents);
+            let metadata = data;
+            metadata['id'] = path.parse(parsedFile).name;
+            return metadata;
+        })
+        .filter((metadata) => metadata.category !== 'til' && metadata.type != 'archive')
+        .sort((a, b) => {
+            return new Date(b.date) <= new Date(a.date) ? -1 : 1;
+        });
+
+    const totalPages = Math.floor(files.length / PAGE_SIZE) - 1;
+    const start = (currentPage - 1) * PAGE_SIZE;
+    const end = (currentPage - 1) === totalPages ? files.length : currentPage * PAGE_SIZE;
+    const data = files.slice(start, end);
+
+    return {
+        data,
+        totalPages
+    };
 }
 
 export async function getPostData(id: string) {
     const files = getAllFilesInDirectory(postsDirectory);
     const file = files.find((file) => {
-        return file.endsWith(id + mdx_file_extension);
+        return file.endsWith(id + MDX_EXTENSION);
     });
 
     const fileContents = fs.readFileSync(file!!, 'utf8');

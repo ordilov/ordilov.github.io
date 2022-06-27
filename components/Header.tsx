@@ -11,7 +11,7 @@ const Header = () =>
             <link rel="icon" href="/favicon.ico"/>
         </Head>
         <header>
-            <div className={"headerLeft"}>
+            <div className={"home"}>
                 <Link href="/">
                     Ordinary
                 </Link>
@@ -27,14 +27,15 @@ const Header = () =>
             color: #0070f3;
             background-color: #1e1e1e;
             padding: 20px;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 2px solid #e5e5e5;
+            border-radius: 100px;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 100px;
           }
 
-          .headerLeft {
+          .home {
             font-size: 24pt;
-            font-family: 'Source Sans Pro', sans-serif;
+            font-family: 'system-ui', serif;
             display: flex;
             align-items: center;
             text-decoration: none;
