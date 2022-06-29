@@ -17,8 +17,7 @@ const Footer = () =>
           }
 
           span {
-            font-family: 'rudiment', serif;
-            font-size: 1.2rem;
+            font-size: 1rem;
             padding: 2rem 0;
           }
 

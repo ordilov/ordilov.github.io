@@ -38,15 +38,13 @@ const Header = () =>
           }
 
           .home {
-            font-family: 'rudiment', serif;
-            font-size: 3rem;
+            font-size: 2.5rem;
             display: flex;
             align-items: center;
             text-decoration: none;
           }
 
           .about {
-            font-family: 'rudiment', serif;
             font-size: 1.5rem;
             display: flex;
             align-items: center;
