@@ -28,6 +28,7 @@ export default function Category() {
               }
 
               h3 {
+                font-family: 'rudiment', serif;
                 font-size: 2rem;
               }
 
@@ -37,6 +38,7 @@ export default function Category() {
               }
 
               li {
+                font-family: 'rudiment', serif;
                 font-size: 1.3rem;
                 height: 3rem;
                 width: 10rem;

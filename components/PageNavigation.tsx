@@ -30,6 +30,8 @@ export default function PageNavigation({length, currentPage}: { length: number, 
               }
 
               li {
+                font-family: 'rudiment', serif;
+                font-size: 1.2rem;
                 width: 4rem;
                 margin: 0 0 0 0;
                 padding: 0 0 0 0;

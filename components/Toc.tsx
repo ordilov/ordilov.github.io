@@ -14,6 +14,9 @@ export default function Toc({headings}: { headings: { text: string, link: string
                 color: #FFF;
                 font-size: 8pt;
                 border-bottom: 1px solid #ccc;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
               }
 
               [aria-current]:not([aria-current="false"]) {

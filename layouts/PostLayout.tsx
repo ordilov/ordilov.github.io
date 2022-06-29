@@ -45,13 +45,6 @@ export default function PostLayout({children, frontMatter}: { children: any, fro
                 padding: 0 1rem;
               }
 
-              @media (max-width: 800px) {
-                aside {
-                  position: static;
-                  height: auto;
-                }
-              }
-
               h1 {
                 font-size: 30pt;
                 margin-bottom: 5px;
@@ -72,6 +65,13 @@ export default function PostLayout({children, frontMatter}: { children: any, fro
                 .container {
                   padding: 0 2rem;
                   margin: 0 auto;
+                }
+              }
+
+              @media (max-width: 800px) {
+                aside {
+                  position: static;
+                  height: auto;
                 }
               }
             `}</style>

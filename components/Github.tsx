@@ -4,6 +4,8 @@ export default function Github() {
             Github 🔗
             <style jsx>{`
               .github {
+                font-family: 'rudiment', serif;
+                font-size: 1.2rem;
                 display: inline-block;
                 text-align: center;
                 width: 8rem;

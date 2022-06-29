@@ -3,7 +3,7 @@ import {author} from "../lib/constants";
 export default function Profile({date}: { date: string }) {
     return (
         <div>
-            <img src={"/profile.png"} className={"avatar"} alt={"profile"}/>
+            <img src={"/profile.png"} alt={"profile"}/>
             <span>{author} / {date}</span>
             <style jsx>{`
 

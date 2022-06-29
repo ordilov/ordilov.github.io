@@ -38,14 +38,16 @@ const Header = () =>
           }
 
           .home {
-            font-size: 2rem;
-            font-family: 'system-ui', serif;
+            font-family: 'rudiment', serif;
+            font-size: 3rem;
             display: flex;
             align-items: center;
             text-decoration: none;
           }
 
           .about {
+            font-family: 'rudiment', serif;
+            font-size: 1.5rem;
             display: flex;
             align-items: center;
             flex-direction: row-reverse;

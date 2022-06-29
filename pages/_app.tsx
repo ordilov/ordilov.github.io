@@ -11,6 +11,12 @@ const GlobalStyle = ({children}: { children: any }) =>
             box-sizing: border-box;
           }
 
+          @font-face {
+            font-family: rudiment;
+            font-display: auto;
+            src: url('/font/rudiment.ttf');
+          }
+
           html,
           body {
             padding: 0;
@@ -57,6 +63,7 @@ const GlobalStyle = ({children}: { children: any }) =>
           article {
             position: relative;
           }
+
 
           .hljs {
             font-size: 0.9rem;
