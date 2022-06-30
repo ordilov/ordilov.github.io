@@ -1,0 +1,83 @@
+---
+title:  "nGrinder 로컬에서 사용하는 방법"
+date:   2022-05-02 00:01:00 +0900
+category: dev
+tags: ["backend"]
+keywords: ["backend"]
+description: nGrinder를 로컬에서 사용하는 방법을 알아봅니다.
+---
+
+# nGrinder
+
+nGrinder는 서버 부하 테스트를 위한 오픈 소스입니다.
+
+테스트를 위해 실제 사용할 서버로 구성해야 하겠지만, 로컬에서 단순하게 사용법을 익혀보겠습니다.
+
+## Docker로 설치하기
+
+### controller 설치하기
+```
+docker pull ngrinder/controller
+```
+
+### controller 실행하기
+```
+docker run -d -v ~/ngrinder-controller:/opt/ngrinder-controller --name controller -p 80:80 -p 16001:16001 -p 12000-12009:12000-12009 ngrinder/controller
+```
+
+### agent 설치하기
+```
+docker pull ngrinder/agent
+```
+
+### agent 실행하기
+```
+docker run -d --name agent --link controller:controller ngrinder/agent
+```
+
+## controller 접속하기
+`http://127.0.0.1` 로 접속하면 login 페이지로 리다이렉트 됩니다.
+
+기본 아이디, 패스워드로 admin을 입력해서 로그인합니다.
+
+![ngrinder-login](/image/ngrinder-login.png)
+
+### 스크립트 작성하기
+상단 메뉴에서 스크립트를 선택하고 새로운 스크립트를 작성합니다.
+
+![ngrinder-script](/image/ngrinder-script.png)
+
+스크립트를 생성하고 검증을 누르면 요청이 잘 가는지 확인할 수 있습니다.
+
+![ngrinder-connection](/image/ngrinder-connection.png)
+
+요청을 보내보면 다음과 같이 접속 실패를 확인할 수 있습니다.
+nGrinder에서 테스트 시 localhost나 127.0.0.1로 테스트할 수 없습니다.
+요청을 보내는 agent의 localhost는 서버의 아이피와 달라서 그렇습니다.
+본인의 공인 IP를 찾아서 할 수도 있겠지만 이 경우 포트 포워딩 작업이 추가적으로 필요합니다.
+
+## 외부에서 로컬 서버 접속하기
+
+이를 해결하려고 [ngrok](https://ngrok.com/)을 사용했습니다.
+ngrok으로 요청을 받을 서버의 포트를 설정합니다.
+제 경우는 3000번 포트를 사용했습니다.
+
+![ngrok](/image/ngrok.png)
+
+이제 스크립트에서 요청할 주소를 포워딩된 주소로 바꿔주면 요청이 성공합니다.
+
+![ngrinder-url](/image/ngrinder-url.png)
+
+## 성능 테스트하기
+성능 테스트 메뉴를 선택하고 테스트 생성을 합니다.
+사용하는 에이전트 수, 생성한 스크립트, 시간등을 입력하고 테스트를 진행하면 됩니다.
+
+![ngrinder-test](/image/ngrinder-test.png)
+
+### 테스트 결과 확인
+성능 테스트를 마치고 나면 테스트 결과를 그래프와 함꼐 확인할 수 있습니다.
+![ngrinder-result](/image/ngrinder-result.png)
+
+## 정리
+공식문서에도 자세하게 설명이 나와있지만 로컬 에이전트 ➜ 로컬 서버를 테스트하는 방법이 나와있지 않아 정리했습니다.
+할 필요가 없는 테스트이기도 하지만 다른 서버가 없어 간단하게 테스트해보고 싶을 때, 로컬에서 사용하는 법을 알아봤습니다.

@@ -9,8 +9,10 @@ const Post = ({metadata, mdxSource}: { metadata: any, mdxSource: MDXRemoteSerial
             <PostLayout frontMatter={metadata}>
                 <MDXRemote {...mdxSource} components={MDXComponents}/>
             </PostLayout>
-            <style jsx>{`
-
+            <style jsx global>{`
+              .content {
+                max-width: 40rem;
+              }
             `}</style>
         </div>
     )

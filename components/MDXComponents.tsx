@@ -41,7 +41,8 @@ const MDXComponents = {
     h5: (props: any) => <Heading as="h5" size={14} {...props} />,
     h6: (props: any) => <Heading as="h6" size={12} {...props} />,
     p: (props: any) => <p className={Paragraph} {...props} />,
-    a: (props: any) => <A {...props}/>,
+    a: (props: any) => <A as={"a"} {...props}/>,
+    img: (props: any) => <img className={"content"} {...props} />,
     table: (props: any) => <table {...props} />,
 }
 
