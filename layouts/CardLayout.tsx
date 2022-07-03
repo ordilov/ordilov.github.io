@@ -26,7 +26,7 @@ const CardLayout = ({postsMetaData}: { postsMetaData: PostMetaData[] }) => {
                 border: 1px solid #e5e5e5;
                 border-radius: 10px;
                 padding: 0.8rem 1rem;
-                margin-bottom: 10px;
+                margin: 1rem 2rem;
               }
 
               article:hover {
@@ -58,7 +58,7 @@ const CardLayout = ({postsMetaData}: { postsMetaData: PostMetaData[] }) => {
               .card-layout {
                 margin: 0 auto;
                 justify-content: center;
-                width: 40rem;
+                width: 35rem;
               }
             `}</style>
         </div>

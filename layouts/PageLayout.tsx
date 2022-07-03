@@ -11,7 +11,9 @@ export default function PageLayout({
     return (
         <div className={"container"}>
             <div className={"space"}>
-                <Category/>
+                <div className={"side"}>
+                    <Category/>
+                </div>
                 <CardLayout postsMetaData={data}/>
             </div>
             <PageNavigation length={totalPages} currentPage={id}/>
@@ -21,14 +23,18 @@ export default function PageLayout({
                 display: grid;
                 grid-template-columns: 25fr 50fr 25fr;
               }
-
-              @media (min-width: 720px) {
-                .container {
-                  padding: 0 2rem;
-                  margin: 0 auto;
+              
+              
+              @media (max-width: 1080px) {
+                .side {
+                  display: none;
+                }
+                
+                .space {
+                  grid-template-columns: 1fr;
                 }
               }
-              
+
             `}</style>
         </div>
     )

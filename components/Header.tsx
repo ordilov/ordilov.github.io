@@ -31,7 +31,8 @@ const Header = () =>
             grid-template-rows: 5rem;
             position: fixed;
             width: 100%;
-            left: 25%;
+            padding: 0.5rem 2rem;
+            //left: 25%;
             height: 5rem;
             z-index: 300;
             opacity: 0.95;
@@ -55,14 +56,6 @@ const Header = () =>
             display: flex;
             align-items: center;
             flex-direction: row-reverse;
-          }
-
-          @media (min-width: 720px) {
-            header {
-              max-width: 50rem;
-              padding: 0 2rem;
-              margin: 0 auto;
-            }
           }
         `}</style>
     </>
