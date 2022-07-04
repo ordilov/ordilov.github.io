@@ -7,7 +7,7 @@ const GlobalStyle = ({children}: { children: any }) =>
         {children}
         <style jsx global>{`
           * {
-            color: white;
+            color: #AAA;
             box-sizing: border-box;
           }
 
@@ -21,7 +21,6 @@ const GlobalStyle = ({children}: { children: any }) =>
           }
 
           a {
-            color: inherit;
             text-decoration: none;
           }
 
@@ -38,20 +37,21 @@ const GlobalStyle = ({children}: { children: any }) =>
           }
 
           code {
-            color: #3fd0c0;
+            color: #eb5757;
+            background: #2c2c2c;
             font-weight: bold;
+            font-size: 0.85rem;
+            border-radius: 3px;
+            padding: 0.2em 0.4em;
             font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
             Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
           }
 
           blockquote {
-            border: 3px solid #27a9e3;
-            margin-left: 0;
-            margin-right: 0;
-            padding-left: 20px;
-            padding-right: 20px;
-            border-left: 12px solid #27a9e3;
-            border-radius: 5px;
+            border-left: 3px solid currentcolor;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            width: 100%;
           }
 
           article {
@@ -60,11 +60,11 @@ const GlobalStyle = ({children}: { children: any }) =>
 
 
           .hljs {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             background: #333;
             font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
             display: block;
-            color: #fff;
+            color: #ddd;
             border-radius: 5px;
             overflow: auto;
             padding: 1em;

@@ -8,11 +8,12 @@ const Paragraph = css`
 `
 
 const A = (props: any) => (
-    <a>
+    <a href={props.children}>
         {props.children}
         <style jsx>{`
           a {
             color: #62c8f3;
+            text-decoration: underline;
           }
         `}</style>
     </a>

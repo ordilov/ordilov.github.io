@@ -23,7 +23,7 @@ const CardLayout = ({postsMetaData}: { postsMetaData: PostMetaData[] }) => {
             )}
             <style jsx>{`
               article {
-                border: 1px solid #e5e5e5;
+                border: 1px solid #505050;
                 border-radius: 10px;
                 padding: 0.8rem 1rem;
                 margin: 1rem 2rem;

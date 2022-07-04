@@ -21,14 +21,14 @@ export default function Category() {
             <style jsx>{`
               aside {
                 position: sticky;
-                top: 60px;
+                top: 100px;
                 text-align: left;
                 padding-left: 5rem;
-                height: calc(100vh - 60px);
               }
 
               h3 {
-                font-size: 2rem;
+                font-weight: normal;
+                font-size: 1.3rem;
               }
 
               ul {
@@ -37,10 +37,9 @@ export default function Category() {
               }
 
               li {
-                font-size: 1.3rem;
+                font-size: 1rem;
                 height: 3rem;
                 width: 10rem;
-                padding-left: 2rem;
                 padding-top: 0.5rem;
                 margin: 0 0;
               }

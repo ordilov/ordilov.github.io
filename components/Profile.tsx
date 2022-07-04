@@ -16,6 +16,7 @@ export default function Profile({date}: { date: string }) {
                 color: #BBBBBB;
                 padding-left: 0.5rem;
                 display: inline;
+                font-size: 1rem;
                 vertical-align: middle;
               }
             `}</style>

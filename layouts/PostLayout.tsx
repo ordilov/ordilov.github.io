@@ -46,7 +46,7 @@ export default function PostLayout({children, frontMatter}: { children: any, fro
               }
 
               h1 {
-                font-size: 30pt;
+                font-size: 3rem;
                 margin-bottom: 5px;
               }
 
@@ -56,22 +56,19 @@ export default function PostLayout({children, frontMatter}: { children: any, fro
 
               .container {
                 width: 100%;
-                max-width: 720px;
+                max-width: 35rem;
                 margin: 0 auto;
                 line-height: 1.625;
               }
 
-              @media (min-width: 720px) {
-                .container {
-                  padding: 0 2rem;
-                  margin: 0 auto;
-                }
-              }
-
-              @media (max-width: 800px) {
+              @media (max-width: 1080px) {
                 aside {
                   position: static;
                   height: auto;
+                }
+
+                .container {
+                  max-width: 40rem;
                 }
               }
             `}</style>

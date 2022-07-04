@@ -17,13 +17,13 @@ const Footer = () =>
           }
 
           span {
-            font-size: 1rem;
-            padding: 2rem 0;
+            font-size: 0.8rem;
+            padding: 3rem 0;
           }
 
           @media (min-width: 720px) {
             footer {
-              max-width: 50rem;
+              max-width: 35rem;
               padding: 0 2rem;
               margin: 0 auto;
             }

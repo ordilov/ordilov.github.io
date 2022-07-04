@@ -26,13 +26,11 @@ const Header = () =>
             display: grid;
             color: #0070f3;
             background-color: #1e1e1e;
-            border-bottom: 1px solid #e5e5e5;
             grid-template-columns: 1fr  1fr;
             grid-template-rows: 5rem;
             position: fixed;
             width: 100%;
             padding: 0.5rem 2rem;
-            //left: 25%;
             height: 5rem;
             z-index: 300;
             opacity: 0.95;
@@ -41,6 +39,8 @@ const Header = () =>
           .home {
             font-size: 2.5rem;
             display: flex;
+            padding-left: 2rem;
+            padding-bottom: 1rem;
             align-items: center;
             text-decoration: none;
           }
@@ -48,6 +48,8 @@ const Header = () =>
           .about {
             font-size: 1.5rem;
             display: flex;
+            padding-bottom: 1rem;
+            padding-right: 2rem;
             align-items: center;
             flex-direction: row-reverse;
           }
