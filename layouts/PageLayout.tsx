@@ -1,7 +1,6 @@
 import {PostMetaData} from "../lib/types";
 import CardLayout from "./CardLayout";
 import PageNavigation from "../components/PageNavigation";
-import Category from "../components/Category";
 
 export default function PageLayout({
                                        data,
@@ -11,30 +10,14 @@ export default function PageLayout({
     return (
         <div className={"container"}>
             <div className={"space"}>
-                <div className={"side"}>
-                    <Category/>
-                </div>
                 <CardLayout postsMetaData={data}/>
             </div>
             <PageNavigation length={totalPages} currentPage={id}/>
             <style jsx>{`
-
               .space {
                 display: grid;
-                grid-template-columns: 25fr 50fr 25fr;
+                grid-template-columns: 1fr;
               }
-              
-              
-              @media (max-width: 1080px) {
-                .side {
-                  display: none;
-                }
-                
-                .space {
-                  grid-template-columns: 1fr;
-                }
-              }
-
             `}</style>
         </div>
     )

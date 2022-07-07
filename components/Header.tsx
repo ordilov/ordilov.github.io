@@ -1,8 +1,12 @@
 import Link from "next/link";
 import Head from "next/head";
+import {useState} from "react";
+import Category from "./Category";
 
-const Header = () =>
-    <>
+const Header = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return <>
         <Head>
             <title>Ordinary</title>
             <meta charSet="utf-8"/>
@@ -11,6 +15,10 @@ const Header = () =>
             <link rel="icon" href="/favicon.ico"/>
         </Head>
         <header>
+            <div className={"menu bar"}>
+                <input type="checkbox" id={"menu-button"} onChange={event => setIsOpen(event.target.checked)}/>
+                <label htmlFor={"menu-button"}/>
+            </div>
             <div className={"home"}>
                 <Link href="/">
                     Ordinary
@@ -20,13 +28,18 @@ const Header = () =>
                 <Link href='/about'><a>About</a></Link>
             </div>
         </header>
+        {isOpen &&
+            <aside className={"bar"}>
+                <Category/>
+            </aside>
+        }
 
         <style jsx>{`
           header {
             display: grid;
             color: #0070f3;
             background-color: #1e1e1e;
-            grid-template-columns: 1fr  1fr;
+            grid-template-columns: 32fr 40fr 25fr;
             grid-template-rows: 5rem;
             position: fixed;
             width: 100%;
@@ -34,6 +47,40 @@ const Header = () =>
             height: 5rem;
             z-index: 300;
             opacity: 0.95;
+          }
+
+          input[type="checkbox"] {
+            display: none;
+          }
+
+          label {
+            width: 2rem;
+            height: 2rem;
+            border: 0.3rem solid #FFFFFF;
+            border-radius: 1rem;
+            display: inline-block;
+            margin-top: 1.5rem;
+            margin-left: 2rem;
+            cursor: pointer;
+          }
+
+          input[type="checkbox"]:checked + label {
+            border-color: #7bd694;
+          }
+
+          aside {
+            position: fixed;
+            margin-top: 5rem;
+          }
+
+          @media (max-width: 1080px) {
+            .bar {
+              display: none;
+            }
+
+            .space {
+              grid-template-columns: 1fr;
+            }
           }
 
           .home {
@@ -61,6 +108,7 @@ const Header = () =>
           }
         `}</style>
     </>
+}
 
 
 export default Header;
