@@ -21,6 +21,7 @@ const GlobalStyle = ({children}: { children: any }) =>
           }
 
           a {
+            color: #AAA;
             text-decoration: none;
           }
 

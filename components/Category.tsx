@@ -20,7 +20,6 @@ export default function Category() {
             </ul>
             <style jsx>{`
               aside {
-                position: sticky;
                 top: 100px;
                 text-align: left;
                 padding-left: 5rem;
@@ -39,12 +38,13 @@ export default function Category() {
               li {
                 font-size: 1rem;
                 height: 3rem;
-                width: 10rem;
                 padding-top: 0.5rem;
                 margin: 0 0;
               }
 
               li:hover {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
                 background-color: #4d4747;
                 box-shadow: 0 0 0.6rem rgb(0 0 0 / 60%);
                 transform: translate(0, -0.4rem);

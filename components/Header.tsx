@@ -2,13 +2,14 @@ import Link from "next/link";
 import Head from "next/head";
 import {useState} from "react";
 import Category from "./Category";
+import {title} from "../lib/constants";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return <>
         <Head>
-            <title>Ordinary</title>
+            <title>{title}</title>
             <meta charSet="utf-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
             <meta name="description" content="Blog"/>
