@@ -22,11 +22,13 @@ const Header = () => {
             </div>
             <div className={"home"}>
                 <Link href="/">
-                    Ordinary
+                    <span className={"link"}>{title}</span>
                 </Link>
             </div>
             <div className={"about"}>
-                <Link href='/about'><a>About</a></Link>
+                <Link href='/about'>
+                    <span className={"link"}>About</span>
+                </Link>
             </div>
         </header>
         {isOpen &&
@@ -50,6 +52,10 @@ const Header = () => {
             opacity: 0.95;
           }
 
+          .link:hover {
+            color: #7bd694;
+          }
+
           input[type="checkbox"] {
             display: none;
           }
@@ -63,6 +69,10 @@ const Header = () => {
             margin-top: 1.5rem;
             margin-left: 2rem;
             cursor: pointer;
+          }
+
+          label:hover {
+            border-color: #7bd694;
           }
 
           input[type="checkbox"]:checked + label {
