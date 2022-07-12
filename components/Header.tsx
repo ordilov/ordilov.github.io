@@ -25,7 +25,7 @@ const Header = () => {
                     <span className={"link"}>{title}</span>
                 </Link>
             </div>
-            <div className={"about"}>
+            <div className={"about"} id={"about"}>
                 <Link href='/about'>
                     <span className={"link"}>About</span>
                 </Link>
@@ -88,9 +88,9 @@ const Header = () => {
             .bar {
               display: none;
             }
-
-            .space {
-              grid-template-columns: 1fr;
+            
+            header {
+               grid-template-columns: 1fr 1fr;
             }
           }
 
@@ -115,7 +115,6 @@ const Header = () => {
           .category {
             display: flex;
             align-items: center;
-            flex-direction: row-reverse;
           }
         `}</style>
     </>
