@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ordilov.github.io
+
+# Sitemaps
+Sitemap: https://ordilov.github.io/sitemap.xml
