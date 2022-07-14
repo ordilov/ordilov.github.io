@@ -64,7 +64,6 @@ const GlobalStyle = ({children}: { children: any }) =>
             position: relative;
           }
 
-
           .hljs {
             font-size: 0.8rem;
             background: #333;
@@ -175,7 +174,6 @@ const GlobalStyle = ({children}: { children: any }) =>
             color: #fff;
           }
 
-          /* This applies only if HTML auto-merging plugin is enabled by user (#2889) */
           .hljs a {
             color: inherit;
           }
@@ -234,6 +232,7 @@ function App({Component, pageProps}: AppProps) {
 
             <Header/>
             <main>
+                <h1></h1>
                 <Component {...pageProps} />
             </main>
             <Footer/>

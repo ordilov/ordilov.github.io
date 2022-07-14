@@ -1,0 +1,57 @@
+---
+title:  "블로그를 구글 검색 결과에 등록하기"
+date:   2022-03-11 00:01:00 +0900
+category: blog
+tags: ["blog"]
+keywords: ["blog"]
+description: NextJS 블로그에서 구글 검색 결과를 등록하는 법을 알아봅니다.
+---
+
+## 작성한 글들이 검색 결과에 올라가려면?
+깃허브 블로그 사용 시 구글 검색 결과에 노출시키려면 Google Search Console에 사이트를 등록해야 합니다.
+
+## Google Search Console
+Google Search Console은 등록한 사이트의 트래픽과 어떤 검색어로 방문할 수 있는지 확인할 수 있습니다.
+콘텐츠 표시를 위해 `sitemap.xml`과 `robots.txt`을 제출해야 합니다.
+
+### Sitemap
+`sitemap`은 웹 크롤러가 동적 페이지들을 확인할 수 있도록 사이트의 모든 페이지를 알려주는 파일입니다.
+
+### robots.txt
+`robots.txt`는 허용할 웹 크롤러와, 크롤링을 허용하는 페이지를 설정할 수 있습니다.
+
+## NextJs 에서 생성하는 법
+
+`sitemap` 과 `robots.txt` 는 형식에 맞게 직접 작성할 수도 있지만 라이브러리를 사용해 만들었습니다.
+먼저 `next-sitemap` 라이브러리를 설치합니다.
+
+```
+npm install next-sitemap
+```
+
+그리고 설정 파일 next-sitemap.config.js 을 추가해줍니다.
+
+```javascript
+const config = {
+  siteUrl: process.env.SITE_URL || '사이트맵에 등록할 사이트 URL',
+  generateRobotsTxt: true
+}
+
+export default config
+```
+
+그리고 `package.json` postbuild 명령어에 next-sitemap을 추가해줍니다.
+```json
+{
+  "build": "next build",
+  "postbuild": "next-sitemap"
+}
+```
+
+이제 빌드를 진행하면 public 디렉토리 아래에 `robots.txt`와 `sitemap.xml`이 생성됩니다.
+
+## Google Search Console에 Sitemap 추가하기
+이렇게 만들어진 sitemap은 기본적으로 **사이트 주소/sitemap.xml** 에서 확인 가능합니다.
+
+주소 그대로 Google Search Console 에 Sitemaps 에 추가해주면 됩니다.
+확인이 정상적으로 되면 상태가 성공으로 바뀌고 sitemap에 등록한 URL 수가 변경된 것을 확인할 수 있습니다.
