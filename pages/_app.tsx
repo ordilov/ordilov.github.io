@@ -190,6 +190,7 @@ const GlobalStyle = ({children}: { children: any }) =>
           }
 
         `}</style>
+
     </>
 
 
