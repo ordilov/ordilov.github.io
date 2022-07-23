@@ -1,0 +1,99 @@
+---
+title:  "Docker Mysql Replication"
+date:   2022-04-25 00:01:00 +0900
+category: database
+tags: ["backend"]
+keywords: ["backend"]
+description: Docker로 Mysql을 Replication 자동화하는 방법을 알아봅니다.
+type: archive
+---
+
+## 설정 파일 구성
+
+### master my.cnf
+```
+[mysqld]
+log_bin = mysql-bin
+server_id = 1
+default_authentication_plugin=mysql_native_password
+```
+
+### slave my.cnf
+```
+[mysqld]
+log_bin = mysql-bin
+server_id = 2
+relay_log = /var/lib/mysql/mysql-relay-bin
+log_slave_updates = 1
+read_only = 1
+default_authentication_plugin=mysql_native_password
+```
+
+## Dockerfile 구성
+```
+FROM mysql
+COPY ./master/my.cnf /etc/mysql/my.cnf
+RUN chmod 644 /etc/mysql/my.cnf
+```
+
+> mysql: [Warning] World-writable config file '/etc/mysql/my.cnf' is ignored.
+윈도우를 쓰는 경우 볼 수 있는 에러인데 파일 권한을 변경해줘야 해서 `chmod` 명령어를 사용합니다.
+
+
+
+
+## 설정 파일 구성
+
+## Docker Compose 구성
+```yml
+version: "3.9"
+services:
+  db-master:
+    container_name: master
+    build:
+      context: ./
+      dockerfile: master/Dockerfile
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    volumes:
+      - my-db-master:/var/lib/mysql
+      - my-db-master:/var/lib/mysql-files
+    networks:
+      - mysql-replica
+
+  db-slave:
+    container_name: slave
+    build:
+      context: ./
+      dockerfile: slave/Dockerfile
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3307:3306'
+    volumes:
+      - my-db-slave:/var/lib/mysql
+      - my-db-slave:/var/lib/mysql-files
+    networks:
+      - mysql-replica
+
+volumes:
+  my-db-master:
+  my-db-slave:
+
+networks:
+  mysql-replica:
+    driver: bridge
+    name: mysql-replica
+```
+
+
