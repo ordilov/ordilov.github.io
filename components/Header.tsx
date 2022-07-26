@@ -34,7 +34,7 @@ const Header = () => {
             display: grid;
             color: #0070f3;
             background-color: #1e1e1e;
-            grid-template-columns: 32fr 40fr 25fr;
+            grid-template-columns: 20fr 40fr 25fr;
             grid-template-rows: 5rem;
             position: fixed;
             width: 100%;
@@ -58,7 +58,7 @@ const Header = () => {
             border: 0.3rem solid #FFFFFF;
             border-radius: 1rem;
             display: inline-block;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
             margin-left: 2rem;
             cursor: pointer;
           }
@@ -80,17 +80,17 @@ const Header = () => {
             .bar {
               display: none;
             }
-            
+
             header {
-               grid-template-columns: 1fr 1fr;
+              grid-template-columns: 1fr 1fr;
             }
           }
 
           .home {
-            font-size: 2.5rem;
+            font-size: 2rem;
             display: flex;
             padding-left: 2rem;
-            padding-bottom: 1rem;
+            padding-bottom: 1.5rem;
             align-items: center;
             text-decoration: none;
           }
@@ -98,8 +98,8 @@ const Header = () => {
           .about {
             font-size: 1.5rem;
             display: flex;
-            padding-bottom: 1rem;
             padding-right: 2rem;
+            padding-bottom: 1.25rem;
             align-items: center;
             flex-direction: row-reverse;
           }
@@ -108,6 +108,7 @@ const Header = () => {
             display: flex;
             align-items: center;
           }
+
         `}</style>
     </>
 }
