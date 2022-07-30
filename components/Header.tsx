@@ -2,6 +2,7 @@ import Link from "next/link";
 import {useState} from "react";
 import Category from "./Category";
 import {title} from "../lib/constants";
+import Square from "./Square";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,11 @@ const Header = () => {
             </div>
             <div className={"about"} id={"about"}>
                 <Link href='/about'>
-                    <span className={"link"}>About</span>
+
+                    <span className={"link"}>
+                        <Square size={1}/>
+                        About
+                    </span>
                 </Link>
             </div>
         </header>
@@ -34,12 +39,12 @@ const Header = () => {
             display: grid;
             color: #0070f3;
             background-color: #1e1e1e;
-            grid-template-columns: 20fr 40fr 25fr;
-            grid-template-rows: 5rem;
+            grid-template-columns: 30fr 40fr 30fr;
+            grid-template-rows: 2rem;
             position: fixed;
             width: 100%;
             padding: 0.5rem 2rem;
-            height: 5rem;
+            height: 3rem;
             z-index: 300;
             opacity: 0.95;
           }
@@ -55,11 +60,9 @@ const Header = () => {
           label {
             width: 2rem;
             height: 2rem;
-            border: 0.3rem solid #FFFFFF;
+            border: 0.3rem solid #DDDDDD;
             border-radius: 1rem;
             display: inline-block;
-            margin-top: 1rem;
-            margin-left: 2rem;
             cursor: pointer;
           }
 
@@ -89,8 +92,6 @@ const Header = () => {
           .home {
             font-size: 2rem;
             display: flex;
-            padding-left: 2rem;
-            padding-bottom: 1.5rem;
             align-items: center;
             text-decoration: none;
           }
@@ -98,10 +99,7 @@ const Header = () => {
           .about {
             font-size: 1.5rem;
             display: flex;
-            padding-right: 2rem;
-            padding-bottom: 1.25rem;
-            align-items: center;
-            flex-direction: row-reverse;
+            margin-left: auto;
           }
 
           .category {
