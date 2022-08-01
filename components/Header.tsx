@@ -67,6 +67,7 @@ const Header = () => {
           }
 
           label:hover {
+            background-color: #484848;
             border-color: #7bd694;
           }
 
