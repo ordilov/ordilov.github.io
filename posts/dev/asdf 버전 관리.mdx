@@ -1,0 +1,43 @@
+---
+title:  "asdf - 버전 관리하기"
+date:   2022-08-01 00:45:00 +0900
+category: dev
+tags: ["backend"]
+keywords: ["backend"]
+description: 여러 언어의 버전을 하나의 CLI로 관리하기
+---
+
+## 문제
+개발을 하다보면 어느 언어이든 하나의 버전이 아니라 다양한 버전이 필요할 때가 있습니다.
+레거시를 유지보수할 때 특히 많이 겪게 됩니다.
+IDE를 사용하는 경우, 설치되어 있는 언어를 고르기 쉬울 수 있지만 CLI로 작업하는 경우 매번 설정하는 것은 귀찮은 일입니다.
+
+nodejs를 사용한다면 [nvm](https://github.com/nvm-sh/nvm)을 주로 사용해봤을거고, python이라면 [pyenv](https://github.com/pyenv/pyenv)를 한번쯤은 접해봤을 겁니다.
+java는 [jabba](https://github.com/shyiko/jabba)라는 프로젝트를 사용하기도 합니다.
+하지만 사용하는 언어가 많다면 버전 관리자를 따로 관리하는 것도 귀찮습니다.
+
+## asdf
+[asdf](https://asdf-vm.com/)는 이 다양한 언어들을 한꺼번에 관리할 수 있게 해줍니다.
+
+### 설치
+제가 사용하는 맥 기준으로 설치는 brew로 설치 가능합니다.
+```shell
+brew install asdf
+echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
+```
+
+
+### 사용법
+asdf는 다양한 언어들을 플러그인으로 관리합니다.
+플러그인을 설치하고 언어의 원하는 버전을 설치한 후 버전을 설정해주면 됩니다.
+- asdf plugin install [name]
+- asdf install [name] [version]
+- asdf global [name] [version]
+
+## 원리
+asdf도 다른 버전 관리자들과 마찬가지로 [shim](https://en.wikipedia.org/wiki/Shim_(computing))이라는 개념을 사용합니다.
+**shim**은 간단하게 설명하면 프록시처럼 실제로 실행될 프로그램 앞 단에서 가로채서 먼저 처리하는 형식입니다.
+
+## 정리
+기존에 언어마다 따로 쓰고 있던 버전 관리툴을 하나로 관리할 수 있게 됐습니다.
+더 자세한 사용법을 알고 싶다면 [asdf](https://asdf-vm.com/)를 참고해주세요.
